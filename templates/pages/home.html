@@ -2,46 +2,131 @@
 {% load i18n %}
 
 {% block title %}{% trans "General Food Industry Co., Ltd. — Food Additives & Ingredients" %}{% endblock %}
+{% block meta_description %}{% trans "GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia. Contact us for your sourcing needs." %}{% endblock %}
 
 {% block content %}
-<!-- Hero -->
-<section class="py-5" style="background-color: var(--gfi-green);">
-    <div class="container py-4 text-center text-white">
-        <h1 class="display-5 fw-bold mb-3">
+
+<section class="hero py-5">
+    <div class="container py-3 text-center">
+        <span class="hero__eyebrow">{% trans "Food Additives & Ingredients Specialist" %}</span>
+        <h1 class="hero__title display-5 mb-3">
             {% trans "Your Trusted Partner in Food Additives & Ingredients" %}
         </h1>
-        <p class="lead mb-4" style="color: #d4e8db;">
-            {% trans "Import, export and distribution across Southeast Asia." %}
+        <p class="hero__subtitle lead mb-4 mx-auto">
+            {% trans "Import, export and distribution of certified food-grade ingredients across Southeast Asia — delivered with consistency and expertise." %}
         </p>
-        <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-5">
-            {% trans "Get in Touch" %}
-        </a>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <a href="{% url 'products:list' %}" class="btn btn-gfi-gold btn-lg px-4">
+                {% trans "View Products" %}
+            </a>
+            <a href="{% url 'contact:inquiry' %}" class="btn btn-outline-light btn-lg px-4">
+                {% trans "Get in Touch" %}
+            </a>
+        </div>
     </div>
 </section>
 
-<!-- Highlights -->
-<section class="py-5">
+<section class="bg-white py-5">
     <div class="container">
-        <div class="row gy-4 text-center">
-            <div class="col-md-4">
-                <div class="p-4 h-100 border rounded" style="border-color: #e0dbd0 !important;">
-                    <h5 class="fw-bold" style="color: var(--gfi-green);">{% trans "Quality Products" %}</h5>
-                    <p class="small text-muted">{% trans "Sourced from certified global suppliers." %}</p>
+        <div class="text-center mb-5">
+            <h2 class="section-title">{% trans "What We Do" %}</h2>
+            <p class="text-muted">{% trans "End-to-end supply chain solutions for the food manufacturing industry." %}</p>
+        </div>
+        <div class="row gy-4">
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <i class="bi bi-globe2 feature-card__icon"></i>
+                    <h5 class="feature-card__title">{% trans "Import Sourcing" %}</h5>
+                    <p class="feature-card__text">{% trans "Certified food additives and ingredients sourced from trusted global suppliers." %}</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="p-4 h-100 border rounded" style="border-color: #e0dbd0 !important;">
-                    <h5 class="fw-bold" style="color: var(--gfi-green);">{% trans "Reliable Supply Chain" %}</h5>
-                    <p class="small text-muted">{% trans "Consistent delivery across the region." %}</p>
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <i class="bi bi-truck feature-card__icon"></i>
+                    <h5 class="feature-card__title">{% trans "Export Distribution" %}</h5>
+                    <p class="feature-card__text">{% trans "Reliable export and regional distribution to food manufacturers across Southeast Asia." %}</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="p-4 h-100 border rounded" style="border-color: #e0dbd0 !important;">
-                    <h5 class="fw-bold" style="color: var(--gfi-green);">{% trans "Expert Support" %}</h5>
-                    <p class="small text-muted">{% trans "Technical guidance from industry specialists." %}</p>
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <i class="bi bi-building feature-card__icon"></i>
+                    <h5 class="feature-card__title">{% trans "Warehousing" %}</h5>
+                    <p class="feature-card__text">{% trans "Temperature-controlled storage facilities that maintain product quality and compliance." %}</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <i class="bi bi-person-gear feature-card__icon"></i>
+                    <h5 class="feature-card__title">{% trans "Technical Support" %}</h5>
+                    <p class="feature-card__text">{% trans "Product specification guidance and regulatory documentation support for your team." %}</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">{% trans "Our Product Range" %}</h2>
+            <p class="text-muted">{% trans "A broad portfolio of food-grade additives and ingredients for every formulation need." %}</p>
+        </div>
+        <div class="row gy-3">
+            {% for category in categories %}
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{% url 'products:list' %}?category={{ category.slug }}" class="category-card">
+                    <p class="category-card__name">{{ category.name }}</p>
+                </a>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center text-muted py-3">
+                <p class="mb-0 small">{% trans "Product categories coming soon." %}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'products:list' %}" class="btn btn-gfi-primary px-4">
+                {% trans "Browse All Products" %}
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">{% trans "Why Choose GFI?" %}</h2>
+        </div>
+        <div class="row gy-4 text-center">
+            <div class="col-md-4">
+                <p class="display-5 stat-number mb-1">10+</p>
+                <p class="stat-label mb-1">{% trans "Years of Experience" %}</p>
+                <p class="text-muted small mb-0">{% trans "Over a decade supplying the food industry in Thailand and the region." %}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="display-5 stat-number mb-1">500+</p>
+                <p class="stat-label mb-1">{% trans "Products Available" %}</p>
+                <p class="text-muted small mb-0">{% trans "An extensive catalog covering every major food additive category." %}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="display-5 stat-number mb-1">15+</p>
+                <p class="stat-label mb-1">{% trans "Countries Sourced From" %}</p>
+                <p class="text-muted small mb-0">{% trans "Partnerships with certified suppliers across Asia, Europe, and the Americas." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-gold py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-2">{% trans "Ready to Source Your Ingredients?" %}</h2>
+        <p class="cta__subtitle mb-4">
+            {% trans "Tell us what you need and our team will get back to you within one business day." %}
+        </p>
+        <a href="{% url 'contact:inquiry' %}" class="btn btn-cta btn-lg px-5">
+            {% trans "Send an Inquiry" %}
+        </a>
+    </div>
+</section>
+
 {% endblock %}

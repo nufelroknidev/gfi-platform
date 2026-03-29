@@ -1,21 +1,20 @@
 {% load i18n %}
-<footer class="py-5 mt-5">
+<footer class="footer-gfi py-5 mt-5">
     <div class="container">
         <div class="row gy-4">
-            <!-- Company info -->
+
             <div class="col-lg-4">
-                <h5 class="fw-bold mb-2" style="color: var(--gfi-gold);">
+                <h5 class="fw-bold footer-brand mb-2">
                     {% trans "General Food Industry Co., Ltd." %}
                 </h5>
-                <p class="small" style="color: #ccc;">
+                <p class="small footer-tagline mb-0">
                     {% trans "Import, export and distribution of food additives and ingredients." %}
                 </p>
             </div>
 
-            <!-- Quick links -->
             <div class="col-lg-4">
-                <h6 class="fw-semibold mb-3" style="color: var(--gfi-gold);">{% trans "Quick Links" %}</h6>
-                <ul class="list-unstyled small">
+                <h6 class="fw-semibold footer-heading mb-3">{% trans "Quick Links" %}</h6>
+                <ul class="list-unstyled small mb-0">
                     <li><a href="{% url 'pages:about' %}">{% trans "About Us" %}</a></li>
                     <li><a href="{% url 'products:list' %}">{% trans "Products" %}</a></li>
                     <li><a href="{% url 'pages:services' %}">{% trans "Services" %}</a></li>
@@ -24,18 +23,18 @@
                 </ul>
             </div>
 
-            <!-- Contact info -->
             <div class="col-lg-4">
-                <h6 class="fw-semibold mb-3" style="color: var(--gfi-gold);">{% trans "Contact" %}</h6>
-                <p class="small" style="color: #ccc;">
+                <h6 class="fw-semibold footer-heading mb-3">{% trans "Contact" %}</h6>
+                <p class="small footer-contact mb-0">
                     {% trans "Bangkok, Thailand" %}<br>
-                    {% trans "Email:" %} <a href="mailto:info@gfi.co.th">info@gfi.co.th</a>
+                    <a href="mailto:info@gfi.co.th">info@gfi.co.th</a>
                 </p>
             </div>
+
         </div>
 
-        <hr style="border-color: rgba(255,255,255,0.2);" class="mt-4">
-        <p class="text-center small mb-0" style="color: #aaa;">
+        <hr class="mt-4">
+        <p class="text-center small footer-copyright mb-0">
             &copy; {% now "Y" %} {% trans "General Food Industry Co., Ltd. All rights reserved." %}
         </p>
     </div>

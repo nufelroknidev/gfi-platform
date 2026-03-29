@@ -1,0 +1,356 @@
+/* =============================================================================
+   GFI — Main Stylesheet
+   General Food Industry Co., Ltd.
+   ============================================================================= */
+
+
+/* ─── 1. Design Tokens ────────────────────────────────────────────────────── */
+
+:root {
+    --gfi-green:       #1A5C38;
+    --gfi-green-dark:  #154d2f;
+    --gfi-green-light: #d4e8db;
+    --gfi-green-faint: #e8f0eb;
+    --gfi-gold:        #C9A227;
+    --gfi-gold-dark:   #a8891f;
+    --gfi-bg:          #F9F6F0;
+    --gfi-text:        #2C2C2C;
+    --gfi-muted:       #6B7280;
+    --gfi-border:      #e0dbd0;
+}
+
+
+/* ─── 2. Base ─────────────────────────────────────────────────────────────── */
+
+body {
+    background-color: var(--gfi-bg);
+    color: var(--gfi-text);
+}
+
+
+/* ─── 3. Buttons ──────────────────────────────────────────────────────────── */
+
+.btn-gfi-primary {
+    background-color: var(--gfi-green);
+    color: #fff;
+    border: none;
+}
+
+.btn-gfi-primary:hover,
+.btn-gfi-primary:focus {
+    background-color: var(--gfi-green-dark);
+    color: #fff;
+}
+
+.btn-gfi-gold {
+    background-color: var(--gfi-gold);
+    color: #fff;
+    border: none;
+}
+
+.btn-gfi-gold:hover,
+.btn-gfi-gold:focus {
+    background-color: var(--gfi-gold-dark);
+    color: #fff;
+}
+
+
+/* ─── 4. Navbar ───────────────────────────────────────────────────────────── */
+
+.navbar-gfi {
+    background-color: var(--gfi-green);
+}
+
+.navbar-gfi .navbar-brand,
+.navbar-gfi .nav-link {
+    color: #fff;
+}
+
+.navbar-gfi .nav-link:hover,
+.navbar-gfi .nav-link:focus {
+    color: var(--gfi-gold);
+}
+
+.navbar-gfi .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+
+/* ─── 5. Footer ───────────────────────────────────────────────────────────── */
+
+.footer-gfi {
+    background-color: var(--gfi-green);
+    color: #fff;
+}
+
+.footer-gfi .footer-brand {
+    color: var(--gfi-gold);
+}
+
+.footer-gfi .footer-tagline,
+.footer-gfi .footer-contact {
+    color: #cccccc;
+}
+
+.footer-gfi .footer-heading {
+    color: var(--gfi-gold);
+}
+
+.footer-gfi a {
+    color: var(--gfi-gold);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-gfi a:hover {
+    color: #fff;
+}
+
+.footer-gfi hr {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-gfi .footer-copyright {
+    color: #aaaaaa;
+}
+
+
+/* ─── 6. Hero ─────────────────────────────────────────────────────────────── */
+
+.hero {
+    background-color: var(--gfi-green);
+    color: #fff;
+}
+
+.hero__eyebrow {
+    display: block;
+    color: var(--gfi-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.hero__title {
+    font-weight: 700;
+    color: #fff;
+}
+
+.hero__subtitle {
+    color: var(--gfi-green-light);
+    max-width: 580px;
+}
+
+
+/* ─── 7. Section Titles ───────────────────────────────────────────────────── */
+
+.section-title {
+    color: var(--gfi-green);
+    font-weight: 700;
+}
+
+
+/* ─── 8. Feature Cards ────────────────────────────────────────────────────── */
+/*      Icon + title + text, used in the homepage services strip               */
+
+.feature-card {
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 1.75rem;
+    height: 100%;
+    text-align: center;
+}
+
+.feature-card__icon {
+    font-size: 2rem;
+    color: var(--gfi-green);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card__text {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+
+/* ─── 9. Service Cards ────────────────────────────────────────────────────── */
+/*      Larger cards with description + checklist, used on the Services page   */
+
+.service-card {
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 2rem;
+    height: 100%;
+}
+
+.service-card__icon {
+    font-size: 2.25rem;
+    color: var(--gfi-green);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.service-card__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.service-card__body {
+    color: var(--gfi-muted);
+    margin-bottom: 1rem;
+}
+
+.service-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-card__list li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--gfi-muted);
+}
+
+.service-card__list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gfi-green);
+    font-weight: 700;
+}
+
+
+/* ─── 10. Category Grid ───────────────────────────────────────────────────── */
+
+.category-card {
+    display: block;
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    border-color: var(--gfi-green);
+    box-shadow: 0 2px 8px rgba(26, 92, 56, 0.1);
+}
+
+.category-card__name {
+    color: var(--gfi-green);
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+
+/* ─── 11. Stats Strip ─────────────────────────────────────────────────────── */
+
+.stat-number {
+    color: var(--gfi-gold);
+    font-weight: 700;
+}
+
+.stat-label {
+    color: var(--gfi-green);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+
+/* ─── 12. Value Cards ─────────────────────────────────────────────────────── */
+/*      Used on the About page for mission/values section                      */
+
+.value-card {
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    padding: 1.75rem;
+    height: 100%;
+    text-align: center;
+}
+
+.value-card__icon {
+    font-size: 2rem;
+    color: var(--gfi-green);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.value-card__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.value-card__text {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+
+/* ─── 13. CTA Sections ────────────────────────────────────────────────────── */
+
+.cta-gold {
+    background-color: var(--gfi-gold);
+    color: #fff;
+}
+
+.cta-gold .cta__subtitle {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cta-gold .btn-cta {
+    background-color: #fff;
+    color: var(--gfi-green);
+    border: none;
+    font-weight: 600;
+}
+
+.cta-gold .btn-cta:hover,
+.cta-gold .btn-cta:focus {
+    background-color: #f0f0f0;
+    color: var(--gfi-green-dark);
+}
+
+.cta-green {
+    background-color: var(--gfi-green);
+    color: #fff;
+}
+
+.cta-green .cta__subtitle {
+    color: var(--gfi-green-light);
+}
+
+
+/* ─── 14. Image Placeholder ───────────────────────────────────────────────── */
+
+.img-placeholder {
+    background-color: var(--gfi-green-faint);
+    border: 1px solid #d0ddd3;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+}
