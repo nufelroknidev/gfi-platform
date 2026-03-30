@@ -2,10 +2,48 @@
 {% load i18n %}
 
 {% block title %}{% trans "Products — GFI" %}{% endblock %}
+{% block meta_description %}{% trans "Browse GFI's full range of food additives and ingredients by category." %}{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <h1 class="fw-bold" style="color: var(--gfi-green);">{% trans "Products" %}</h1>
-    <p class="text-muted">{% trans "Coming soon." %}</p>
-</div>
+
+<section class="page-header py-5">
+    <div class="container">
+        <h1 class="section-title mb-2">{% trans "Products" %}</h1>
+        <p class="text-muted mb-0">{% trans "Browse our range of food additives and ingredients by category." %}</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        {% if categories %}
+        <div class="row gy-4">
+            {% for cat in categories %}
+            <div class="col-6 col-sm-4 col-lg-3">
+                <a href="{% url 'products:category' cat.slug %}" class="category-card">
+                    {% if cat.image %}
+                    <img src="{{ cat.image.url }}" alt="{{ cat.name }}" class="category-card__img mb-2">
+                    {% else %}
+                    <div class="category-card__icon-wrap mb-2">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                    </div>
+                    {% endif %}
+                    <p class="category-card__name">{{ cat.name }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-muted">{% trans "No product categories are available yet." %}</p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="cta-green py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold text-white mb-2">{% trans "Can't find what you're looking for?" %}</h2>
+        <p class="cta__subtitle mb-4">{% trans "Contact our team and we'll source it for you." %}</p>
+        <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-5">{% trans "Send an Inquiry" %}</a>
+    </div>
+</section>
+
 {% endblock %}

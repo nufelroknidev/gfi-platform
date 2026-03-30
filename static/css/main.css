@@ -354,3 +354,180 @@ body {
     color: var(--gfi-muted);
     font-size: 0.875rem;
 }
+
+
+/* ─── 15. Page Header ─────────────────────────────────────────────────────── */
+/*      Shared top band on interior pages (Products, News, Contact)            */
+
+.page-header {
+    border-bottom: 1px solid var(--gfi-border);
+    background-color: #fff;
+}
+
+.page-header .breadcrumb-item a {
+    color: var(--gfi-green);
+    text-decoration: none;
+}
+
+.page-header .breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* ─── 16. Category Card (extended) ───────────────────────────────────────── */
+/*      Icon/image area inside the card on the category listing page           */
+
+.category-card__img {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+}
+
+.category-card__icon-wrap {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--gfi-green);
+}
+
+
+/* ─── 17. Product Cards ───────────────────────────────────────────────────── */
+/*      Used on the category product listing page                              */
+
+.product-card {
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.product-card:hover {
+    box-shadow: 0 2px 10px rgba(26, 92, 56, 0.1);
+}
+
+.product-card__img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.product-card__img-placeholder {
+    width: 100%;
+    height: 160px;
+    background-color: var(--gfi-green-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--gfi-muted);
+}
+
+.product-card__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-card__name {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.product-card__desc {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+
+/* ─── 18. Product Filter Panel ────────────────────────────────────────────── */
+/*      Sidebar category nav on the product list page                          */
+
+.product-filter-panel {
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 1.25rem;
+}
+
+.product-filter-panel__heading {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.product-filter-panel__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-filter-panel__link {
+    display: block;
+    padding: 0.375rem 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--gfi-text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.product-filter-panel__link:hover {
+    background-color: var(--gfi-green-faint);
+    color: var(--gfi-green);
+}
+
+.product-filter-panel__link.active {
+    background-color: var(--gfi-green);
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/* ─── 19. Product Detail ──────────────────────────────────────────────────── */
+
+.product-detail__category-label {
+    color: var(--gfi-gold);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+}
+
+.product-detail__name {
+    color: var(--gfi-green);
+    font-weight: 700;
+}
+
+.product-detail__specs {
+    border: 1px solid var(--gfi-border);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 1.25rem;
+}
+
+.product-detail__specs-heading {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.product-detail__specs-body {
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--gfi-text);
+    white-space: pre-wrap;
+    margin: 0;
+}
