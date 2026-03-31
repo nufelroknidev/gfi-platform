@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import environ
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # base.py lives at config/settings/base.py — three .parent calls to reach repo root
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -73,10 +75,17 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('th', _('Thai')),
+]
+
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 # Static files
 STATIC_URL = '/static/'

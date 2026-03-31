@@ -1,0 +1,55 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-lg navbar-gfi">
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold" href="{% url 'pages:home' %}">
+            GFI
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="navbar-toggler border-light" type="button"
+                data-bs-toggle="collapse" data-bs-target="#gfiNavbar"
+                aria-controls="gfiNavbar" aria-expanded="false"
+                aria-label="{% trans 'Toggle navigation' %}">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="gfiNavbar">
+            <!-- Main links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pages:home' %}">{% trans "Home" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pages:about' %}">{% trans "About Us" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products:list' %}">{% trans "Products" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pages:services' %}">{% trans "Services" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'news:list' %}">{% trans "News" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact:inquiry' %}">{% trans "Contact" %}</a>
+                </li>
+            </ul>
+
+            <!-- Language switcher -->
+            <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center gap-1">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}">
+                <button type="submit" name="language" value="en"
+                        class="btn btn-sm {% if LANGUAGE_CODE == 'en' %}btn-gfi-gold{% else %}btn-outline-light{% endif %}">
+                    EN
+                </button>
+                <button type="submit" name="language" value="th"
+                        class="btn btn-sm {% if LANGUAGE_CODE == 'th' %}btn-gfi-gold{% else %}btn-outline-light{% endif %}">
+                    TH
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
