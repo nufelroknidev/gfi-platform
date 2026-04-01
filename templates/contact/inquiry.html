@@ -2,10 +2,134 @@
 {% load i18n %}
 
 {% block title %}{% trans "Contact — GFI" %}{% endblock %}
+{% block meta_description %}{% trans "Get in touch with General Food Industry Co., Ltd. for product inquiries, pricing, and distribution partnerships." %}{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <h1 class="fw-bold" style="color: var(--gfi-green);">{% trans "Contact" %}</h1>
-    <p class="text-muted">{% trans "Coming soon." %}</p>
-</div>
+
+<section class="page-header py-5">
+    <div class="container">
+        <h1 class="section-title mb-2">{% trans "Contact Us" %}</h1>
+        <p class="text-muted mb-0">{% trans "Send us your inquiry and our team will respond within one business day." %}</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+
+            <div class="col-lg-7">
+                <div class="contact-form-card">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="{{ form.name.id_for_label }}" class="form-label">
+                                    {{ form.name.label }} <span class="text-danger">*</span>
+                                </label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                <div class="invalid-feedback d-block">{{ form.name.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="{{ form.email.id_for_label }}" class="form-label">
+                                    {{ form.email.label }} <span class="text-danger">*</span>
+                                </label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                <div class="invalid-feedback d-block">{{ form.email.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="{{ form.company.id_for_label }}" class="form-label">{{ form.company.label }}</label>
+                                {{ form.company }}
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="{{ form.phone.id_for_label }}" class="form-label">{{ form.phone.label }}</label>
+                                {{ form.phone }}
+                            </div>
+                            <div class="col-12">
+                                <label for="{{ form.subject.id_for_label }}" class="form-label">
+                                    {{ form.subject.label }} <span class="text-danger">*</span>
+                                </label>
+                                {{ form.subject }}
+                                {% if form.subject.errors %}
+                                <div class="invalid-feedback d-block">{{ form.subject.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-12">
+                                <label for="{{ form.product_interest.id_for_label }}" class="form-label">{{ form.product_interest.label }}</label>
+                                {{ form.product_interest }}
+                            </div>
+                            <div class="col-12">
+                                <label for="{{ form.message.id_for_label }}" class="form-label">
+                                    {{ form.message.label }} <span class="text-danger">*</span>
+                                </label>
+                                {{ form.message }}
+                                {% if form.message.errors %}
+                                <div class="invalid-feedback d-block">{{ form.message.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-12 mt-2">
+                                <button type="submit" class="btn btn-gfi-primary px-5">
+                                    {% trans "Send Inquiry" %}
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="contact-info">
+                    <p class="contact-info__heading">{% trans "Get in Touch" %}</p>
+
+                    <div class="contact-info__item">
+                        <i class="bi bi-building contact-info__icon"></i>
+                        <div>
+                            <p class="contact-info__label mb-0">{% trans "Company" %}</p>
+                            <p class="contact-info__value mb-0">General Food Industry Co., Ltd.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <i class="bi bi-geo-alt contact-info__icon"></i>
+                        <div>
+                            <p class="contact-info__label mb-0">{% trans "Address" %}</p>
+                            <p class="contact-info__value mb-0">Bangkok, Thailand</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <i class="bi bi-envelope contact-info__icon"></i>
+                        <div>
+                            <p class="contact-info__label mb-0">{% trans "Email" %}</p>
+                            <p class="contact-info__value mb-0">info@gfi.co.th</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <i class="bi bi-telephone contact-info__icon"></i>
+                        <div>
+                            <p class="contact-info__label mb-0">{% trans "Phone" %}</p>
+                            <p class="contact-info__value mb-0">+66 2 xxx xxxx</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info__item">
+                        <i class="bi bi-clock contact-info__icon"></i>
+                        <div>
+                            <p class="contact-info__label mb-0">{% trans "Business Hours" %}</p>
+                            <p class="contact-info__value mb-0">{% trans "Mon – Fri, 9:00 – 18:00 (ICT)" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}
