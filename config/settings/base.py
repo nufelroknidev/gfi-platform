@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     # Local apps
     'apps.pages',
     'apps.products',
@@ -54,6 +55,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.pages.context_processors.ga_tracking',
             ],
         },
     },
@@ -107,6 +109,9 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@gfi.example.com')
 CONTACT_EMAIL = env('CONTACT_EMAIL', default='info@gfi.example.com')
+
+# ── Analytics ─────────────────────────────────────────────────────────────────
+GA_TRACKING_ID = env('GA_TRACKING_ID', default='')
 
 # ── Django Jazzmin (admin UI) ──────────────────────────────────────────────
 JAZZMIN_SETTINGS = {

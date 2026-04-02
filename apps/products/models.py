@@ -39,3 +39,7 @@ class Product(SEOMixin):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('products:detail', args=[self.category.slug, self.slug])
