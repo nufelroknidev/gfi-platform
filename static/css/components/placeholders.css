@@ -1,0 +1,63 @@
+/* =============================================================================
+   GFI — Placeholders
+   Image and map placeholder blocks used before real media is available.
+   ============================================================================= */
+
+/* Generic image placeholder */
+.img-placeholder {
+    background-color: var(--gfi-green-faint);
+    border: 1px solid var(--gfi-green-light);
+    border-radius: var(--gfi-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Map placeholder */
+.map-placeholder {
+    background-color: var(--gfi-green-faint);
+    border: 1px solid var(--gfi-green-light);
+    border-radius: var(--gfi-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    gap: 0.5rem;
+    color: var(--gfi-muted);
+}
+
+.map-placeholder__icon {
+    font-size: 2.5rem;
+    color: var(--gfi-green-light);
+}
+
+.map-placeholder__label {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Map image wrapper (replaces map placeholder when a real image is used) */
+.map-img-wrap {
+    height: 340px;
+}
+
+/* Footer variant — adapts to dark background */
+.map-placeholder--footer {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    min-height: 120px;
+}
+
+.map-placeholder--footer .map-placeholder__icon {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.map-placeholder--footer .map-placeholder__label {
+    color: rgba(255, 255, 255, 0.45);
+}

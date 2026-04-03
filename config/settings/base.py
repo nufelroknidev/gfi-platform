@@ -55,7 +55,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'apps.pages.context_processors.ga_tracking',
+                'apps.pages.context_processors.site_globals',
             ],
         },
     },
@@ -85,6 +85,10 @@ USE_TZ = True
 LANGUAGES = [
     ('en', _('English')),
     ('th', _('Thai')),
+    ('fr', _('French')),
+    ('es', _('Spanish')),
+    ('ar', _('Arabic')),
+    ('zh-hans', _('Chinese')),
 ]
 
 LOCALE_PATHS = [BASE_DIR / 'locale']

@@ -1,0 +1,113 @@
+/* =============================================================================
+   GFI — Topbar
+   Slim contact + language strip sitting above the navbar.
+   ============================================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: #fff;
+}
+
+.topbar {
+    background-color: var(--gfi-green-dark);
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    overflow: visible;
+}
+
+.topbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Contact group — phone + separator + email */
+.topbar-contact {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: nowrap;
+    min-width: 0;
+}
+
+.topbar-link {
+    color: rgba(255, 255, 255, 0.80);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.topbar-link:hover {
+    color: var(--gfi-vivid-gold);
+}
+
+.topbar-sep {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Language picker */
+.topbar-lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgba(255, 255, 255, 0.80);
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--gfi-radius-sm);
+    padding: 0.18rem 0.55rem;
+    font-size: 0.875rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.topbar-lang-toggle:hover {
+    color: var(--gfi-vivid-gold);
+    border-color: var(--gfi-vivid-gold);
+    background-color: rgba(232, 184, 0, 0.08);
+}
+
+.topbar-lang-toggle::after {
+    filter: none;
+}
+
+.topbar-lang-menu {
+    min-width: 160px;
+    font-size: 0.875rem;
+    z-index: 1050;
+}
+
+.topbar-lang-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+}
+
+/* Responsive — hide labels at medium, hide contact at mobile */
+@media (max-width: 991.98px) {
+    .topbar-contact {
+        gap: 0.75rem;
+    }
+
+    .topbar-label {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .topbar-contact {
+        display: none;
+    }
+}

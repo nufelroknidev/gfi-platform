@@ -1,31 +1,29 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% trans "Products — GFI" %}{% endblock %}
 {% block meta_description %}{% trans "Browse GFI's full range of food additives and ingredients by category." %}{% endblock %}
 
 {% block content %}
 
-<section class="page-header py-5">
+<section class="page-header">
     <div class="container">
         <h1 class="section-title mb-2">{% trans "Products" %}</h1>
-        <p class="text-muted mb-0">{% trans "Browse our range of food additives and ingredients by category." %}</p>
+        <p class="mb-0">{% trans "Browse our range of food additives and ingredients by category." %}</p>
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-5" id="products-section">
     <div class="container">
         {% if categories %}
         <div class="row gy-4">
             {% for cat in categories %}
             <div class="col-6 col-sm-4 col-lg-3">
-                <a href="{% url 'products:category' cat.slug %}" class="category-card">
+                <a href="{% url 'products:category' cat.slug %}" class="category-card js-category-link">
                     {% if cat.image %}
                     <img src="{{ cat.image.url }}" alt="{{ cat.name }}" class="category-card__img mb-2">
                     {% else %}
-                    <div class="category-card__icon-wrap mb-2">
-                        <i class="bi bi-grid-3x3-gap"></i>
-                    </div>
+                    <img src="{% static 'img/category-placeholder.jpg' %}" alt="{{ cat.name }}" class="category-card__img mb-2">
                     {% endif %}
                     <p class="category-card__name">{{ cat.name }}</p>
                 </a>
@@ -38,12 +36,10 @@
     </div>
 </section>
 
-<section class="cta-green py-5">
-    <div class="container text-center">
-        <h2 class="fw-bold text-white mb-2">{% trans "Can't find what you're looking for?" %}</h2>
-        <p class="cta__subtitle mb-4">{% trans "Contact our team and we'll source it for you." %}</p>
-        <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-5">{% trans "Send an Inquiry" %}</a>
-    </div>
-</section>
+{% include "includes/cta_products.html" %}
 
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/products.js' %}"></script>
 {% endblock %}

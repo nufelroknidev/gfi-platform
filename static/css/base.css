@@ -1,0 +1,15 @@
+/* =============================================================================
+   GFI — Base
+   Global resets and body defaults.
+   ============================================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--gfi-bg);
+    color: var(--gfi-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

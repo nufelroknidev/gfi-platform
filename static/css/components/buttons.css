@@ -1,0 +1,74 @@
+/* =============================================================================
+   GFI — Buttons
+   Brand button variants extending Bootstrap's .btn base class.
+   ============================================================================= */
+
+.btn-gfi-primary,
+.btn-gfi-gold,
+.btn-outline-gfi-green {
+    border-radius: var(--gfi-radius);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background-color var(--gfi-transition),
+                color var(--gfi-transition),
+                transform var(--gfi-transition),
+                box-shadow var(--gfi-transition);
+}
+
+.btn-gfi-primary {
+    background-color: var(--gfi-green);
+    color: #fff;
+    border: none;
+}
+
+.btn-gfi-primary:hover,
+.btn-gfi-primary:focus {
+    background-color: var(--gfi-green-dark);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(26, 92, 56, 0.25);
+}
+
+.btn-gfi-gold {
+    background-color: var(--gfi-vivid-gold);
+    color: #fff;
+    border: none;
+}
+
+.btn-gfi-gold:hover,
+.btn-gfi-gold:focus {
+    background-color: var(--gfi-vivid-gold-dark);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(201, 162, 39, 0.30);
+}
+
+.btn-outline-gfi-green {
+    background-color: transparent;
+    color: var(--gfi-green);
+    border: 1.5px solid var(--gfi-green);
+}
+
+.btn-outline-gfi-green:hover,
+.btn-outline-gfi-green:focus {
+    background-color: var(--gfi-green);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: var(--gfi-shadow-sm);
+}
+
+/* Generic CTA button — used by section CTA blocks */
+.btn-cta {
+    border-radius: var(--gfi-radius);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background-color var(--gfi-transition),
+                transform var(--gfi-transition),
+                box-shadow var(--gfi-transition);
+}
+
+.btn-cta:hover,
+.btn-cta:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}

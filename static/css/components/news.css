@@ -1,0 +1,26 @@
+/* =============================================================================
+   GFI — News
+   News detail page styles (news cards live in cards.css).
+   ============================================================================= */
+
+.news-detail__date {
+    color: var(--gfi-vivid-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.news-detail__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+}
+
+.news-detail__content {
+    color: var(--gfi-text);
+    line-height: 1.85;
+}
+
+.news-detail__content p {
+    margin-bottom: 1.25rem;
+}

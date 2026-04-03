@@ -1,0 +1,325 @@
+/* =============================================================================
+   GFI — Cards
+   All card variants: feature, service, category, value, product, news,
+   search-result. Grouped here because they share the same base pattern.
+   ============================================================================= */
+
+/* ── Feature cards — homepage "What We Do" strip ─────────────────────────── */
+
+.feature-card {
+    border: 1px solid var(--gfi-border);
+    border-top: 3px solid transparent;
+    border-radius: var(--gfi-radius);
+    background-color: #fff;
+    padding: 2rem 1.75rem;
+    height: 100%;
+    text-align: center;
+    box-shadow: var(--gfi-shadow-sm);
+    transition: transform var(--gfi-transition),
+                box-shadow var(--gfi-transition),
+                border-top-color var(--gfi-transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gfi-shadow-md);
+    border-top-color: var(--gfi-vivid-gold);
+}
+
+.feature-card__icon {
+    font-size: 2.25rem;
+    color: var(--gfi-green);
+    margin-bottom: 1rem;
+    display: block;
+    transition: transform var(--gfi-transition);
+}
+
+.feature-card:hover .feature-card__icon {
+    transform: scale(1.1);
+}
+
+.feature-card__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card__text {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    line-height: 1.65;
+}
+
+/* ── Service cards — Services page ───────────────────────────────────────── */
+
+.service-card {
+    border: 1px solid var(--gfi-border);
+    border-left: 4px solid transparent;
+    border-radius: var(--gfi-radius);
+    background-color: #fff;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: var(--gfi-shadow-sm);
+    transition: transform var(--gfi-transition),
+                box-shadow var(--gfi-transition),
+                border-left-color var(--gfi-transition);
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--gfi-shadow-md);
+    border-left-color: var(--gfi-vivid-gold);
+}
+
+.service-card__icon {
+    font-size: 2.25rem;
+    color: var(--gfi-green);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.service-card__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.service-card__body {
+    color: var(--gfi-muted);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.service-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-card__list li {
+    position: relative;
+    padding-left: 1.35rem;
+    margin-bottom: 0.45rem;
+    font-size: 0.875rem;
+    color: var(--gfi-muted);
+    line-height: 1.5;
+}
+
+.service-card__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--gfi-vivid-gold);
+}
+
+/* ── Category cards — homepage grid + product listing ────────────────────── */
+
+.category-card {
+    display: block;
+    border: 1px solid var(--gfi-border);
+    border-radius: var(--gfi-radius);
+    background-color: #fff;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: var(--gfi-shadow-sm);
+    transition: border-color var(--gfi-transition),
+                box-shadow var(--gfi-transition),
+                transform var(--gfi-transition);
+}
+
+.category-card:hover {
+    border-color: var(--gfi-green);
+    box-shadow: var(--gfi-shadow-md);
+    transform: translateY(-2px);
+}
+
+.category-card__name {
+    color: var(--gfi-green);
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    padding: 1rem 1.25rem;
+}
+
+/* Extended category card — icon/image area on listing page */
+.category-card__img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--gfi-radius) var(--gfi-radius) 0 0;
+}
+
+.category-card__icon-wrap {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--gfi-green);
+    background-color: var(--gfi-green-faint);
+}
+
+/* ── Value cards — About page ─────────────────────────────────────────────── */
+
+.value-card {
+    border: 1px solid var(--gfi-border);
+    border-radius: var(--gfi-radius);
+    padding: 2rem 1.75rem;
+    height: 100%;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: var(--gfi-shadow-sm);
+    transition: transform var(--gfi-transition),
+                box-shadow var(--gfi-transition);
+}
+
+.value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gfi-shadow-md);
+}
+
+.value-card__icon-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--gfi-green-faint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.1rem;
+    transition: background-color var(--gfi-transition);
+}
+
+.value-card:hover .value-card__icon-wrap {
+    background-color: var(--gfi-green-light);
+}
+
+.value-card__icon {
+    font-size: 1.75rem;
+    color: var(--gfi-green);
+    display: block;
+}
+
+.value-card__title {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.value-card__text {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    line-height: 1.65;
+}
+
+/* ── Product cards + News cards — shared base ────────────────────────────── */
+
+.product-card,
+.news-card {
+    border: 1px solid var(--gfi-border);
+    border-radius: var(--gfi-radius);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--gfi-shadow-sm);
+    transition: box-shadow var(--gfi-transition), transform var(--gfi-transition);
+}
+
+.product-card:hover,
+.news-card:hover {
+    box-shadow: var(--gfi-shadow-md);
+    transform: translateY(-3px);
+}
+
+.product-card__body,
+.news-card__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* ── Product card — modifiers ────────────────────────────────────────────── */
+
+.product-card__img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.product-card__img-placeholder {
+    width: 100%;
+    height: 160px;
+    background-color: var(--gfi-green-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--gfi-green-light);
+}
+
+.product-card__name {
+    color: var(--gfi-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.product-card__desc {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    flex: 1;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* ── News card — modifiers ───────────────────────────────────────────────── */
+
+.news-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card__img-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: var(--gfi-green-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--gfi-green-light);
+}
+
+.news-card__meta {
+    font-size: 0.75rem;
+    color: var(--gfi-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.news-card__title {
+    color: var(--gfi-green);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.news-card__excerpt {
+    color: var(--gfi-muted);
+    font-size: 0.875rem;
+    flex: 1;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}

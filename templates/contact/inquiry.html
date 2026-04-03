@@ -6,10 +6,10 @@
 
 {% block content %}
 
-<section class="page-header py-5">
+<section class="page-header">
     <div class="container">
         <h1 class="section-title mb-2">{% trans "Contact Us" %}</h1>
-        <p class="text-muted mb-0">{% trans "Send us your inquiry and our team will respond within one business day." %}</p>
+        <p class="mb-0">{% trans "Send us your inquiry and our team will respond within one business day." %}</p>
     </div>
 </section>
 
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row g-5">
 
-            <div class="col-lg-7">
+            <div class="col-lg-8">
                 <div class="contact-form-card">
                     <form method="post" novalidate>
                         {% csrf_token %}
@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-4">
                 <div class="contact-info">
                     <p class="contact-info__heading">{% trans "Get in Touch" %}</p>
 

@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% trans "News — GFI" %}{% endblock %}
 {% block meta_description %}{% trans "Latest announcements, updates, and news from General Food Industry Co., Ltd." %}{% endblock %}
 
 {% block content %}
 
-<section class="page-header py-5">
+<section class="page-header">
     <div class="container">
         <h1 class="section-title mb-2">{% trans "News" %}</h1>
-        <p class="text-muted mb-0">{% trans "Announcements and updates from GFI." %}</p>
+        <p class="mb-0">{% trans "Announcements and updates from GFI." %}</p>
     </div>
 </section>
 
@@ -23,9 +23,7 @@
                     {% if post.featured_image %}
                     <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="news-card__img">
                     {% else %}
-                    <div class="news-card__img-placeholder">
-                        <i class="bi bi-newspaper"></i>
-                    </div>
+                    <img src="{% static 'img/news-placeholder.jpg' %}" alt="{{ post.title }}" class="news-card__img">
                     {% endif %}
                     <div class="news-card__body">
                         <p class="news-card__meta">{{ post.published_date|date:"DATE_FORMAT" }}</p>

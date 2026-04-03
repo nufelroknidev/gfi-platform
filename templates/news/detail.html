@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% if post.meta_title %}{{ post.meta_title }}{% else %}{{ post.title }} — {% trans "GFI" %}{% endif %}{% endblock %}
 {% block meta_description %}{% if post.meta_description %}{{ post.meta_description }}{% else %}{{ post.content|truncatewords:25 }}{% endif %}{% endblock %}
 
 {% block content %}
 
-<section class="page-header py-5">
+<section class="page-header">
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-3">
@@ -26,9 +26,7 @@
                 {% if post.featured_image %}
                 <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid rounded">
                 {% else %}
-                <div class="img-placeholder">
-                    <span>{% trans "No image available" %}</span>
-                </div>
+                <img src="{% static 'img/news-placeholder.jpg' %}" alt="{{ post.title }}" class="img-fluid rounded">
                 {% endif %}
             </div>
             <div class="col-md-7">

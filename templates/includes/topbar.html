@@ -1,0 +1,44 @@
+{% load i18n %}
+<div class="topbar">
+    <div class="container">
+
+        <div class="topbar-contact">
+            <a href="tel:+6620001234" class="topbar-link">
+                <i class="bi bi-telephone-fill"></i>
+                <span class="topbar-label">{% trans "Make a Call:" %} </span>+66 2 000 1234
+            </a>
+            <span class="topbar-sep">|</span>
+            <a href="mailto:info@gfi.co.th" class="topbar-link">
+                <i class="bi bi-envelope-fill"></i>
+                <span class="topbar-label">{% trans "Get an Estimate:" %} </span>info@gfi.co.th
+            </a>
+        </div>
+
+        <div class="dropdown topbar-lang ms-auto">
+            <button class="topbar-lang-toggle dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"
+                    aria-label="{% trans 'Switch language' %}">
+                {% if CURRENT_LANGUAGE.flag %}
+                    <span class="fi fi-{{ CURRENT_LANGUAGE.flag }}"></span>
+                {% else %}
+                    <i class="bi bi-globe2"></i>
+                {% endif %}
+                <span>{{ CURRENT_LANGUAGE.label }}</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end topbar-lang-menu">
+                {% for lang in SUPPORTED_LANGUAGES %}
+                <li>
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}<input type="hidden" name="next" value="/">
+                        <button type="submit" name="language" value="{{ lang.code }}"
+                                class="dropdown-item{% if LANGUAGE_CODE == lang.code %} active{% endif %}">
+                            <span class="fi fi-{{ lang.flag }}"></span> {{ lang.label }}
+                        </button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>

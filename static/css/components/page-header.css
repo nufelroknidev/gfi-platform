@@ -1,0 +1,56 @@
+/* =============================================================================
+   GFI — Page Header
+   Green gradient banner at the top of interior pages (About, Services, etc.).
+   ============================================================================= */
+
+.page-header {
+    background: linear-gradient(135deg, var(--gfi-green) 0%, var(--gfi-green-dark) 100%);
+    color: #fff;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.page-header .section-title,
+.page-header h1.section-title {
+    color: #fff;
+}
+
+.page-header .section-title::after {
+    background-color: var(--gfi-vivid-gold);
+}
+
+.page-header p,
+.page-header .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.page-header .product-detail__name,
+.page-header .news-detail__title {
+    color: #fff;
+}
+
+.page-header .product-detail__category-label {
+    color: var(--gfi-vivid-gold);
+}
+
+/* Breadcrumb overrides for dark background */
+.page-header .breadcrumb {
+    --bs-breadcrumb-divider-color: rgba(255, 255, 255, 0.4);
+}
+
+.page-header .breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.page-header .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.page-header .breadcrumb-item a {
+    color: var(--gfi-vivid-gold);
+    text-decoration: none;
+}
+
+.page-header .breadcrumb-item a:hover {
+    text-decoration: underline;
+}

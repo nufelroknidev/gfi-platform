@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 from apps.pages.models import SEOMixin
@@ -21,5 +22,4 @@ class Post(SEOMixin):
         return self.title
 
     def get_absolute_url(self):
-        from django.urls import reverse
         return reverse('news:detail', args=[self.slug])

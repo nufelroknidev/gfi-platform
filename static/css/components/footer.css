@@ -1,0 +1,216 @@
+/* =============================================================================
+   GFI — Footer
+   Dark forest-green footer: brand column, nav columns, contact, bottom bar.
+   ============================================================================= */
+
+.footer-gfi {
+    /* Scoped token — dim white used throughout the footer for secondary text */
+    --footer-dim: var(--footer-dim);
+
+    background-color: var(--gfi-charcoal-green);
+    color: #fff;
+}
+
+.footer-main {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Brand column ─────────────────────────────────────────────────────────── */
+
+.footer-logo {
+    height: 48px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+.footer-logo-link:hover .footer-logo {
+    opacity: 1;
+}
+
+.footer-tagline {
+    color: var(--footer-dim);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 280px;
+    border-left: 3px solid var(--gfi-vivid-gold);
+    padding-left: 0.75rem;
+}
+
+/* ── Nav columns — vertical separator ────────────────────────────────────── */
+
+.footer-nav-col {
+    padding-left: 1.75rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 767.98px) {
+    .footer-nav-col {
+        border-left: none;
+        padding-left: var(--bs-gutter-x, 1.5rem);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 1.5rem;
+    }
+}
+
+/* ── Column headings ──────────────────────────────────────────────────────── */
+
+.footer-heading {
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding-bottom: 0.6rem;
+    position: relative;
+}
+
+.footer-heading a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-heading a:hover {
+    color: var(--gfi-vivid-gold);
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: var(--gfi-vivid-gold);
+    border-radius: 1px;
+}
+
+/* ── Nav links ────────────────────────────────────────────────────────────── */
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a,
+.footer-gfi a {
+    color: var(--footer-dim);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--gfi-transition), padding-left var(--gfi-transition);
+}
+
+.footer-links a:hover {
+    color: var(--gfi-vivid-gold);
+    padding-left: 4px;
+}
+
+.footer-gfi a:hover {
+    color: var(--gfi-vivid-gold);
+}
+
+/* ── Contact list ─────────────────────────────────────────────────────────── */
+
+.footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--footer-dim);
+}
+
+.footer-contact-list li i {
+    color: var(--gfi-vivid-gold);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.footer-contact-list a {
+    color: var(--footer-dim);
+}
+
+.footer-map-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-map-link:hover {
+    color: var(--gfi-vivid-gold);
+}
+
+/* ── Social icons — circular bordered ────────────────────────────────────── */
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--footer-dim);
+    font-size: 1rem;
+    transition: background-color var(--gfi-transition),
+                border-color var(--gfi-transition),
+                color var(--gfi-transition),
+                transform var(--gfi-transition);
+}
+
+.footer-social a:hover {
+    background-color: var(--gfi-vivid-gold);
+    border-color: var(--gfi-vivid-gold);
+    color: var(--gfi-green-dark);
+    transform: translateY(-2px);
+}
+
+/* ── Bottom bar ───────────────────────────────────────────────────────────── */
+
+.footer-bottom {
+    padding: 1.25rem 0;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+.footer-legal-link {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color var(--gfi-transition);
+}
+
+.footer-legal-link:hover {
+    color: var(--gfi-vivid-gold);
+}
+
+.footer-back-to-top {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color var(--gfi-transition),
+                border-color var(--gfi-transition),
+                color var(--gfi-transition);
+}
+
+.footer-back-to-top:hover {
+    background-color: var(--gfi-vivid-gold);
+    border-color: var(--gfi-vivid-gold);
+    color: var(--gfi-green-dark);
+}

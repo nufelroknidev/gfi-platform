@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% if q %}{% blocktrans with q=q %}Search: "{{ q }}" — GFI{% endblocktrans %}
+    {% else %}{% trans "Product Search — GFI" %}{% endif %}
+{% endblock %}
+{% block meta_description %}{% blocktrans with q=q %}Search results for {{ q }} — GFI food additives and ingredients.{% endblocktrans %}{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title mb-2">{% trans "Search Results" %}</h1>
+        {% if q %}
+        <p class="mb-0">
+            {% blocktrans with q=q count n=products|length %}
+                {{ n }} result for "<strong>{{ q }}</strong>"
+            {% plural %}
+                {{ n }} results for "<strong>{{ q }}</strong>"
+            {% endblocktrans %}
+        </p>
+        {% else %}
+        <p class="mb-0">{% trans "Enter a term in the search bar to find products." %}</p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        {% if q and not products %}
+        <div class="text-center py-5">
+            <i class="bi bi-search-heart fs-1 text-muted mb-3 d-block"></i>
+            <p class="text-muted mb-4">
+                {% blocktrans with q=q %}No products matched "<strong>{{ q }}</strong>". Try a different keyword.{% endblocktrans %}
+            </p>
+            <a href="{% url 'products:list' %}" class="btn btn-gfi-primary px-5">
+                {% trans "Browse All Products" %}
+            </a>
+        </div>
+
+        {% elif products %}
+        <div class="row gy-4">
+            {% for product in products %}
+            <div class="col-sm-6 col-lg-4">
+                <a href="{{ product.get_absolute_url }}" class="search-result-card">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="search-result-card__img">
+                    {% else %}
+                    <div class="search-result-card__icon-wrap">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    {% endif %}
+                    <div class="search-result-card__body">
+                        <span class="search-result-card__cat">{{ product.category.name }}</span>
+                        <h3 class="search-result-card__name">{{ product.name }}</h3>
+                        {% if product.description %}
+                        <p class="search-result-card__desc">{{ product.description|truncatechars:90 }}</p>
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

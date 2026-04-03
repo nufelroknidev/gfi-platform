@@ -1,0 +1,74 @@
+/* =============================================================================
+   GFI — Contact Page
+   Contact form card and info panel.
+   ============================================================================= */
+
+/* Info panel — green gradient sidebar */
+.contact-info {
+    background: linear-gradient(160deg, var(--gfi-green) 0%, var(--gfi-green-dark) 100%);
+    border-radius: var(--gfi-radius);
+    padding: 2.5rem 2rem;
+    height: 100%;
+    color: #fff;
+}
+
+.contact-info__heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--gfi-vivid-gold);
+}
+
+.contact-info__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info__icon {
+    font-size: 1.1rem;
+    color: var(--gfi-vivid-gold);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.contact-info__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 0.2rem;
+}
+
+.contact-info__value {
+    font-size: 0.9rem;
+    color: #fff;
+    line-height: 1.5;
+}
+
+/* Form card */
+.contact-form-card {
+    background-color: #fff;
+    border-radius: var(--gfi-radius);
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--gfi-border);
+    box-shadow: var(--gfi-shadow-sm);
+}
+
+.contact-form-card .form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gfi-text);
+}
+
+.contact-form-card .form-control:focus,
+.contact-form-card .form-select:focus {
+    border-color: var(--gfi-green);
+    box-shadow: 0 0 0 3px rgba(26, 92, 56, 0.12);
+}
+
+/* Utility */
+.icon-gfi-green {
+    color: var(--gfi-green);
+}

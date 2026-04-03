@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from apps.pages.models import SEOMixin
 
@@ -41,5 +42,4 @@ class Product(SEOMixin):
         return self.name
 
     def get_absolute_url(self):
-        from django.urls import reverse
         return reverse('products:detail', args=[self.category.slug, self.slug])

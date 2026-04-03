@@ -6,13 +6,10 @@
 
 {% block content %}
 
-<section class="hero py-5">
-    <div class="container py-2">
-        <span class="hero__eyebrow">{% trans "What We Offer" %}</span>
-        <h1 class="hero__title display-6 mb-2">{% trans "Our Services" %}</h1>
-        <p class="hero__subtitle mb-0">
-            {% trans "Comprehensive supply chain solutions from global sourcing to last-mile delivery — so you can focus on making great products." %}
-        </p>
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title mb-2">{% trans "Our Services" %}</h1>
+        <p class="mb-0">{% trans "Comprehensive supply chain solutions from global sourcing to last-mile delivery — so you can focus on making great products." %}</p>
     </div>
 </section>
 
@@ -96,13 +93,13 @@
     </div>
 </section>
 
-<section class="cta-gold py-5">
+<section class="cta-green py-5">
     <div class="container text-center">
         <h2 class="fw-bold mb-2">{% trans "Discuss Your Requirements" %}</h2>
         <p class="cta__subtitle mb-4">
             {% trans "Our team is ready to help you find the right solution for your supply chain." %}
         </p>
-        <a href="{% url 'contact:inquiry' %}" class="btn btn-cta btn-lg px-5">
+        <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-5">
             {% trans "Send an Inquiry" %}
         </a>
     </div>

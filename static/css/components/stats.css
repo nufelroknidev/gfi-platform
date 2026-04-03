@@ -1,0 +1,46 @@
+/* =============================================================================
+   GFI — Stats Strip
+   Animated counter section: "Why Choose GFI?" / "At a Glance".
+   ============================================================================= */
+
+.stats-section {
+    position: relative;
+    background-color: var(--gfi-bg);
+}
+
+.stat-item {
+    position: relative;
+}
+
+/* Vertical rule between items — hidden on mobile */
+.stat-item + .stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: var(--gfi-border);
+}
+
+@media (max-width: 767.98px) {
+    .stat-item + .stat-item::before {
+        display: none;
+    }
+}
+
+.stat-number {
+    color: var(--gfi-vivid-gold);
+    font-weight: 700;
+    line-height: 1;
+    font-size: 3.25rem;
+}
+
+.stat-label {
+    color: var(--gfi-green);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.4rem;
+}

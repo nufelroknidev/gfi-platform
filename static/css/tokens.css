@@ -1,0 +1,33 @@
+/* =============================================================================
+   GFI — Design Tokens
+   Single source of truth for all brand colours, spacing, shadow and timing.
+   ============================================================================= */
+
+:root {
+    /* Colour — brand */
+    --gfi-green:            #1A5C38;
+    --gfi-green-dark:       #154d2f;
+    --gfi-green-light:      #d4e8db;
+    --gfi-green-faint:      #e8f0eb;
+    --gfi-vivid-gold:       #E8B800;
+    --gfi-vivid-gold-dark:  #C49A00;
+    --gfi-dark:             #1a1f1c;
+    --gfi-charcoal-green:   #081c11;
+
+    /* Colour — neutral */
+    --gfi-bg:               #F9F6F0;
+    --gfi-text:             #2C2C2C;
+    --gfi-muted:            #6B7280;
+    --gfi-border:           #e0dbd0;
+
+    /* Shape */
+    --gfi-radius:           0.5rem;
+    --gfi-radius-sm:        0.25rem;
+
+    /* Elevation */
+    --gfi-shadow-sm:        0 2px 10px rgba(26, 92, 56, 0.08);
+    --gfi-shadow-md:        0 6px 24px rgba(26, 92, 56, 0.14);
+
+    /* Motion */
+    --gfi-transition:       0.22s ease;
+}

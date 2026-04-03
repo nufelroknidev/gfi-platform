@@ -1,10 +1,12 @@
-{% load i18n %}
-<nav class="navbar navbar-expand-lg navbar-gfi">
+{% load i18n static %}
+<nav class="navbar navbar-expand-lg navbar-gfi" id="gfiNav">
     <div class="container">
 
-        <a class="navbar-brand fw-bold" href="{% url 'pages:home' %}">GFI</a>
+        <a class="navbar-brand" href="{% url 'pages:home' %}">
+            <img src="{% static 'img/logo.png' %}" alt="{% trans 'GFI — General Food Industry' %}" class="navbar-logo">
+        </a>
 
-        <button class="navbar-toggler border-light" type="button"
+        <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse" data-bs-target="#gfiNavbar"
                 aria-controls="gfiNavbar" aria-expanded="false"
                 aria-label="{% trans 'Toggle navigation' %}">
@@ -12,39 +14,58 @@
         </button>
 
         <div class="collapse navbar-collapse" id="gfiNavbar">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'pages:home' %}">{% trans "Home" %}</a>
+                    <a class="nav-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}"
+                       href="{% url 'pages:home' %}"><i class="bi bi-house me-1"></i>{% trans "Home" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'pages:about' %}">{% trans "About Us" %}</a>
+                    <a class="nav-link{% if request.resolver_match.app_name == 'products' %} active{% endif %}"
+                       href="{% url 'products:list' %}"><i class="bi bi-box-seam me-1"></i>{% trans "Products" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products:list' %}">{% trans "Products" %}</a>
+                    <a class="nav-link{% if request.resolver_match.url_name == 'services' %} active{% endif %}"
+                       href="{% url 'pages:services' %}"><i class="bi bi-briefcase me-1"></i>{% trans "Services" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'pages:services' %}">{% trans "Services" %}</a>
+                    <a class="nav-link{% if request.resolver_match.url_name == 'about' %} active{% endif %}"
+                       href="{% url 'pages:about' %}"><i class="bi bi-people me-1"></i>{% trans "About Us" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'news:list' %}">{% trans "News" %}</a>
+                    <a class="nav-link{% if request.resolver_match.app_name == 'news' %} active{% endif %}"
+                       href="{% url 'news:list' %}"><i class="bi bi-newspaper me-1"></i>{% trans "News" %}</a>
                 </li>
+
+                <li class="nav-item nav-search-item">
+                    <form action="{% url 'products:search' %}" method="get"
+                          class="nav-search-inline" role="search">
+                        <button class="nav-search-btn" id="searchToggle" type="button"
+                                aria-label="{% trans 'Search products' %}" aria-expanded="false">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7"/>
+                                <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                            </svg>
+                        </button>
+                        <input type="search" name="q" class="nav-search-inline-input"
+                               placeholder="{% trans 'Search products…' %}"
+                               value="{{ request.GET.q|default:'' }}"
+                               aria-label="{% trans 'Search products' %}"
+                               tabindex="-1">
+                        <button type="button" class="nav-search-close-btn" id="searchClose"
+                                aria-label="{% trans 'Close search' %}" tabindex="-1">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                    </form>
+                </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact:inquiry' %}">{% trans "Contact" %}</a>
+                    <a class="nav-link nav-cta{% if request.resolver_match.app_name == 'contact' %} active{% endif %}"
+                       href="{% url 'contact:inquiry' %}">{% trans "Request a Quote" %}</a>
                 </li>
             </ul>
-
-            <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center gap-1">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ request.path }}">
-                <button type="submit" name="language" value="en"
-                        class="btn btn-sm {% if LANGUAGE_CODE == 'en' %}btn-gfi-gold{% else %}btn-outline-light{% endif %}">
-                    EN
-                </button>
-                <button type="submit" name="language" value="th"
-                        class="btn btn-sm {% if LANGUAGE_CODE == 'th' %}btn-gfi-gold{% else %}btn-outline-light{% endif %}">
-                    TH
-                </button>
-            </form>
         </div>
 
     </div>

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{{ category.name }} — {% trans "GFI Products" %}{% endblock %}
 {% block meta_description %}{% blocktrans with name=category.name %}Browse GFI's range of {{ name }} products.{% endblocktrans %}{% endblock %}
 
 {% block content %}
 
-<section class="page-header py-5">
+<section class="page-header">
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-3">
@@ -21,89 +21,14 @@
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <div class="row gy-4">
-
-            <div class="col-lg-3 col-md-4">
-                <div class="product-filter-panel">
-                    <h6 class="product-filter-panel__heading">{% trans "Categories" %}</h6>
-                    <ul class="product-filter-panel__list">
-                        {% for cat in all_categories %}
-                        <li>
-                            <a href="{% url 'products:category' cat.slug %}"
-                               class="product-filter-panel__link{% if cat.slug == category.slug %} active{% endif %}">
-                                {{ cat.name }}
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-9 col-md-8">
-                <form method="get" class="mb-4">
-                    <div class="input-group">
-                        <input type="text" name="q" value="{{ q }}" class="form-control"
-                               placeholder="{% trans 'Search products…' %}">
-                        <button class="btn btn-gfi-primary" type="submit">
-                            <i class="bi bi-search"></i>
-                        </button>
-                        {% if q %}
-                        <a href="{% url 'products:category' category.slug %}" class="btn btn-outline-secondary">
-                            {% trans "Clear" %}
-                        </a>
-                        {% endif %}
-                    </div>
-                </form>
-
-                {% if products %}
-                <div class="row gy-4">
-                    {% for product in products %}
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="product-card h-100">
-                            {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-card__img">
-                            {% else %}
-                            <div class="product-card__img-placeholder">
-                                <i class="bi bi-box-seam"></i>
-                            </div>
-                            {% endif %}
-                            <div class="product-card__body">
-                                <h6 class="product-card__name">{{ product.name }}</h6>
-                                {% if product.description %}
-                                <p class="product-card__desc">{{ product.description|truncatewords:18 }}</p>
-                                {% endif %}
-                                <a href="{% url 'products:detail' category.slug product.slug %}"
-                                   class="btn btn-gfi-primary btn-sm mt-auto">
-                                    {% trans "View Details" %}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% else %}
-                <p class="text-muted">
-                    {% if q %}
-                    {% blocktrans with term=q %}No products found matching "{{ term }}".{% endblocktrans %}
-                    {% else %}
-                    {% trans "No products in this category yet." %}
-                    {% endif %}
-                </p>
-                {% endif %}
-            </div>
-
-        </div>
-    </div>
+<section class="py-5" id="products-section">
+    {% include "products/_products_grid.html" %}
 </section>
 
-<section class="cta-green py-5">
-    <div class="container text-center">
-        <h2 class="fw-bold text-white mb-2">{% trans "Can't find what you're looking for?" %}</h2>
-        <p class="cta__subtitle mb-4">{% trans "Contact our team and we'll source it for you." %}</p>
-        <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-5">{% trans "Send an Inquiry" %}</a>
-    </div>
-</section>
+{% include "includes/cta_products.html" %}
 
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/products.js' %}"></script>
 {% endblock %}

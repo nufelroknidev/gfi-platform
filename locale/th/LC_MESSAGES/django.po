@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 21:23+0100\n"
+"POT-Creation-Date: 2026-04-04 01:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
 #: .\apps\contact\forms.py:15
 msgid "Your full name"
 msgstr ""
@@ -50,6 +51,7 @@ msgid "Email Address"
 msgstr ""
 
 #: .\apps\contact\forms.py:45 .\templates\contact\inquiry.html:92
+#: .\templates\includes\footer.html:20
 msgid "Company"
 msgstr ""
 
@@ -77,12 +79,30 @@ msgstr ""
 msgid "Thai"
 msgstr ""
 
+#: .\config\settings\base.py:88
+msgid "French"
+msgstr ""
+
+#: .\config\settings\base.py:89
+msgid "Spanish"
+msgstr ""
+
+#: .\config\settings\base.py:90
+msgid "Arabic"
+msgstr ""
+
+#: .\config\settings\base.py:91
+msgid "Chinese"
+msgstr ""
+
 #: .\templates\contact\inquiry.html:4
 msgid "Contact — GFI"
 msgstr ""
 
 #: .\templates\contact\inquiry.html:5
-msgid "Get in touch with General Food Industry Co., Ltd. for product inquiries, pricing, and distribution partnerships."
+msgid ""
+"Get in touch with General Food Industry Co., Ltd. for product inquiries, "
+"pricing, and distribution partnerships."
 msgstr ""
 
 #: .\templates\contact\inquiry.html:11 .\templates\news\list.html:85
@@ -98,7 +118,8 @@ msgstr ""
 msgid "Send Inquiry"
 msgstr ""
 
-#: .\templates\contact\inquiry.html:87 .\templates\pages\home.html:23
+#: .\templates\contact\inquiry.html:87 .\templates\includes\footer.html:40
+#: .\templates\pages\home.html:23
 msgid "Get in Touch"
 msgstr ""
 
@@ -131,7 +152,9 @@ msgid "Thank You"
 msgstr ""
 
 #: .\templates\contact\success.html:15
-msgid "Your inquiry has been received. Our team will get back to you within one business day."
+msgid ""
+"Your inquiry has been received. Our team will get back to you within one "
+"business day."
 msgstr ""
 
 #: .\templates\contact\success.html:17
@@ -142,48 +165,65 @@ msgstr ""
 msgid "Browse Products"
 msgstr ""
 
-#: .\templates\includes\footer.html:8
-msgid "General Food Industry Co., Ltd."
+#: .\templates\includes\footer.html:10
+msgid ""
+"Import, export and distribution of certified food-grade additives and "
+"ingredients across Southeast Asia."
 msgstr ""
 
-#: .\templates\includes\footer.html:11
-msgid "Import, export and distribution of food additives and ingredients."
-msgstr ""
-
-#: .\templates\includes\footer.html:16
-msgid "Quick Links"
-msgstr ""
-
-#: .\templates\includes\footer.html:18 .\templates\includes\navbar.html:20
+#: .\templates\includes\footer.html:22 .\templates\includes\navbar.html:20
 msgid "About Us"
 msgstr ""
 
-#: .\templates\includes\footer.html:19 .\templates\includes\navbar.html:23
+#: .\templates\includes\footer.html:23 .\templates\includes\navbar.html:26
+msgid "Services"
+msgstr ""
+
+#: .\templates\includes\footer.html:24 .\templates\includes\navbar.html:29
+#: .\templates\news\detail.html:13 .\templates\news\list.html:11
+msgid "News"
+msgstr ""
+
+#: .\templates\includes\footer.html:25 .\templates\includes\navbar.html:32
+msgid "Contact"
+msgstr ""
+
+#: .\templates\includes\footer.html:30 .\templates\includes\navbar.html:23
 #: .\templates\pages\about.html:90 .\templates\products\category.html:13
 #: .\templates\products\detail.html:13 .\templates\products\list.html:11
 msgid "Products"
 msgstr ""
 
-#: .\templates\includes\footer.html:20 .\templates\includes\navbar.html:26
-msgid "Services"
+#: .\templates\includes\footer.html:32
+msgid "All Products"
 msgstr ""
 
-#: .\templates\includes\footer.html:21 .\templates\includes\navbar.html:29
-#: .\templates\news\detail.html:13 .\templates\news\list.html:11
-msgid "News"
+#: .\templates\includes\footer.html:33
+msgid "Sweeteners"
 msgstr ""
 
-#: .\templates\includes\footer.html:22 .\templates\includes\footer.html:27
-#: .\templates\includes\navbar.html:32
-msgid "Contact"
+#: .\templates\includes\footer.html:34
+msgid "Preservatives"
 msgstr ""
 
-#: .\templates\includes\footer.html:29
+#: .\templates\includes\footer.html:35
+msgid "Vitamins"
+msgstr ""
+
+#: .\templates\includes\footer.html:44
 msgid "Bangkok, Thailand"
 msgstr ""
 
-#: .\templates\includes\footer.html:38
+#: .\templates\includes\footer.html:52
+msgid "+66 2 000 0000"
+msgstr ""
+
+#: .\templates\includes\footer.html:65
 msgid "General Food Industry Co., Ltd. All rights reserved."
+msgstr ""
+
+#: .\templates\includes\footer.html:68 .\templates\pages\home.html:11
+msgid "Food Additives & Ingredients Specialist"
 msgstr ""
 
 #: .\templates\includes\navbar.html:10
@@ -211,7 +251,8 @@ msgid "News — GFI"
 msgstr ""
 
 #: .\templates\news\list.html:5
-msgid "Latest announcements, updates, and news from General Food Industry Co., Ltd."
+msgid ""
+"Latest announcements, updates, and news from General Food Industry Co., Ltd."
 msgstr ""
 
 #: .\templates\news\list.html:12
@@ -256,7 +297,9 @@ msgid "About Us — General Food Industry Co., Ltd."
 msgstr ""
 
 #: .\templates\pages\about.html:5
-msgid "Learn about GFI — our story, mission, and commitment to delivering quality food additives and ingredients across Southeast Asia."
+msgid ""
+"Learn about GFI — our story, mission, and commitment to delivering quality "
+"food additives and ingredients across Southeast Asia."
 msgstr ""
 
 #: .\templates\pages\about.html:11
@@ -268,7 +311,9 @@ msgid "About GFI"
 msgstr ""
 
 #: .\templates\pages\about.html:14
-msgid "A trusted partner to food manufacturers — built on quality, reliability, and long-term relationships."
+msgid ""
+"A trusted partner to food manufacturers — built on quality, reliability, and "
+"long-term relationships."
 msgstr ""
 
 #: .\templates\pages\about.html:23
@@ -278,21 +323,30 @@ msgstr ""
 #: .\templates\pages\about.html:25
 msgid ""
 "\n"
-"                    General Food Industry Co., Ltd. (GFI) is a Bangkok-based company specialising in the import, export, and distribution of food additives and ingredients. We serve food and beverage manufacturers, processors, and producers throughout Thailand and across Southeast Asia.\n"
+"                    General Food Industry Co., Ltd. (GFI) is a Bangkok-based "
+"company specialising in the import, export, and distribution of food "
+"additives and ingredients. We serve food and beverage manufacturers, "
+"processors, and producers throughout Thailand and across Southeast Asia.\n"
 "                    "
 msgstr ""
 
 #: .\templates\pages\about.html:30
 msgid ""
 "\n"
-"                    Founded on a commitment to quality and traceability, GFI works directly with certified global suppliers to ensure every product we handle meets the highest food safety standards. Our team combines deep product knowledge with strong logistics capabilities to deliver reliable supply chain solutions.\n"
+"                    Founded on a commitment to quality and traceability, GFI "
+"works directly with certified global suppliers to ensure every product we "
+"handle meets the highest food safety standards. Our team combines deep "
+"product knowledge with strong logistics capabilities to deliver reliable "
+"supply chain solutions.\n"
 "                    "
 msgstr ""
 
 #: .\templates\pages\about.html:35
 msgid ""
 "\n"
-"                    We believe in building lasting partnerships — understanding our customers' formulation needs and supporting them with consistent supply, technical guidance, and responsive service.\n"
+"                    We believe in building lasting partnerships — "
+"understanding our customers' formulation needs and supporting them with "
+"consistent supply, technical guidance, and responsive service.\n"
 "                    "
 msgstr ""
 
@@ -313,7 +367,9 @@ msgid "Quality"
 msgstr ""
 
 #: .\templates\pages\about.html:60
-msgid "We only supply products from certified, traceable sources that meet international food safety standards."
+msgid ""
+"We only supply products from certified, traceable sources that meet "
+"international food safety standards."
 msgstr ""
 
 #: .\templates\pages\about.html:66
@@ -321,7 +377,9 @@ msgid "Integrity"
 msgstr ""
 
 #: .\templates\pages\about.html:67
-msgid "Transparent pricing, honest communication, and consistent follow-through on every commitment."
+msgid ""
+"Transparent pricing, honest communication, and consistent follow-through on "
+"every commitment."
 msgstr ""
 
 #: .\templates\pages\about.html:73
@@ -329,7 +387,9 @@ msgid "Partnership"
 msgstr ""
 
 #: .\templates\pages\about.html:74
-msgid "We invest in understanding your business so we can grow alongside you as a long-term supply partner."
+msgid ""
+"We invest in understanding your business so we can grow alongside you as a "
+"long-term supply partner."
 msgstr ""
 
 #: .\templates\pages\about.html:86
@@ -357,11 +417,9 @@ msgid "General Food Industry Co., Ltd. — Food Additives & Ingredients"
 msgstr ""
 
 #: .\templates\pages\home.html:5
-msgid "GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia. Contact us for your sourcing needs."
-msgstr ""
-
-#: .\templates\pages\home.html:11
-msgid "Food Additives & Ingredients Specialist"
+msgid ""
+"GFI imports, exports, and distributes premium food additives and ingredients "
+"across Southeast Asia. Contact us for your sourcing needs."
 msgstr ""
 
 #: .\templates\pages\home.html:13
@@ -369,7 +427,9 @@ msgid "Your Trusted Partner in Food Additives & Ingredients"
 msgstr ""
 
 #: .\templates\pages\home.html:16
-msgid "Import, export and distribution of certified food-grade ingredients across Southeast Asia — delivered with consistency and expertise."
+msgid ""
+"Import, export and distribution of certified food-grade ingredients across "
+"Southeast Asia — delivered with consistency and expertise."
 msgstr ""
 
 #: .\templates\pages\home.html:20
@@ -389,7 +449,9 @@ msgid "Import Sourcing"
 msgstr ""
 
 #: .\templates\pages\home.html:40
-msgid "Certified food additives and ingredients sourced from trusted global suppliers."
+msgid ""
+"Certified food additives and ingredients sourced from trusted global "
+"suppliers."
 msgstr ""
 
 #: .\templates\pages\home.html:46
@@ -397,7 +459,9 @@ msgid "Export Distribution"
 msgstr ""
 
 #: .\templates\pages\home.html:47
-msgid "Reliable export and regional distribution to food manufacturers across Southeast Asia."
+msgid ""
+"Reliable export and regional distribution to food manufacturers across "
+"Southeast Asia."
 msgstr ""
 
 #: .\templates\pages\home.html:53
@@ -405,7 +469,9 @@ msgid "Warehousing"
 msgstr ""
 
 #: .\templates\pages\home.html:54
-msgid "Temperature-controlled storage facilities that maintain product quality and compliance."
+msgid ""
+"Temperature-controlled storage facilities that maintain product quality and "
+"compliance."
 msgstr ""
 
 #: .\templates\pages\home.html:60 .\templates\pages\services.html:80
@@ -413,7 +479,9 @@ msgid "Technical Support"
 msgstr ""
 
 #: .\templates\pages\home.html:61
-msgid "Product specification guidance and regulatory documentation support for your team."
+msgid ""
+"Product specification guidance and regulatory documentation support for your "
+"team."
 msgstr ""
 
 #: .\templates\pages\home.html:71
@@ -421,7 +489,9 @@ msgid "Our Product Range"
 msgstr ""
 
 #: .\templates\pages\home.html:72
-msgid "A broad portfolio of food-grade additives and ingredients for every formulation need."
+msgid ""
+"A broad portfolio of food-grade additives and ingredients for every "
+"formulation need."
 msgstr ""
 
 #: .\templates\pages\home.html:83
@@ -457,7 +527,8 @@ msgid "Countries Sourced From"
 msgstr ""
 
 #: .\templates\pages\home.html:114
-msgid "Partnerships with certified suppliers across Asia, Europe, and the Americas."
+msgid ""
+"Partnerships with certified suppliers across Asia, Europe, and the Americas."
 msgstr ""
 
 #: .\templates\pages\home.html:122
@@ -465,7 +536,9 @@ msgid "Ready to Source Your Ingredients?"
 msgstr ""
 
 #: .\templates\pages\home.html:124
-msgid "Tell us what you need and our team will get back to you within one business day."
+msgid ""
+"Tell us what you need and our team will get back to you within one business "
+"day."
 msgstr ""
 
 #: .\templates\pages\home.html:127 .\templates\pages\services.html:106
@@ -478,7 +551,9 @@ msgid "Services — General Food Industry Co., Ltd."
 msgstr ""
 
 #: .\templates\pages\services.html:5
-msgid "GFI offers import sourcing, export distribution, warehousing, and technical support for food additive and ingredient supply chains."
+msgid ""
+"GFI offers import sourcing, export distribution, warehousing, and technical "
+"support for food additive and ingredient supply chains."
 msgstr ""
 
 #: .\templates\pages\services.html:11
@@ -490,13 +565,18 @@ msgid "Our Services"
 msgstr ""
 
 #: .\templates\pages\services.html:14
-msgid "Comprehensive supply chain solutions from global sourcing to last-mile delivery — so you can focus on making great products."
+msgid ""
+"Comprehensive supply chain solutions from global sourcing to last-mile "
+"delivery — so you can focus on making great products."
 msgstr ""
 
 #: .\templates\pages\services.html:28
 msgid ""
 "\n"
-"                        We identify and qualify certified suppliers worldwide for food additives, functional ingredients, and raw materials. Every supplier in our network undergoes rigorous vetting to ensure product quality, documentation compliance, and reliable production capacity.\n"
+"                        We identify and qualify certified suppliers "
+"worldwide for food additives, functional ingredients, and raw materials. "
+"Every supplier in our network undergoes rigorous vetting to ensure product "
+"quality, documentation compliance, and reliable production capacity.\n"
 "                        "
 msgstr ""
 
@@ -523,7 +603,10 @@ msgstr ""
 #: .\templates\pages\services.html:46
 msgid ""
 "\n"
-"                        We manage the full export and regional distribution process, connecting manufacturers in Thailand and Southeast Asia with the ingredients they need. Our logistics network ensures timely, intact delivery across the region.\n"
+"                        We manage the full export and regional distribution "
+"process, connecting manufacturers in Thailand and Southeast Asia with the "
+"ingredients they need. Our logistics network ensures timely, intact delivery "
+"across the region.\n"
 "                        "
 msgstr ""
 
@@ -550,7 +633,10 @@ msgstr ""
 #: .\templates\pages\services.html:64
 msgid ""
 "\n"
-"                        Our storage facilities are designed for food-grade products, with temperature-controlled environments and strict inventory management. We hold buffer stock of high-demand ingredients so you can order on shorter lead times.\n"
+"                        Our storage facilities are designed for food-grade "
+"products, with temperature-controlled environments and strict inventory "
+"management. We hold buffer stock of high-demand ingredients so you can order "
+"on shorter lead times.\n"
 "                        "
 msgstr ""
 
@@ -573,7 +659,10 @@ msgstr ""
 #: .\templates\pages\services.html:82
 msgid ""
 "\n"
-"                        Our team provides product knowledge and application support to help you select the right ingredient for your formulation. We bridge the gap between global supplier specifications and your production needs.\n"
+"                        Our team provides product knowledge and application "
+"support to help you select the right ingredient for your formulation. We "
+"bridge the gap between global supplier specifications and your production "
+"needs.\n"
 "                        "
 msgstr ""
 
@@ -598,7 +687,8 @@ msgid "Discuss Your Requirements"
 msgstr ""
 
 #: .\templates\pages\services.html:103
-msgid "Our team is ready to help you find the right solution for your supply chain."
+msgid ""
+"Our team is ready to help you find the right solution for your supply chain."
 msgstr ""
 
 #: .\templates\products\category.html:4
@@ -645,7 +735,8 @@ msgstr ""
 
 #: .\templates\products\detail.html:5
 #, python-format
-msgid "%(name)s — food additive available through General Food Industry Co., Ltd."
+msgid ""
+"%(name)s — food additive available through General Food Industry Co., Ltd."
 msgstr ""
 
 #: .\templates\products\detail.html:45

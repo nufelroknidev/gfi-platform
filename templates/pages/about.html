@@ -1,26 +1,23 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% trans "About Us — General Food Industry Co., Ltd." %}{% endblock %}
 {% block meta_description %}{% trans "Learn about GFI — our story, mission, and commitment to delivering quality food additives and ingredients across Southeast Asia." %}{% endblock %}
 
 {% block content %}
 
-<section class="hero py-5">
-    <div class="container py-2">
-        <span class="hero__eyebrow">{% trans "Our Story" %}</span>
-        <h1 class="hero__title display-6 mb-2">{% trans "About GFI" %}</h1>
-        <p class="hero__subtitle mb-0">
-            {% trans "A trusted partner to food manufacturers — built on quality, reliability, and long-term relationships." %}
-        </p>
+<section class="page-header">
+    <div class="container">
+        <h1 class="section-title mb-2">{% trans "About GFI" %}</h1>
+        <p class="mb-0">{% trans "A trusted partner to food manufacturers — built on quality, reliability, and long-term relationships." %}</p>
     </div>
 </section>
 
 <section class="py-5">
     <div class="container">
         <div class="row gy-5 align-items-center">
-            <div class="col-lg-7">
-                <h2 class="section-title mb-3">{% trans "Who We Are" %}</h2>
+            <div class="col-lg-7 pe-lg-4">
+                <h2 class="section-title mb-4">{% trans "Who We Are" %}</h2>
                 <p class="text-muted mb-3">
                     {% blocktrans %}
                     General Food Industry Co., Ltd. (GFI) is a Bangkok-based company specialising in the import, export, and distribution of food additives and ingredients. We serve food and beverage manufacturers, processors, and producers throughout Thailand and across Southeast Asia.
@@ -38,9 +35,7 @@
                 </p>
             </div>
             <div class="col-lg-5">
-                <div class="img-placeholder">
-                    <span>{% trans "Company photo coming soon" %}</span>
-                </div>
+                <img src="{% static 'img/about-company.jpg' %}" alt="{% trans 'Food additives and ingredients' %}" class="img-fluid rounded shadow-sm">
             </div>
         </div>
     </div>
@@ -50,26 +45,32 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">{% trans "Our Values" %}</h2>
-            <p class="text-muted">{% trans "The principles that guide every decision we make." %}</p>
+            <p class="text-muted mt-3">{% trans "The principles that guide every decision we make." %}</p>
         </div>
         <div class="row gy-4">
             <div class="col-md-4">
                 <div class="value-card">
-                    <i class="bi bi-patch-check-fill value-card__icon"></i>
+                    <div class="value-card__icon-wrap">
+                        <i class="bi bi-patch-check-fill value-card__icon"></i>
+                    </div>
                     <h5 class="value-card__title">{% trans "Quality" %}</h5>
                     <p class="value-card__text">{% trans "We only supply products from certified, traceable sources that meet international food safety standards." %}</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="value-card">
-                    <i class="bi bi-handshake value-card__icon"></i>
+                    <div class="value-card__icon-wrap">
+                        <i class="bi bi-handshake value-card__icon"></i>
+                    </div>
                     <h5 class="value-card__title">{% trans "Integrity" %}</h5>
                     <p class="value-card__text">{% trans "Transparent pricing, honest communication, and consistent follow-through on every commitment." %}</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="value-card">
-                    <i class="bi bi-people-fill value-card__icon"></i>
+                    <div class="value-card__icon-wrap">
+                        <i class="bi bi-people-fill value-card__icon"></i>
+                    </div>
                     <h5 class="value-card__title">{% trans "Partnership" %}</h5>
                     <p class="value-card__text">{% trans "We invest in understanding your business so we can grow alongside you as a long-term supply partner." %}</p>
                 </div>
@@ -78,24 +79,41 @@
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 stats-section">
     <div class="container">
         <div class="row gy-4 text-center">
-            <div class="col-6 col-md-3">
-                <p class="display-5 stat-number mb-1">10+</p>
+            <div class="col-6 col-md-3 stat-item">
+                <p class="stat-number mb-0">10+</p>
                 <p class="stat-label mb-0">{% trans "Years in Business" %}</p>
             </div>
-            <div class="col-6 col-md-3">
-                <p class="display-5 stat-number mb-1">500+</p>
+            <div class="col-6 col-md-3 stat-item">
+                <p class="stat-number mb-0">500+</p>
                 <p class="stat-label mb-0">{% trans "Products" %}</p>
             </div>
-            <div class="col-6 col-md-3">
-                <p class="display-5 stat-number mb-1">15+</p>
+            <div class="col-6 col-md-3 stat-item">
+                <p class="stat-number mb-0">15+</p>
                 <p class="stat-label mb-0">{% trans "Supplier Countries" %}</p>
             </div>
-            <div class="col-6 col-md-3">
-                <p class="display-5 stat-number mb-1">SEA</p>
+            <div class="col-6 col-md-3 stat-item">
+                <p class="stat-number mb-0">SEA</p>
                 <p class="stat-label mb-0">{% trans "Regional Coverage" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-title">{% trans "Where to Find Us" %}</h2>
+            <p class="text-muted mt-3">{% trans "Based in Bangkok, serving food manufacturers across Southeast Asia." %}</p>
+        </div>
+        <div class="map-img-wrap position-relative overflow-hidden rounded shadow-sm">
+            <img src="{% static 'img/map-bangkok.jpg' %}" alt="{% trans 'Bangkok, Thailand' %}" class="w-100 h-100 object-fit-cover">
+            <div class="position-absolute top-50 start-50 translate-middle text-center bg-white bg-opacity-90 rounded px-4 py-3 shadow">
+                <i class="bi bi-geo-alt-fill text-danger fs-3"></i>
+                <p class="mb-0 fw-semibold">{% trans "Bangkok, Thailand" %}</p>
+                <p class="mb-0 small text-muted">{% trans "Serving Southeast Asia" %}</p>
             </div>
         </div>
     </div>
