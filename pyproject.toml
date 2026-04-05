@@ -27,5 +27,6 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 [dependency-groups]
 dev = [
-    "django-debug-toolbar (>=6.2.0,<7.0.0)"
+    "django-debug-toolbar (>=6.2.0,<7.0.0)",
+    "django-browser-reload (>=1.21.0,<2.0.0)"
 ]
