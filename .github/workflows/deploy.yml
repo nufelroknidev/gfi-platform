@@ -25,6 +25,9 @@ jobs:
         run: poetry install
 
       - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          ALLOWED_HOSTS: localhost
         run: poetry run python manage.py test apps.pages apps.products apps.contact
 
   deploy:

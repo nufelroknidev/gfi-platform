@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.utils.translation import get_language
 
+from .models import SiteSettings
+
 # Language data lives here so templates can loop over it rather than
 # hardcoding one block per language. Flag codes follow the flag-icons
 # library (ISO 3166-1 alpha-2); Arabic uses Saudi Arabia 'sa'.
@@ -28,4 +30,5 @@ def site_globals(request):
         'SUPPORTED_LANGUAGES': SUPPORTED_LANGUAGES,
         'LANGUAGE_CODE':       lang_code,
         'CURRENT_LANGUAGE':    current_lang,
+        'SITE_SETTINGS':       SiteSettings.load(),
     }

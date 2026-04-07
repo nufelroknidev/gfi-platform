@@ -3,14 +3,14 @@
     <div class="container">
 
         <div class="topbar-contact">
-            <a href="tel:+6620001234" class="topbar-link">
+            <a href="tel:{{ SITE_SETTINGS.phone_dialable }}" class="topbar-link">
                 <i class="bi bi-telephone-fill"></i>
-                <span class="topbar-label">{% trans "Make a Call:" %} </span>+66 2 000 1234
+                <span class="topbar-label">{% trans "Make a Call:" %} </span>{{ SITE_SETTINGS.phone }}
             </a>
             <span class="topbar-sep">|</span>
-            <a href="mailto:info@gfi.co.th" class="topbar-link">
+            <a href="mailto:{{ SITE_SETTINGS.email }}" class="topbar-link">
                 <i class="bi bi-envelope-fill"></i>
-                <span class="topbar-label">{% trans "Get an Estimate:" %} </span>info@gfi.co.th
+                <span class="topbar-label">{% trans "Get an Estimate:" %} </span>{{ SITE_SETTINGS.email }}
             </a>
         </div>
 
