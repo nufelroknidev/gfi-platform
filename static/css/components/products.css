@@ -87,6 +87,14 @@
     transition: background-color 0.15s, color 0.15s;
 }
 
+.product-filter-panel__no-match {
+    display: block;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+    color: var(--gfi-slate);
+    font-style: italic;
+}
+
 .product-filter-panel__link:hover {
     background-color: var(--gfi-green-faint);
     color: var(--gfi-green);

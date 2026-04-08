@@ -135,12 +135,25 @@
         const list  = section.querySelector('#category-list');
         if (!input || !list) return;
 
+        /* Inject the no-match message element once */
+        let noMatch = list.querySelector('.js-cat-no-match');
+        if (!noMatch) {
+            noMatch = document.createElement('li');
+            noMatch.className = 'js-cat-no-match';
+            noMatch.style.display = 'none';
+            noMatch.innerHTML = '<span class="product-filter-panel__no-match">No categories match.</span>';
+            list.appendChild(noMatch);
+        }
+
         input.addEventListener('input', () => {
             const term = input.value.trim().toLowerCase();
-            list.querySelectorAll('li').forEach((li) => {
-                const text = li.textContent.trim().toLowerCase();
-                li.style.display = (!term || text.includes(term)) ? '' : 'none';
+            let visible = 0;
+            list.querySelectorAll('li:not(.js-cat-no-match)').forEach((li) => {
+                const matches = !term || li.textContent.trim().toLowerCase().includes(term);
+                li.style.display = matches ? '' : 'none';
+                if (matches) visible++;
             });
+            noMatch.style.display = (term && visible === 0) ? '' : 'none';
         });
     };
 

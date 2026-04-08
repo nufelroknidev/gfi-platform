@@ -6,7 +6,7 @@
         <i class="bi bi-search product-empty-state__icon"></i>
         {% if q %}
         <p class="product-empty-state__title">
-            {% blocktrans with term=q %}No products or categories match "{{ term }}".{% endblocktrans %}
+            {% blocktrans with term=q %}No products match "{{ term }}".{% endblocktrans %}
         </p>
         <p class="product-empty-state__hint">
             {% trans "Try a different keyword, a CAS number, or an E-number." %}
