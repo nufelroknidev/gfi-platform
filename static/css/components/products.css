@@ -322,6 +322,7 @@
     background-color: #fff;
     padding: 1.5rem;
     box-shadow: var(--gfi-shadow-sm);
+    overflow-x: auto;
 }
 
 .product-detail__specs-heading {

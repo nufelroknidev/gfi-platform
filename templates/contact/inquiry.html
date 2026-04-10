@@ -106,7 +106,7 @@
                         <i class="bi bi-envelope contact-info__icon"></i>
                         <div>
                             <p class="contact-info__label mb-0">{% trans "Email" %}</p>
-                            <p class="contact-info__value mb-0">info@gfi.co.th</p>
+                            <a href="mailto:{{ SITE_SETTINGS.email }}" class="contact-info__value mb-0">{{ SITE_SETTINGS.email }}</a>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@
                         <i class="bi bi-telephone contact-info__icon"></i>
                         <div>
                             <p class="contact-info__label mb-0">{% trans "Phone" %}</p>
-                            <p class="contact-info__value mb-0">+66 2 xxx xxxx</p>
+                            <a href="tel:{{ SITE_SETTINGS.phone_dialable }}" class="contact-info__value mb-0">{{ SITE_SETTINGS.phone }}</a>
                         </div>
                     </div>
 

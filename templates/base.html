@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}General Food Industry Co., Ltd.{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}GFI — Import, export and distribution of food additives and ingredients.{% endblock %}">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <meta property="og:title" content="{% block og_title %}General Food Industry Co., Ltd. — Food Additives & Ingredients{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia.{% endblock %}">
+    <meta property="og:site_name" content="General Food Industry Co., Ltd.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

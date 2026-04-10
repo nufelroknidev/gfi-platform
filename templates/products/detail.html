@@ -3,6 +3,8 @@
 
 {% block title %}{% if product.meta_title %}{{ product.meta_title }}{% else %}{{ product.name }} — {% trans "GFI" %}{% endif %}{% endblock %}
 {% block meta_description %}{% if product.meta_description %}{{ product.meta_description }}{% else %}{% blocktrans with name=product.name %}{{ name }} — food additive available through General Food Industry Co., Ltd.{% endblocktrans %}{% endif %}{% endblock %}
+{% block og_title %}{{ product.name }} — {% trans "GFI" %}{% endblock %}
+{% block og_description %}{% if product.description %}{{ product.description|truncatewords:30 }}{% else %}{% blocktrans with name=product.name %}{{ name }} — food additive available through General Food Industry Co., Ltd.{% endblocktrans %}{% endif %}{% endblock %}
 
 {% block content %}
 

@@ -28,7 +28,7 @@
                     <div class="news-card__body">
                         <p class="news-card__meta">{{ post.published_date|date:"DATE_FORMAT" }}</p>
                         <h2 class="news-card__title">{{ post.title }}</h2>
-                        <p class="news-card__excerpt">{{ post.content|truncatewords:20 }}</p>
+                        <p class="news-card__excerpt">{{ post.content|striptags|truncatewords:20 }}</p>
                         <a href="{% url 'news:detail' post.slug %}" class="btn btn-gfi-primary btn-sm mt-auto">
                             {% trans "Read More" %}
                         </a>
