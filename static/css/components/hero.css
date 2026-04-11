@@ -204,3 +204,33 @@
         height: 460px;
     }
 }
+
+@media (max-width: 575.98px) {
+    .hero__eyebrow {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+        gap: 0.5rem;
+    }
+
+    /* Hide the decorative gold side-lines — too wide for narrow screens */
+    .hero__eyebrow::before,
+    .hero__eyebrow::after {
+        display: none;
+    }
+
+    .hero__title {
+        font-size: 1.65rem;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero__subtitle {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.5rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero__content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

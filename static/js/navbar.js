@@ -59,7 +59,49 @@
         applyLogoSize(Math.max(0, tbNatural - (window.scrollY || window.pageYOffset)));
     }
 
-    /* ── 2. Inline search ──────────────────────────────────────────────────── */
+    /* ── 2. Mobile search bar ─────────────────────────────────────────────── */
+
+    const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+    const mobileSearchBar = document.getElementById('mobileSearchBar');
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
+    const collapseEl = document.getElementById('gfiNavbar');
+
+    if (mobileSearchBtn && mobileSearchBar && mobileSearchInput) {
+        const openMobileSearch = () => {
+            mobileSearchBar.classList.add('is-open');
+            mobileSearchBar.setAttribute('aria-hidden', 'false');
+            mobileSearchBtn.setAttribute('aria-expanded', 'true');
+            mobileSearchInput.focus();
+            // Close burger menu if open
+            if (collapseEl && collapseEl.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(collapseEl);
+                if (bsCollapse) bsCollapse.hide();
+            }
+        };
+
+        const closeMobileSearch = () => {
+            mobileSearchBar.classList.remove('is-open');
+            mobileSearchBar.setAttribute('aria-hidden', 'true');
+            mobileSearchBtn.setAttribute('aria-expanded', 'false');
+        };
+
+        mobileSearchBtn.addEventListener('click', () => {
+            mobileSearchBar.classList.contains('is-open') ? closeMobileSearch() : openMobileSearch();
+        });
+
+        // Close mobile search when burger menu is shown
+        collapseEl?.addEventListener('show.bs.collapse', closeMobileSearch);
+
+        // ESC to close
+        mobileSearchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileSearch();
+                mobileSearchBtn.focus();
+            }
+        });
+    }
+
+    /* ── 3. Inline search (desktop) ───────────────────────────────────────── */
 
     const toggle     = document.getElementById('searchToggle');
     const closeBtn   = document.getElementById('searchClose');

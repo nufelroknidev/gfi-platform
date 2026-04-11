@@ -405,6 +405,159 @@
     }
 }
 
+/* ── Mobile (below lg) ────────────────────────────────────────────────────── */
+
+@media (max-width: 991.98px) {
+    /* Smaller logo on mobile so it doesn't crowd the toggler row */
+    .navbar-logo {
+        height: 40px;
+    }
+
+    /* Touch-friendly search button size */
+    .navbar-mobile-search-btn {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0.25rem;
+    }
+
+    /* Collapsed menu — border and spacing */
+    .navbar-gfi .navbar-collapse {
+        border-top: 1px solid var(--gfi-border-light);
+        padding-top: 0.25rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Nav links in collapsed menu */
+    .navbar-gfi .nav-link {
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        font-size: 1rem;
+        border-radius: 0.375rem;
+        border-bottom: 1px solid var(--gfi-border-light);
+    }
+
+    /* Hide the animated underline in mobile menu — not applicable */
+    .navbar-gfi .nav-link::after {
+        display: none;
+    }
+
+    /* Last nav item before CTA doesn't need border */
+    .navbar-gfi .navbar-nav > .nav-item:nth-last-child(2) .nav-link {
+        border-bottom: none;
+    }
+
+    /* "Request a Quote" — full-width pill in mobile menu */
+    .navbar-gfi .nav-item--cta {
+        padding: 0.5rem 0.5rem 0.25rem;
+        margin-left: 0;
+    }
+
+    .navbar-gfi .nav-item--cta .nav-cta {
+        display: block;
+        text-align: center;
+        border-radius: var(--gfi-radius);
+        padding: 0.8rem 1.5rem !important;
+        font-size: 1rem;
+    }
+
+    .navbar-gfi .nav-item--cta .nav-cta::after {
+        display: none;
+    }
+}
+
+/* ── Mobile search bar ────────────────────────────────────────────────────── */
+
+.mobile-search-bar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: var(--gfi-bg);
+    border-top: 1px solid var(--gfi-border-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0;
+}
+
+.mobile-search-bar.is-open {
+    max-height: 72px;
+    padding: 0.6rem 0;
+}
+
+/* Hide entirely at desktop — only for mobile where the toggler is visible */
+@media (min-width: 992px) {
+    .mobile-search-bar {
+        display: none;
+    }
+}
+
+.navbar-gfi--past-hero .mobile-search-bar {
+    background-color: var(--gfi-green-dark);
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.mobile-search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-search-input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--gfi-border);
+    border-radius: var(--gfi-radius);
+    padding: 0.55rem 0.85rem;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gfi-text);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mobile-search-input:focus {
+    border-color: var(--gfi-green);
+    box-shadow: 0 0 0 3px rgba(26, 92, 56, 0.15);
+}
+
+.navbar-gfi--past-hero .mobile-search-input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.navbar-gfi--past-hero .mobile-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.mobile-search-submit {
+    background-color: var(--gfi-green);
+    color: #fff;
+    border: none;
+    border-radius: var(--gfi-radius);
+    padding: 0.55rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    flex-shrink: 0;
+    transition: background-color var(--gfi-transition);
+}
+
+.mobile-search-submit:hover {
+    background-color: var(--gfi-green-dark);
+}
+
 /* ── Responsive tightening — 992px to 1199px ─────────────────────────────── */
 
 @media (min-width: 992px) and (max-width: 1199.98px) {

@@ -9,12 +9,25 @@
             <img src="{% static 'img/logo.png' %}" alt="{% trans 'GFI — General Food Industry' %}" class="navbar-logo">
         </a>
 
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#gfiNavbar"
-                aria-controls="gfiNavbar" aria-expanded="false"
-                aria-label="{% trans 'Toggle navigation' %}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Mobile-only controls: search icon + hamburger -->
+        <div class="d-flex d-lg-none align-items-center gap-1 ms-auto">
+            <button class="nav-search-btn navbar-mobile-search-btn" id="mobileSearchBtn"
+                    type="button"
+                    aria-label="{% trans 'Search products' %}"
+                    aria-expanded="false"
+                    aria-controls="mobileSearchBar">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/>
+                    <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+            </button>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#gfiNavbar"
+                    aria-controls="gfiNavbar" aria-expanded="false"
+                    aria-label="{% trans 'Toggle navigation' %}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
         <div class="collapse navbar-collapse" id="gfiNavbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -39,7 +52,8 @@
                        href="{% url 'news:list' %}"><i class="bi bi-newspaper me-1"></i>{% trans "News" %}</a>
                 </li>
 
-                <li class="nav-item nav-search-item">
+                <!-- Desktop search (hidden on mobile — mobile has its own search bar) -->
+                <li class="nav-item nav-search-item d-none d-lg-flex">
                     <form action="{% url 'products:list' %}" method="get"
                           class="nav-search-inline" role="search"
                           data-suggest-url="{% url 'products:suggest' %}">
@@ -67,7 +81,7 @@
                     </form>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item nav-item--cta">
                     <a class="nav-link nav-cta{% if request.resolver_match.app_name == 'contact' %} active{% endif %}"
                        href="{% url 'contact:inquiry' %}">{% trans "Request a Quote" %}</a>
                 </li>
@@ -75,4 +89,21 @@
         </div>
 
     </div>
+
+    <!-- Mobile search bar — slides down below the navbar when activated -->
+    <div class="mobile-search-bar" id="mobileSearchBar" aria-hidden="true">
+        <div class="container">
+            <form action="{% url 'products:list' %}" method="get" class="mobile-search-form">
+                <input type="search" name="q" class="mobile-search-input" id="mobileSearchInput"
+                       placeholder="{% trans 'Search products…' %}"
+                       autocomplete="off"
+                       aria-label="{% trans 'Search products' %}"
+                       value="{{ request.GET.q|default:'' }}">
+                <button type="submit" class="mobile-search-submit" aria-label="{% trans 'Search' %}">
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
 </nav>

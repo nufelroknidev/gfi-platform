@@ -84,3 +84,14 @@
     color: var(--gfi-text);
     font-weight: 600;
 }
+
+@media (max-width: 575.98px) {
+    .page-header {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .breadcrumb-bar .breadcrumb {
+        font-size: 0.875rem;
+    }
+}
