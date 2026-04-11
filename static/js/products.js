@@ -141,7 +141,11 @@
             noMatch = document.createElement('li');
             noMatch.className = 'js-cat-no-match';
             noMatch.style.display = 'none';
-            noMatch.innerHTML = '<span class="product-filter-panel__no-match">No categories match.</span>';
+            const noMatchText = input.dataset.noMatch || 'No categories match.';
+            const noMatchSpan = document.createElement('span');
+            noMatchSpan.className = 'product-filter-panel__no-match';
+            noMatchSpan.textContent = noMatchText;
+            noMatch.appendChild(noMatchSpan);
             list.appendChild(noMatch);
         }
 

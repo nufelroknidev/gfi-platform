@@ -18,7 +18,8 @@
                 <!-- Categories -->
                 <p class="product-filter-panel__heading">{% trans "Categories" %}</p>
                 <input type="search" id="category-filter" class="form-control form-control-sm mb-2"
-                       placeholder="{% trans 'Filter categories…' %}" autocomplete="off">
+                       placeholder="{% trans 'Filter categories…' %}" autocomplete="off"
+                       data-no-match="{% trans 'No categories match.' %}">
                 <ul class="product-filter-panel__list mb-0" id="category-list">
                     <li>
                         <a href="{% url 'products:list' %}"
