@@ -13,7 +13,7 @@
     const nav    = document.getElementById('gfiNav');
     const heroEl = document.querySelector('.hero, .page-header');
 
-    /* ── 1. Scroll observer ────────────────────────────────────────────────── */
+    /* 1. Scroll observer */
 
     if (heroEl) {
         const scrollObserver = new IntersectionObserver(([entry]) => {
@@ -23,7 +23,7 @@
         scrollObserver.observe(heroEl);
     }
 
-    /* ── Topbar logo-size animation on scroll ─────────────────────────────── */
+    /* Topbar logo-size animation on scroll */
 
     const topbar = document.querySelector('.topbar');
     const logo   = nav?.querySelector('.navbar-logo');
@@ -59,7 +59,7 @@
         applyLogoSize(Math.max(0, tbNatural - (window.scrollY || window.pageYOffset)));
     }
 
-    /* ── 2. Mobile search bar ─────────────────────────────────────────────── */
+    /* 2. Mobile search bar */
 
     const mobileSearchBtn = document.getElementById('mobileSearchBtn');
     const mobileSearchBar = document.getElementById('mobileSearchBar');
@@ -101,7 +101,7 @@
         });
     }
 
-    /* ── 3. Inline search (desktop) ───────────────────────────────────────── */
+    /* 3. Inline search (desktop) */
 
     const toggle     = document.getElementById('searchToggle');
     const closeBtn   = document.getElementById('searchClose');
@@ -114,14 +114,14 @@
 
     const suggestUrl = form.dataset.suggestUrl;
 
-    /* ── State ─────────────────────────────────────────────────────────────── */
+    /* State */
 
     let lastResults   = { categories: [], products: [] };
     let debounceTimer = null;
     let idleTimer     = null;
     let hoverCloseTimer = null;
 
-    /* ── Open / close ──────────────────────────────────────────────────────── */
+    /* Open / close */
 
     const openSearch = () => {
         nav.classList.remove('search-hover');
@@ -153,7 +153,7 @@
         hideDropdown();
     };
 
-    /* ── Idle timer ────────────────────────────────────────────────────────── */
+    /* Idle timer */
 
     const resetIdleTimer = () => {
         clearTimeout(idleTimer);
@@ -162,7 +162,7 @@
 
     const cancelIdleTimer = () => clearTimeout(idleTimer);
 
-    /* ── Dropdown rendering ────────────────────────────────────────────────── */
+    /* Dropdown rendering */
 
     const buildRow = (label, sublabel, url, iconClass) => {
         const a = document.createElement('a');
@@ -224,7 +224,7 @@
         dropdown.classList.add('nav-search-dropdown--visible');
     };
 
-    /* ── Fetch suggestions (debounced) ─────────────────────────────────────── */
+    /* Fetch suggestions (debounced) */
 
     const fetchSuggestions = (q) => {
         clearTimeout(debounceTimer);
@@ -238,7 +238,7 @@
         }, 220);
     };
 
-    /* ── Enter-key smart routing ───────────────────────────────────────────── */
+    /* Enter-key smart routing */
 
     const handleEnter = (e) => {
         if (e.key !== 'Enter') return;
@@ -269,7 +269,7 @@
         }
     };
 
-    /* ── Event wiring ──────────────────────────────────────────────────────── */
+    /* Event wiring */
 
     input.addEventListener('input', () => {
         const q = input.value.trim();

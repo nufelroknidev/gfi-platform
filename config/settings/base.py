@@ -108,7 +108,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ── Email ─────────────────────────────────────────────────────────────────────
+# Email
 EMAIL_BACKEND = env('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 EMAIL_HOST = env('EMAIL_HOST', default='smtp.gmail.com')
 EMAIL_PORT = env.int('EMAIL_PORT', default=587)
@@ -118,10 +118,10 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@gfi.example.com')
 CONTACT_EMAIL = env('CONTACT_EMAIL', default='info@gfi.example.com')
 
-# ── Analytics ─────────────────────────────────────────────────────────────────
+# Analytics
 GA_TRACKING_ID = env('GA_TRACKING_ID', default='')
 
-# ── Summernote (rich text editor) ─────────────────────────────────────────
+# Summernote (rich text editor)
 SUMMERNOTE_CONFIG = {
     "summernote": {
         "width": "100%",
@@ -141,7 +141,7 @@ SUMMERNOTE_CONFIG = {
     "attachment_filesize_limit": 5 * 1024 * 1024,  # 5 MB
 }
 
-# ── Django Jazzmin (admin UI) ──────────────────────────────────────────────
+# Django Jazzmin (admin UI)
 JAZZMIN_SETTINGS = {
     "site_title": "GFI Admin",
     "site_header": "General Food Industry",

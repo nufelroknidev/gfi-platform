@@ -1,10 +1,8 @@
 /* =============================================================================
-   GFI — Footer
-   Dark forest-green footer: brand column, nav columns, contact, bottom bar.
-   ============================================================================= */
+   GFI */
 
 .footer-gfi {
-    /* Scoped token — dim white used throughout the footer for secondary text */
+    /* Scoped token */
     --footer-dim: var(--footer-dim);
 
     background-color: var(--gfi-charcoal-green);
@@ -15,7 +13,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ── Brand column ─────────────────────────────────────────────────────────── */
+/* Brand column */
 
 .footer-logo {
     height: 48px;
@@ -37,7 +35,7 @@
     padding-left: 0.75rem;
 }
 
-/* ── Nav columns — vertical separator ────────────────────────────────────── */
+/* Nav columns */
 
 .footer-nav-col {
     padding-left: 1.75rem;
@@ -53,7 +51,7 @@
     }
 }
 
-/* ── Column headings ──────────────────────────────────────────────────────── */
+/* Column headings */
 
 .footer-heading {
     color: #fff;
@@ -86,7 +84,7 @@
     border-radius: 1px;
 }
 
-/* ── Nav links ────────────────────────────────────────────────────────────── */
+/* Nav links */
 
 .footer-links li {
     margin-bottom: 0.5rem;
@@ -109,7 +107,7 @@
     color: var(--gfi-vivid-gold);
 }
 
-/* ── Contact list ─────────────────────────────────────────────────────────── */
+/* Contact list */
 
 .footer-contact-list {
     display: flex;
@@ -145,7 +143,7 @@
     color: var(--gfi-vivid-gold);
 }
 
-/* ── Social icons — brand-coloured pill style ─────────────────────────────── */
+/* Social icons */
 
 .footer-social a {
     display: inline-flex;
@@ -177,7 +175,7 @@
 .footer-social a[data-brand="wechat"]     { background-color: var(--brand-wechat); }
 .footer-social a[data-brand="email"]      { background: var(--brand-email); }
 
-/* ── Bottom bar ───────────────────────────────────────────────────────────── */
+/* Bottom bar */
 
 .footer-bottom {
     padding: 1.25rem 0;

@@ -1,9 +1,7 @@
 /* =============================================================================
-   GFI — Products
-   Product filter panel, cards, badges, and detail page styles.
-   ============================================================================= */
+   GFI */
 
-/* ── Product section swap animation ──────────────────────────────────────── */
+/* Product section swap animation */
 
 #products-section {
     transition: opacity 150ms ease, transform 150ms ease;
@@ -15,7 +13,7 @@
     pointer-events: none;
 }
 
-/* ── Empty search state ───────────────────────────────────────────────────── */
+/* Empty search state */
 
 .product-empty-state {
     text-align: center;
@@ -47,7 +45,7 @@
     margin: 0;
 }
 
-/* ── Filter panel — sidebar ───────────────────────────────────────────────── */
+/* Filter panel */
 
 .product-filter-panel {
     border: 1px solid var(--gfi-border);
@@ -131,7 +129,7 @@
     flex-shrink: 0;
 }
 
-/* ── Active filter badges (above grid) ───────────────────────────────────── */
+/* Active filter badges (above grid) */
 
 .badge-filter {
     display: inline-flex;
@@ -145,7 +143,7 @@
     font-weight: 600;
 }
 
-/* ── Certification badges on cards ───────────────────────────────────────── */
+/* Certification badges on cards */
 
 .product-card__ids {
     margin-bottom: 0.5rem;
@@ -202,7 +200,7 @@
     font-weight: 600;
 }
 
-/* ── Product detail page ──────────────────────────────────────────────────── */
+/* Product detail page */
 
 @media (min-width: 768px) {
     .product-detail__image-col {

@@ -79,11 +79,11 @@ def _filter_context(request):
     """Build context data needed to render the filter sidebar."""
     return {
         'all_certifications': Certification.objects.all(),
-        'all_applications':   Application.objects.all(),
-        'origin_choices':     ORIGIN_CHOICES,
-        'active_certs':       request.GET.getlist('cert'),
-        'active_apps':        request.GET.getlist('app'),
-        'active_origin':      request.GET.get('origin', ''),
+        'all_applications': Application.objects.all(),
+        'origin_choices': ORIGIN_CHOICES,
+        'active_certs': request.GET.getlist('cert'),
+        'active_apps': request.GET.getlist('app'),
+        'active_origin': request.GET.get('origin', ''),
     }
 
 
@@ -92,7 +92,7 @@ def _paginate(request, queryset):
     return paginator.get_page(request.GET.get('page', 1))
 
 
-# ── Views ─────────────────────────────────────────────────────────────────────
+# Views
 
 def product_list_all(request):
     all_categories = Category.objects.all()
@@ -105,10 +105,10 @@ def product_list_all(request):
     page = _paginate(request, products)
 
     context = {
-        'category':       None,
+        'category': None,
         'all_categories': all_categories,
-        'page':           page,
-        'q':              q,
+        'page': page,
+        'q': q,
         **_filter_context(request),
     }
 
@@ -138,10 +138,10 @@ def product_list(request, category_slug):
     page = _paginate(request, products)
 
     context = {
-        'category':       category,
+        'category': category,
         'all_categories': all_categories,
-        'page':           page,
-        'q':              q,
+        'page': page,
+        'q': q,
         **_filter_context(request),
     }
 
@@ -190,9 +190,9 @@ def search_suggest(request):
         ],
         'products': [
             {
-                'name':     p.name,
+                'name': p.name,
                 'category': p.category.name,
-                'url':      reverse('products:detail', args=[p.category.slug, p.slug]),
+                'url': reverse('products:detail', args=[p.category.slug, p.slug]),
             }
             for p in products_qs
         ],

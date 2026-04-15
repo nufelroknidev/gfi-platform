@@ -8,7 +8,7 @@
 (() => {
     'use strict';
 
-    /* ── Back-to-top ─────────────────────────────────────────────────────── */
+    /* Back-to-top */
 
     const btn = document.getElementById('backToTop');
     if (!btn) return;

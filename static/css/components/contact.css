@@ -1,9 +1,7 @@
 /* =============================================================================
-   GFI — Contact Page
-   Contact form card and info panel.
-   ============================================================================= */
+   GFI */
 
-/* Info panel — green gradient sidebar */
+/* Info panel */
 .contact-info {
     background: linear-gradient(160deg, var(--gfi-green) 0%, var(--gfi-green-dark) 100%);
     border-radius: var(--gfi-radius);

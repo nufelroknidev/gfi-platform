@@ -38,9 +38,9 @@ def site_globals(request):
         _FALLBACK_LANGUAGE,
     )
     return {
-        'GA_TRACKING_ID':      getattr(settings, 'GA_TRACKING_ID', ''),
+        'GA_TRACKING_ID': getattr(settings, 'GA_TRACKING_ID', ''),
         'SUPPORTED_LANGUAGES': SUPPORTED_LANGUAGES,
-        'LANGUAGE_CODE':       lang_code,
-        'CURRENT_LANGUAGE':    current_lang,
-        'SITE_SETTINGS':       _get_site_settings(),
+        'LANGUAGE_CODE': lang_code,
+        'CURRENT_LANGUAGE': current_lang,
+        'SITE_SETTINGS': _get_site_settings(),
     }

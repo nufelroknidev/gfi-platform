@@ -1,10 +1,8 @@
 /* =============================================================================
-   GFI — Design Tokens
-   Single source of truth for all brand colours, spacing, shadow and timing.
-   ============================================================================= */
+   GFI */
 
 :root {
-    /* Colour — brand */
+    /* Colour */
     --gfi-green:            #1A5C38;
     --gfi-green-dark:       #154d2f;
     --gfi-green-light:      #d4e8db;
@@ -14,7 +12,7 @@
     --gfi-dark:             #1a1f1c;
     --gfi-charcoal-green:   #081c11;
 
-    /* Colour — badge surfaces */
+    /* Colour */
     --gfi-cert-bg:          #e8f5ee;
     --gfi-cert-border:      #b2d9c1;
     --gfi-cert-shadow:      rgba(26, 92, 56, 0.18);
@@ -22,7 +20,7 @@
     --gfi-app-text:         #7a5a00;
     --gfi-app-border:       #f0d060;
 
-    /* Colour — neutral */
+    /* Colour */
     --gfi-bg:               #F9F6F0;
     --gfi-text:             #2C2C2C;
     --gfi-muted:            #6B7280;
@@ -41,7 +39,7 @@
     /* Motion */
     --gfi-transition:       0.22s ease;
 
-    /* Third-party brand colours — do not change these */
+    /* Third-party brand colours */
     --brand-linkedin:       #0A66C2;
     --brand-facebook:       #1877F2;
     --brand-instagram:      radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -51,5 +49,6 @@
     --brand-whatsapp:       #25D366;
     --brand-line:           #06C755;
     --brand-wechat:         #07C160;
+    --brand-phone:          linear-gradient(135deg, #34C759 0%, #28a745 100%);
     --brand-email:          linear-gradient(135deg, #EA4335 0%, #c0392b 100%);
 }

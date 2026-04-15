@@ -1,14 +1,11 @@
 /* =============================================================================
-   GFI — Main CSS Entry Point
-   Import manifest only. All rules live in their respective component files.
-   Load order matters: tokens → base → components.
-   ============================================================================= */
+   GFI */
 
-/* ── Foundations ──────────────────────────────────────────────────────────── */
+/* Foundations */
 @import url("tokens.css");
 @import url("base.css");
 
-/* ── Components ───────────────────────────────────────────────────────────── */
+/* Components */
 @import url("components/buttons.css");
 @import url("components/topbar.css");
 @import url("components/navbar.css");

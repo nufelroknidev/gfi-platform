@@ -1,7 +1,5 @@
 /* =============================================================================
-   GFI — Placeholders
-   Image and map placeholder blocks used before real media is available.
-   ============================================================================= */
+   GFI */
 
 /* Generic image placeholder */
 .img-placeholder {
@@ -114,7 +112,7 @@
     text-decoration: underline;
 }
 
-/* Footer variant — adapts to dark background */
+/* Footer variant */
 .map-placeholder--footer {
     background-color: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.12);

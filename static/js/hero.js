@@ -11,13 +11,13 @@
 (() => {
     'use strict';
 
-    /* ── 1. Hero slide backgrounds ─────────────────────────────────────────── */
+    /* 1. Hero slide backgrounds */
 
     document.querySelectorAll('.hero__slide[data-bg]').forEach(el => {
         el.style.backgroundImage = `url(${el.dataset.bg})`;
     });
 
-    /* ── 2. Stat counter animation ─────────────────────────────────────────── */
+    /* 2. Stat counter animation */
 
     const counters     = document.querySelectorAll('.stat-number');
     const statsSection = document.querySelector('.stats-section');

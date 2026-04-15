@@ -1,7 +1,5 @@
 /* =============================================================================
-   GFI — Hero
-   Full-width carousel hero section on the homepage.
-   ============================================================================= */
+   GFI */
 
 .hero {
     position: relative;
@@ -34,7 +32,7 @@
     background-position: center;
 }
 
-/* Gradient scrim — transparent top, dark bottom (where text lives) */
+/* Gradient scrim */
 .hero__overlay {
     position: absolute;
     inset: 0;
@@ -140,7 +138,7 @@
     isolation: isolate;
 }
 
-/* Soft feathered vignette behind the subtitle — pure gradient, no hard boundary */
+/* Soft feathered vignette behind the subtitle */
 .hero__subtitle::before {
     content: '';
     position: absolute;
@@ -212,7 +210,7 @@
         gap: 0.5rem;
     }
 
-    /* Hide the decorative gold side-lines — too wide for narrow screens */
+    /* Hide the decorative gold side-lines */
     .hero__eyebrow::before,
     .hero__eyebrow::after {
         display: none;

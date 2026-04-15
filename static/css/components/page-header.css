@@ -1,7 +1,5 @@
 /* =============================================================================
-   GFI — Page Header
-   Green gradient banner at the top of interior pages (About, Services, etc.).
-   ============================================================================= */
+   GFI */
 
 .page-header {
     background: linear-gradient(135deg, var(--gfi-green) 0%, var(--gfi-green-dark) 100%);
@@ -46,7 +44,7 @@
     text-decoration: underline;
 }
 
-/* ── Breadcrumb bar (sits below the page-header on detail pages) ─────────── */
+/* Breadcrumb bar (sits below the page-header on detail pages) */
 
 .breadcrumb-bar {
     background-color: #fff;

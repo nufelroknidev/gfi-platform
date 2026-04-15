@@ -1,7 +1,5 @@
 /* =============================================================================
-   GFI — CTA Sections
-   Call-to-action blocks: soft background (cta-gold) and green (cta-green).
-   ============================================================================= */
+   GFI */
 
 /* Soft warm background variant */
 .cta-gold {
@@ -30,7 +28,7 @@
     color: #fff;
 }
 
-/* Forest green variant — used on About page */
+/* Forest green variant */
 .cta-green {
     background-color: var(--gfi-green);
     color: #fff;
@@ -38,7 +36,7 @@
     overflow: hidden;
 }
 
-/* Decorative circle — depth effect */
+/* Decorative circle */
 .cta-green::before {
     content: '';
     position: absolute;

@@ -1,10 +1,7 @@
 /* =============================================================================
-   GFI — Cards
-   All card variants: feature, service, category, value, product, news,
-   search-result. Grouped here because they share the same base pattern.
-   ============================================================================= */
+   GFI */
 
-/* ── Feature cards — homepage "What We Do" strip ─────────────────────────── */
+/* Feature cards */
 
 .feature-card {
     border: 1px solid var(--gfi-border);
@@ -51,7 +48,7 @@
     line-height: 1.65;
 }
 
-/* ── Service cards — Services page ───────────────────────────────────────── */
+/* Service cards */
 
 .service-card {
     border: 1px solid var(--gfi-border);
@@ -117,7 +114,7 @@
     background-color: var(--gfi-vivid-gold);
 }
 
-/* ── Category cards — homepage grid + product listing ────────────────────── */
+/* Category cards */
 
 .category-card {
     display: block;
@@ -149,7 +146,7 @@
     padding: 1rem 1.25rem;
 }
 
-/* Extended category card — icon/image area on listing page */
+/* Extended category card */
 .category-card__img {
     width: 100%;
     height: 140px;
@@ -167,7 +164,7 @@
     background-color: var(--gfi-green-faint);
 }
 
-/* ── Value cards — About page ─────────────────────────────────────────────── */
+/* Value cards */
 
 .value-card {
     border: 1px solid var(--gfi-border);
@@ -221,7 +218,7 @@
     line-height: 1.65;
 }
 
-/* ── Product cards + News cards — shared base ────────────────────────────── */
+/* Product cards + News cards */
 
 .product-card,
 .news-card {
@@ -249,7 +246,7 @@
     flex: 1;
 }
 
-/* ── Product card — modifiers ────────────────────────────────────────────── */
+/* Product card */
 
 .product-card__img {
     width: 100%;
@@ -282,7 +279,7 @@
     line-height: 1.6;
 }
 
-/* ── News card — modifiers ───────────────────────────────────────────────── */
+/* News card */
 
 .news-card__img {
     width: 100%;

@@ -23,9 +23,7 @@
     const FADE_OUT = 150;
     const FADE_IN  = 220;
 
-    /* ------------------------------------------------------------------ */
-    /* Full section swap                                                    */
-    /* ------------------------------------------------------------------ */
+    /* Full section swap */
 
     const swapContent = (html) => new Promise((resolve) => {
         section.classList.add('is-swapping');
@@ -51,9 +49,7 @@
             .catch(() => { window.location.href = url; });
     };
 
-    /* ------------------------------------------------------------------ */
-    /* Build URLs                                                           */
-    /* ------------------------------------------------------------------ */
+    /* Build URLs */
 
     /**
      * Build a URL for a filter change (certification / application / origin).
@@ -92,9 +88,7 @@
         return url.toString();
     };
 
-    /* ------------------------------------------------------------------ */
-    /* Load More                                                            */
-    /* ------------------------------------------------------------------ */
+    /* Load More */
 
     const bindLoadMore = () => {
         const btn = section.querySelector('.js-load-more');
@@ -126,9 +120,7 @@
         });
     };
 
-    /* ------------------------------------------------------------------ */
-    /* Category sidebar text filter (client-side, no server request)       */
-    /* ------------------------------------------------------------------ */
+    /* Category sidebar text filter (client-side, no server request) */
 
     const bindCategoryFilter = () => {
         const input = section.querySelector('#category-filter');
@@ -161,9 +153,7 @@
         });
     };
 
-    /* ------------------------------------------------------------------ */
-    /* Bind everything                                                      */
-    /* ------------------------------------------------------------------ */
+    /* Bind everything */
 
     const bindAll = () => {
 

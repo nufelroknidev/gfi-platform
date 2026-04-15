@@ -1,10 +1,7 @@
 /* =============================================================================
-   GFI — Navbar
-   Primary navigation bar: logo, links, search, CTA button.
-   States: default (over content), past-hero (scrolled), search-open/hover.
-   ============================================================================= */
+   GFI */
 
-/* ── Base ─────────────────────────────────────────────────────────────────── */
+/* Base */
 
 .navbar-gfi {
     background-color: #fff;
@@ -21,7 +18,7 @@
                 min-height 0.25s ease;
 }
 
-/* ── Past-hero state (scrolled past hero / page-header) ──────────────────── */
+/* Past-hero state (scrolled past hero / page-header) */
 
 .navbar-gfi--past-hero {
     background-color: var(--gfi-green-dark);
@@ -79,7 +76,7 @@
     color: #fff;
 }
 
-/* ── Brand / Logo ─────────────────────────────────────────────────────────── */
+/* Brand / Logo */
 
 .navbar-gfi .navbar-brand {
     display: flex;
@@ -96,7 +93,7 @@
     transition: filter 0.3s ease;
 }
 
-/* ── Nav links ────────────────────────────────────────────────────────────── */
+/* Nav links */
 
 .navbar-gfi .nav-link {
     position: relative;
@@ -152,7 +149,7 @@
     background-color: var(--gfi-vivid-gold);
 }
 
-/* ── CTA button — "Request a Quote" ──────────────────────────────────────── */
+/* CTA button */
 
 .navbar-gfi .nav-cta {
     border: 1.5px solid var(--gfi-green);
@@ -193,7 +190,7 @@
     margin-left: 2rem;
 }
 
-/* ── Toggler ──────────────────────────────────────────────────────────────── */
+/* Toggler */
 
 .navbar-gfi .navbar-toggler {
     border-color: var(--gfi-green);
@@ -204,7 +201,7 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231A5C38' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* ── Inline search ────────────────────────────────────────────────────────── */
+/* Inline search */
 
 .nav-search-item {
     display: flex;
@@ -309,7 +306,7 @@
     color: var(--gfi-text);
 }
 
-/* Hover state — lightweight expand */
+/* Hover state */
 .navbar-gfi.search-hover .nav-search-item {
     max-width: 14rem;
 }
@@ -390,7 +387,7 @@
     color: #fff;
 }
 
-/* ── Collapse layout ──────────────────────────────────────────────────────── */
+/* Collapse layout */
 
 @media (min-width: 992px) {
     .navbar-gfi .navbar-collapse {
@@ -405,7 +402,7 @@
     }
 }
 
-/* ── Mobile (below lg) ────────────────────────────────────────────────────── */
+/* Mobile (below lg) */
 
 @media (max-width: 991.98px) {
     /* Smaller logo on mobile so it doesn't crowd the toggler row */
@@ -420,7 +417,7 @@
         padding: 0.25rem;
     }
 
-    /* Collapsed menu — border and spacing */
+    /* Collapsed menu */
     .navbar-gfi .navbar-collapse {
         border-top: 1px solid var(--gfi-border-light);
         padding-top: 0.25rem;
@@ -438,7 +435,7 @@
         border-bottom: 1px solid var(--gfi-border-light);
     }
 
-    /* Hide the animated underline in mobile menu — not applicable */
+    /* Hide the animated underline in mobile menu */
     .navbar-gfi .nav-link::after {
         display: none;
     }
@@ -448,7 +445,7 @@
         border-bottom: none;
     }
 
-    /* "Request a Quote" — full-width pill in mobile menu */
+    /* "Request a Quote" */
     .navbar-gfi .nav-item--cta {
         padding: 0.5rem 0.5rem 0.25rem;
         margin-left: 0;
@@ -467,7 +464,7 @@
     }
 }
 
-/* ── Mobile search bar ────────────────────────────────────────────────────── */
+/* Mobile search bar */
 
 .mobile-search-bar {
     position: absolute;
@@ -489,7 +486,7 @@
     padding: 0.6rem 0;
 }
 
-/* Hide entirely at desktop — only for mobile where the toggler is visible */
+/* Hide entirely at desktop */
 @media (min-width: 992px) {
     .mobile-search-bar {
         display: none;
@@ -558,7 +555,7 @@
     background-color: var(--gfi-green-dark);
 }
 
-/* ── Responsive tightening — 992px to 1199px ─────────────────────────────── */
+/* Responsive tightening */
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .navbar-logo {
@@ -598,7 +595,7 @@
     }
 }
 
-/* ── Live-search dropdown ─────────────────────────────────────────────────── */
+/* Live-search dropdown */
 
 .nav-search-dropdown {
     display: none;
@@ -682,7 +679,7 @@
     position: relative;
 }
 
-/* ── Search results card ──────────────────────────────────────────────────── */
+/* Search results card */
 
 .search-result-card {
     display: flex;

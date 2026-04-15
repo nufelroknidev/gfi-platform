@@ -1,7 +1,5 @@
 /* =============================================================================
-   GFI — Stats Strip
-   Animated counter section: "Why Choose GFI?" / "At a Glance".
-   ============================================================================= */
+   GFI */
 
 .stats-section {
     position: relative;
@@ -12,7 +10,7 @@
     position: relative;
 }
 
-/* Vertical rule between items — hidden on mobile */
+/* Vertical rule between items */
 .stat-item + .stat-item::before {
     content: '';
     position: absolute;

@@ -1,7 +1,5 @@
 /* =============================================================================
-   GFI — Buttons
-   Brand button variants extending Bootstrap's .btn base class.
-   ============================================================================= */
+   GFI */
 
 .btn-gfi-primary,
 .btn-gfi-gold,
@@ -57,7 +55,7 @@
     box-shadow: var(--gfi-shadow-sm);
 }
 
-/* Generic CTA button — used by section CTA blocks */
+/* Generic CTA button */
 .btn-cta {
     border-radius: var(--gfi-radius);
     font-weight: 600;
