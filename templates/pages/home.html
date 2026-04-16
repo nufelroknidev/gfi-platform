@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load static %}
 
-{% block title %}{% trans "General Food Industry Co., Ltd. — Food Additives & Ingredients" %}{% endblock %}
-{% block meta_description %}{% trans "GFI — Thailand-based food additive importer, exporter and distributor. Certified ingredients for food manufacturers across Southeast Asia." %}{% endblock %}
-{% block og_title %}{% trans "General Food Industry Co., Ltd. — Food Additives & Ingredients" %}{% endblock %}
-{% block og_description %}{% trans "GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia. Contact us for your sourcing needs." %}{% endblock %}
+{% block title %}General Food Industry Co., Ltd. — Food Additives & Ingredients{% endblock %}
+{% block meta_description %}GFI — Thailand-based food additive importer, exporter and distributor. Certified ingredients for food manufacturers across Southeast Asia.{% endblock %}
+{% block og_title %}General Food Industry Co., Ltd. — Food Additives & Ingredients{% endblock %}
+{% block og_description %}GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia. Contact us for your sourcing needs.{% endblock %}
 
 {% block content %}
 
@@ -25,26 +25,26 @@
         </div>
         <div class="hero__overlay"></div>
         <div class="hero__content container">
-            <span class="hero__eyebrow"><span class="hero__eyebrow-halo">{% trans "General Food Industry Co., Ltd." %}</span></span>
+            <span class="hero__eyebrow"><span class="hero__eyebrow-halo">General Food Industry Co., Ltd.</span></span>
             <h1 class="hero__title display-5 mb-3">
-                {% trans "Your Trusted Partner in Food Additives & Ingredients" %}
+                Your Trusted Partner in Food Additives & Ingredients
             </h1>
             <p class="hero__subtitle lead mb-4">
-                {% trans "Import, export and distribution of certified food-grade ingredients across Southeast Asia — delivered with consistency and expertise." %}
+                Import, export and distribution of certified food-grade ingredients across Southeast Asia — delivered with consistency and expertise.
             </p>
             <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="{% url 'products:list' %}" class="btn btn-gfi-gold btn-lg px-4">
-                    {% trans "View Products" %}
+                    View Products
                 </a>
                 <a href="{% url 'contact:inquiry' %}" class="btn btn-outline-light btn-lg px-4">
-                    {% trans "Get in Touch" %}
+                    Get in Touch
                 </a>
             </div>
         </div>
         <div class="hero__indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="hero__dot active" aria-current="true" aria-label="{% trans 'Slide 1' %}"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class="hero__dot" aria-label="{% trans 'Slide 2' %}"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" class="hero__dot" aria-label="{% trans 'Slide 3' %}"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="hero__dot active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class="hero__dot" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" class="hero__dot" aria-label="Slide 3"></button>
         </div>
     </div>
 </section>
@@ -52,36 +52,36 @@
 <section class="bg-white py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">{% trans "What We Do" %}</h2>
-            <p class="text-muted mt-3">{% trans "End-to-end supply chain solutions for the food manufacturing industry." %}</p>
+            <h2 class="section-title">What We Do</h2>
+            <p class="text-muted mt-3">End-to-end supply chain solutions for the food manufacturing industry.</p>
         </div>
         <div class="row gy-4">
             <div class="col-sm-6 col-lg-3">
                 <div class="feature-card">
                     <i class="bi bi-globe2 feature-card__icon"></i>
-                    <h5 class="feature-card__title">{% trans "Import Sourcing" %}</h5>
-                    <p class="feature-card__text">{% trans "Certified food additives and ingredients sourced from trusted global suppliers." %}</p>
+                    <h5 class="feature-card__title">Import Sourcing</h5>
+                    <p class="feature-card__text">Certified food additives and ingredients sourced from trusted global suppliers.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="feature-card">
                     <i class="bi bi-truck feature-card__icon"></i>
-                    <h5 class="feature-card__title">{% trans "Export Distribution" %}</h5>
-                    <p class="feature-card__text">{% trans "Reliable export and regional distribution to food manufacturers across Southeast Asia." %}</p>
+                    <h5 class="feature-card__title">Export Distribution</h5>
+                    <p class="feature-card__text">Reliable export and regional distribution to food manufacturers across Southeast Asia.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="feature-card">
                     <i class="bi bi-building feature-card__icon"></i>
-                    <h5 class="feature-card__title">{% trans "Warehousing" %}</h5>
-                    <p class="feature-card__text">{% trans "Temperature-controlled storage facilities that maintain product quality and compliance." %}</p>
+                    <h5 class="feature-card__title">Warehousing</h5>
+                    <p class="feature-card__text">Temperature-controlled storage facilities that maintain product quality and compliance.</p>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="feature-card">
                     <i class="bi bi-person-gear feature-card__icon"></i>
-                    <h5 class="feature-card__title">{% trans "Technical Support" %}</h5>
-                    <p class="feature-card__text">{% trans "Product specification guidance and regulatory documentation support for your team." %}</p>
+                    <h5 class="feature-card__title">Technical Support</h5>
+                    <p class="feature-card__text">Product specification guidance and regulatory documentation support for your team.</p>
                 </div>
             </div>
         </div>
@@ -91,8 +91,8 @@
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">{% trans "Our Product Range" %}</h2>
-            <p class="text-muted mt-3">{% trans "A broad portfolio of food-grade additives and ingredients for every formulation need." %}</p>
+            <h2 class="section-title">Our Product Range</h2>
+            <p class="text-muted mt-3">A broad portfolio of food-grade additives and ingredients for every formulation need.</p>
         </div>
         <div class="row gy-4 gx-4">
             {% for category in categories %}
@@ -108,13 +108,13 @@
             </div>
             {% empty %}
             <div class="col-12 text-center text-muted py-3">
-                <p class="mb-0 small">{% trans "Product categories coming soon." %}</p>
+                <p class="mb-0 small">Product categories coming soon.</p>
             </div>
             {% endfor %}
         </div>
         <div class="text-center mt-5">
             <a href="{% url 'products:list' %}" class="btn btn-gfi-primary px-4">
-                {% trans "Browse All Products" %}
+                Browse All Products
             </a>
         </div>
     </div>
@@ -123,8 +123,8 @@
 <section class="bg-white py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">{% trans "Featured Products" %}</h2>
-            <p class="text-muted mt-3">{% trans "A selection from our catalog — browse the full range for everything we carry." %}</p>
+            <h2 class="section-title">Featured Products</h2>
+            <p class="text-muted mt-3">A selection from our catalog — browse the full range for everything we carry.</p>
         </div>
         <div class="row gy-4 gx-4">
             {% for product in featured_products %}
@@ -143,13 +143,13 @@
             </div>
             {% empty %}
             <div class="col-12 text-center text-muted py-3">
-                <p class="mb-0 small">{% trans "Products coming soon." %}</p>
+                <p class="mb-0 small">Products coming soon.</p>
             </div>
             {% endfor %}
         </div>
         <div class="text-center mt-5">
             <a href="{% url 'products:list' %}" class="btn btn-gfi-primary px-4">
-                {% trans "Browse All Products" %}
+                Browse All Products
             </a>
         </div>
     </div>
@@ -158,23 +158,23 @@
 <section class="stats-section py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">{% trans "Why Choose GFI?" %}</h2>
+            <h2 class="section-title">Why Choose GFI?</h2>
         </div>
         <div class="row gy-4 text-center">
             <div class="col-md-4 stat-item">
                 <p class="stat-number mb-0">10+</p>
-                <p class="stat-label mb-1">{% trans "Years of Experience" %}</p>
-                <p class="text-muted small mb-0">{% trans "Over a decade supplying the food industry in Thailand and the region." %}</p>
+                <p class="stat-label mb-1">Years of Experience</p>
+                <p class="text-muted small mb-0">Over a decade supplying the food industry in Thailand and the region.</p>
             </div>
             <div class="col-md-4 stat-item">
                 <p class="stat-number mb-0">500+</p>
-                <p class="stat-label mb-1">{% trans "Products Available" %}</p>
-                <p class="text-muted small mb-0">{% trans "An extensive catalog covering every major food additive category." %}</p>
+                <p class="stat-label mb-1">Products Available</p>
+                <p class="text-muted small mb-0">An extensive catalog covering every major food additive category.</p>
             </div>
             <div class="col-md-4 stat-item">
                 <p class="stat-number mb-0">15+</p>
-                <p class="stat-label mb-1">{% trans "Countries Sourced From" %}</p>
-                <p class="text-muted small mb-0">{% trans "Partnerships with certified suppliers across Asia, Europe, and the Americas." %}</p>
+                <p class="stat-label mb-1">Countries Sourced From</p>
+                <p class="text-muted small mb-0">Partnerships with certified suppliers across Asia, Europe, and the Americas.</p>
             </div>
         </div>
     </div>

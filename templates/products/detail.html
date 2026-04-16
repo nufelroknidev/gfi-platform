@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load i18n static product_tags %}
+{% load static product_tags %}
 
-{% block title %}{% if product.meta_title %}{{ product.meta_title }}{% else %}{{ product.name }} — {% trans "GFI" %}{% endif %}{% endblock %}
-{% block meta_description %}{% if product.meta_description %}{{ product.meta_description }}{% else %}{% blocktrans with name=product.name %}{{ name }} — food additive available through General Food Industry Co., Ltd.{% endblocktrans %}{% endif %}{% endblock %}
-{% block og_title %}{{ product.name }} — {% trans "GFI" %}{% endblock %}
-{% block og_description %}{% if product.description %}{{ product.description|truncatewords:30 }}{% else %}{% blocktrans with name=product.name %}{{ name }} — food additive available through General Food Industry Co., Ltd.{% endblocktrans %}{% endif %}{% endblock %}
+{% block title %}{% if product.meta_title %}{{ product.meta_title }}{% else %}{{ product.name }} — GFI{% endif %}{% endblock %}
+{% block meta_description %}{% if product.meta_description %}{{ product.meta_description }}{% else %}{{ product.name }} — food additive available through General Food Industry Co., Ltd.{% endif %}{% endblock %}
+{% block og_title %}{{ product.name }} — GFI{% endblock %}
+{% block og_description %}{% if product.description %}{{ product.description|truncatewords:30 }}{% else %}{{ product.name }} — food additive available through General Food Industry Co., Ltd.{% endif %}{% endblock %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="{% url 'products:list' %}"><i class="bi bi-box-seam me-1"></i>{% trans "Products" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products:list' %}"><i class="bi bi-box-seam me-1"></i>Products</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'products:category' category.slug %}">{{ category.name }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
             </ol>
@@ -39,14 +39,14 @@
                     {% else %}
                     <div class="product-detail__img-placeholder">
                         <i class="bi bi-image product-detail__img-placeholder-icon"></i>
-                        <span>{% trans "No image available" %}</span>
+                        <span>No image available</span>
                     </div>
                     {% endif %}
 
                     {% if product.datasheet %}
                     <div class="product-detail__media-card-footer">
                         <a href="{{ product.datasheet.url }}" class="btn btn-outline-secondary w-100" target="_blank" rel="noopener">
-                            <i class="bi bi-file-earmark-pdf me-2"></i>{% trans "Download Technical Data Sheet" %}
+                            <i class="bi bi-file-earmark-pdf me-2"></i>Download Technical Data Sheet
                         </a>
                     </div>
                     {% endif %}
@@ -61,25 +61,25 @@
                 <div class="product-detail__id-strip mb-4">
                     {% if product.cas_number %}
                     <div class="product-detail__id-item">
-                        <span class="product-detail__id-label">{% trans "CAS No." %}</span>
+                        <span class="product-detail__id-label">CAS No.</span>
                         <span class="product-detail__id-value">{{ product.cas_number }}</span>
                     </div>
                     {% endif %}
                     {% if product.e_number %}
                     <div class="product-detail__id-item">
-                        <span class="product-detail__id-label">{% trans "E-Number" %}</span>
+                        <span class="product-detail__id-label">E-Number</span>
                         <span class="product-detail__id-value">{{ product.e_number }}</span>
                     </div>
                     {% endif %}
                     {% if product.origin %}
                     <div class="product-detail__id-item">
-                        <span class="product-detail__id-label">{% trans "Origin" %}</span>
+                        <span class="product-detail__id-label">Origin</span>
                         <span class="product-detail__id-value">{{ product.get_origin_display }}</span>
                     </div>
                     {% endif %}
                     {% if product.available_forms %}
                     <div class="product-detail__id-item">
-                        <span class="product-detail__id-label">{% trans "Form" %}</span>
+                        <span class="product-detail__id-label">Form</span>
                         <span class="product-detail__id-value">{{ product.available_forms }}</span>
                     </div>
                     {% endif %}
@@ -88,7 +88,7 @@
 
                 {% if product.description %}
                 <div class="mb-4">
-                    <p class="product-detail__section-label">{% trans "Description" %}</p>
+                    <p class="product-detail__section-label">Description</p>
                     <p class="text-muted mb-0">{{ product.description }}</p>
                 </div>
                 {% endif %}
@@ -96,7 +96,7 @@
                 <!-- Certifications -->
                 {% if product.certifications.exists %}
                 <div class="mb-4">
-                    <p class="product-detail__section-label">{% trans "Certifications" %}</p>
+                    <p class="product-detail__section-label">Certifications</p>
                     <div class="d-flex flex-wrap gap-2">
                         {% for cert in product.certifications.all %}
                         <span class="badge-cert badge-cert--lg">{{ cert.name }}</span>
@@ -108,7 +108,7 @@
                 <!-- Applications -->
                 {% if product.applications.exists %}
                 <div class="mb-4">
-                    <p class="product-detail__section-label">{% trans "Applications" %}</p>
+                    <p class="product-detail__section-label">Applications</p>
                     <div class="d-flex flex-wrap gap-2">
                         {% for app in product.applications.all %}
                         <span class="badge-app">{{ app.name }}</span>
@@ -121,7 +121,7 @@
                 {% if product.specifications %}
                 {% with rows=product.specifications|parse_specs %}
                 <div class="product-detail__specs mb-4">
-                    <h6 class="product-detail__specs-heading">{% trans "Specifications" %}</h6>
+                    <h6 class="product-detail__specs-heading">Specifications</h6>
                     {% if rows %}
                     <table class="product-detail__specs-table">
                         <tbody>
@@ -148,10 +148,10 @@
 
                 <div class="d-flex flex-wrap gap-3 mt-4">
                     <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-4">
-                        {% trans "Send Inquiry" %}
+                        Send Inquiry
                     </a>
                     <a href="{% url 'products:category' category.slug %}" class="btn btn-outline-secondary btn-lg px-4">
-                        {% trans "Back to Category" %}
+                        Back to Category
                     </a>
                 </div>
 
@@ -164,7 +164,7 @@
 {% if related %}
 <section class="py-5 bg-white">
     <div class="container">
-        <h2 class="section-title mb-4">{% trans "More in This Category" %}</h2>
+        <h2 class="section-title mb-4">More in This Category</h2>
         <div class="row gy-4">
             {% for item in related %}
             <div class="col-sm-6 col-lg-3">
@@ -183,7 +183,7 @@
                         {% endif %}
                         <a href="{% url 'products:detail' item.category.slug item.slug %}"
                            class="btn btn-gfi-primary btn-sm mt-auto">
-                            {% trans "View Details" %}
+                            View Details
                         </a>
                     </div>
                 </div>

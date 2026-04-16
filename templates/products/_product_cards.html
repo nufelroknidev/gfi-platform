@@ -1,4 +1,4 @@
-{% load i18n static %}
+{% load static %}
 
 {% if not page.object_list %}
 <div class="col-12">
@@ -6,14 +6,14 @@
         <i class="bi bi-search product-empty-state__icon"></i>
         {% if q %}
         <p class="product-empty-state__title">
-            {% blocktrans with term=q %}No products match "{{ term }}".{% endblocktrans %}
+            No products match "{{ q }}".
         </p>
         <p class="product-empty-state__hint">
-            {% trans "Try a different keyword, a CAS number, or an E-number." %}
+            Try a different keyword, a CAS number, or an E-number.
         </p>
         {% else %}
-        <p class="product-empty-state__title">{% trans "No products match the selected filters." %}</p>
-        <p class="product-empty-state__hint">{% trans "Try removing one or more filters." %}</p>
+        <p class="product-empty-state__title">No products match the selected filters.</p>
+        <p class="product-empty-state__hint">Try removing one or more filters.</p>
         {% endif %}
     </div>
 </div>
@@ -51,7 +51,7 @@
 
             <a href="{% url 'products:detail' product.category.slug product.slug %}"
                class="btn btn-gfi-primary btn-sm mt-auto">
-                {% trans "View Details" %}
+                View Details
             </a>
         </div>
     </div>
@@ -62,7 +62,7 @@
 <div class="col-12 text-center mt-2" id="load-more-container">
     <button class="btn btn-outline-secondary js-load-more"
             data-next-page="{{ page.next_page_number }}">
-        {% trans "Show More" %}
+        Show More
     </button>
 </div>
 {% endif %}

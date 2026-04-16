@@ -1,15 +1,14 @@
 {% extends "base.html" %}
-{% load i18n %}
 
-{% block title %}{% trans "Contact — GFI" %}{% endblock %}
-{% block meta_description %}{% trans "Get in touch with General Food Industry Co., Ltd. for product inquiries, pricing, and distribution partnerships." %}{% endblock %}
+{% block title %}Contact — GFI{% endblock %}
+{% block meta_description %}Get in touch with General Food Industry Co., Ltd. for product inquiries, pricing, and distribution partnerships.{% endblock %}
 
 {% block content %}
 
 <section class="page-header">
     <div class="container">
-        <h1 class="section-title mb-2">{% trans "Contact Us" %}</h1>
-        <p class="mb-0">{% trans "Send us your inquiry and our team will respond within one business day." %}</p>
+        <h1 class="section-title mb-2">Contact Us</h1>
+        <p class="mb-0">Send us your inquiry and our team will respond within one business day.</p>
     </div>
 </section>
 
@@ -73,7 +72,7 @@
                             </div>
                             <div class="col-12 mt-2">
                                 <button type="submit" class="btn btn-gfi-primary px-5">
-                                    {% trans "Send Inquiry" %}
+                                    Send Inquiry
                                 </button>
                             </div>
                         </div>
@@ -84,12 +83,12 @@
 
             <div class="col-lg-4">
                 <div class="contact-info">
-                    <p class="contact-info__heading">{% trans "Get in Touch" %}</p>
+                    <p class="contact-info__heading">Get in Touch</p>
 
                     <div class="contact-info__item">
                         <i class="bi bi-building contact-info__icon"></i>
                         <div>
-                            <p class="contact-info__label mb-0">{% trans "Company" %}</p>
+                            <p class="contact-info__label mb-0">Company</p>
                             <p class="contact-info__value mb-0">General Food Industry Co., Ltd.</p>
                         </div>
                     </div>
@@ -97,7 +96,7 @@
                     <div class="contact-info__item">
                         <i class="bi bi-geo-alt contact-info__icon"></i>
                         <div>
-                            <p class="contact-info__label mb-0">{% trans "Address" %}</p>
+                            <p class="contact-info__label mb-0">Address</p>
                             <p class="contact-info__value mb-0">Bangkok, Thailand</p>
                         </div>
                     </div>
@@ -105,7 +104,7 @@
                     <div class="contact-info__item">
                         <i class="bi bi-envelope contact-info__icon"></i>
                         <div>
-                            <p class="contact-info__label mb-0">{% trans "Email" %}</p>
+                            <p class="contact-info__label mb-0">Email</p>
                             <a href="mailto:{{ SITE_SETTINGS.email }}" class="contact-info__value mb-0">{{ SITE_SETTINGS.email }}</a>
                         </div>
                     </div>
@@ -113,7 +112,7 @@
                     <div class="contact-info__item">
                         <i class="bi bi-telephone contact-info__icon"></i>
                         <div>
-                            <p class="contact-info__label mb-0">{% trans "Phone" %}</p>
+                            <p class="contact-info__label mb-0">Phone</p>
                             <a href="tel:{{ SITE_SETTINGS.phone_dialable }}" class="contact-info__value mb-0">{{ SITE_SETTINGS.phone }}</a>
                         </div>
                     </div>
@@ -121,8 +120,8 @@
                     <div class="contact-info__item">
                         <i class="bi bi-clock contact-info__icon"></i>
                         <div>
-                            <p class="contact-info__label mb-0">{% trans "Business Hours" %}</p>
-                            <p class="contact-info__value mb-0">{% trans "Mon – Fri, 9:00 – 18:00 (ICT)" %}</p>
+                            <p class="contact-info__label mb-0">Business Hours</p>
+                            <p class="contact-info__value mb-0">Mon – Fri, 9:00 – 18:00 (ICT)</p>
                         </div>
                     </div>
                 </div>

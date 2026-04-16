@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load static %}
 
-{% block title %}{{ category.name }} — {% trans "GFI Products" %}{% endblock %}
-{% block meta_description %}{% blocktrans with name=category.name %}Browse GFI's range of {{ name }} products.{% endblocktrans %}{% endblock %}
+{% block title %}{{ category.name }} — GFI Products{% endblock %}
+{% block meta_description %}Browse GFI's range of {{ category.name }} products.{% endblock %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-3">
-                <li class="breadcrumb-item"><a href="{% url 'products:list' %}">{% trans "Products" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products:list' %}">Products</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
             </ol>
         </nav>

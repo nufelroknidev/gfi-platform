@@ -1,14 +1,12 @@
-{% load i18n static %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_CODE == 'ar' %} dir="rtl"{% endif %}>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}General Food Industry Co., Ltd.{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}GFI — Thailand-based import, export and distribution of certified food additives and ingredients for Southeast Asia.{% endblock %}">
     <link rel="canonical" href="{{ CANONICAL_URL }}">
-    {% for alt in HREFLANG_URLS %}<link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.url }}">
-    {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ CANONICAL_URL_EN }}">
     <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicon-192.png' %}">
     <link rel="icon" type="image/png" sizes="48x48" href="{% static 'img/favicon-48.png' %}">
@@ -27,8 +25,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Flag Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
     <!-- GFI Styles -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 

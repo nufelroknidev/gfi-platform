@@ -1,19 +1,19 @@
-{% load i18n static %}
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-gfi" id="gfiNav"
-     data-no-match="{% trans 'No matches found' %}"
-     data-label-categories="{% trans 'Categories' %}"
-     data-label-products="{% trans 'Products' %}">
+     data-no-match="No matches found"
+     data-label-categories="Categories"
+     data-label-products="Products">
     <div class="container">
 
         <a class="navbar-brand" href="{% url 'pages:home' %}">
-            <img src="{% static 'img/logo.png' %}" alt="{% trans 'GFI — General Food Industry' %}" class="navbar-logo">
+            <img src="{% static 'img/logo.png' %}" alt="GFI — General Food Industry" class="navbar-logo">
         </a>
 
         <!-- Mobile-only controls: search icon + hamburger -->
         <div class="d-flex d-lg-none align-items-center gap-1 ms-auto">
             <button class="nav-search-btn navbar-mobile-search-btn" id="mobileSearchBtn"
                     type="button"
-                    aria-label="{% trans 'Search products' %}"
+                    aria-label="Search products"
                     aria-expanded="false"
                     aria-controls="mobileSearchBar">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -24,7 +24,7 @@
             <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse" data-bs-target="#gfiNavbar"
                     aria-controls="gfiNavbar" aria-expanded="false"
-                    aria-label="{% trans 'Toggle navigation' %}">
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
@@ -33,23 +33,23 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}"
-                       href="{% url 'pages:home' %}"><i class="bi bi-house me-1"></i>{% trans "Home" %}</a>
+                       href="{% url 'pages:home' %}"><i class="bi bi-house me-1"></i>Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if request.resolver_match.app_name == 'products' %} active{% endif %}"
-                       href="{% url 'products:list' %}"><i class="bi bi-box-seam me-1"></i>{% trans "Products" %}</a>
+                       href="{% url 'products:list' %}"><i class="bi bi-box-seam me-1"></i>Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if request.resolver_match.url_name == 'services' %} active{% endif %}"
-                       href="{% url 'pages:services' %}"><i class="bi bi-briefcase me-1"></i>{% trans "Services" %}</a>
+                       href="{% url 'pages:services' %}"><i class="bi bi-briefcase me-1"></i>Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if request.resolver_match.url_name == 'about' %} active{% endif %}"
-                       href="{% url 'pages:about' %}"><i class="bi bi-people me-1"></i>{% trans "About Us" %}</a>
+                       href="{% url 'pages:about' %}"><i class="bi bi-people me-1"></i>About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{% if request.resolver_match.app_name == 'news' %} active{% endif %}"
-                       href="{% url 'news:list' %}"><i class="bi bi-newspaper me-1"></i>{% trans "News" %}</a>
+                       href="{% url 'news:list' %}"><i class="bi bi-newspaper me-1"></i>News</a>
                 </li>
 
                 <!-- Desktop search (hidden on mobile — mobile has its own search bar) -->
@@ -58,32 +58,32 @@
                           class="nav-search-inline" role="search"
                           data-suggest-url="{% url 'products:suggest' %}">
                         <button class="nav-search-btn" id="searchToggle" type="button"
-                                aria-label="{% trans 'Search products' %}" aria-expanded="false">
+                                aria-label="Search products" aria-expanded="false">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <circle cx="11" cy="11" r="7"/>
                                 <line x1="16.5" y1="16.5" x2="22" y2="22"/>
                             </svg>
                         </button>
                         <input type="search" name="q" class="nav-search-inline-input"
-                               placeholder="{% trans 'Search products…' %}"
+                               placeholder="Search products…"
                                value="{{ request.GET.q|default:'' }}"
-                               aria-label="{% trans 'Search products' %}"
+                               aria-label="Search products"
                                autocomplete="off"
                                tabindex="-1">
                         <button type="button" class="nav-search-close-btn" id="searchClose"
-                                aria-label="{% trans 'Close search' %}" tabindex="-1">
+                                aria-label="Close search" tabindex="-1">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <line x1="18" y1="6" x2="6" y2="18"/>
                                 <line x1="6" y1="6" x2="18" y2="18"/>
                             </svg>
                         </button>
-                        <div class="nav-search-dropdown" id="searchDropdown" role="listbox" aria-label="{% trans 'Search suggestions' %}"></div>
+                        <div class="nav-search-dropdown" id="searchDropdown" role="listbox" aria-label="Search suggestions"></div>
                     </form>
                 </li>
 
                 <li class="nav-item nav-item--cta">
                     <a class="nav-link nav-cta{% if request.resolver_match.app_name == 'contact' %} active{% endif %}"
-                       href="{% url 'contact:inquiry' %}">{% trans "Request a Quote" %}</a>
+                       href="{% url 'contact:inquiry' %}">Request a Quote</a>
                 </li>
             </ul>
         </div>
@@ -95,11 +95,11 @@
         <div class="container">
             <form action="{% url 'products:list' %}" method="get" class="mobile-search-form">
                 <input type="search" name="q" class="mobile-search-input" id="mobileSearchInput"
-                       placeholder="{% trans 'Search products…' %}"
+                       placeholder="Search products…"
                        autocomplete="off"
-                       aria-label="{% trans 'Search products' %}"
+                       aria-label="Search products"
                        value="{{ request.GET.q|default:'' }}">
-                <button type="submit" class="mobile-search-submit" aria-label="{% trans 'Search' %}">
+                <button type="submit" class="mobile-search-submit" aria-label="Search">
                     <i class="bi bi-arrow-right" aria-hidden="true"></i>
                 </button>
             </form>

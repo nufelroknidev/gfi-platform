@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
@@ -15,7 +14,6 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('i18n/', include('django.conf.urls.i18n')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('favicon.ico', RedirectView.as_view(url='/static/img/favicon-48.png', permanent=True)),
@@ -25,14 +23,13 @@ urlpatterns += [
     path('summernote/', include('django_summernote.urls')),
 ]
 
-urlpatterns += i18n_patterns(
+urlpatterns += [
     path('admin/', admin.site.urls),
     path('', include('apps.pages.urls')),
     path('products/', include('apps.products.urls')),
     path('news/', include('apps.news.urls')),
     path('contact/', include('apps.contact.urls')),
-    prefix_default_language=False,
-)
+]
 
 if settings.DEBUG:
     import debug_toolbar
