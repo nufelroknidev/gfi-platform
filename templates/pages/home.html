@@ -2,7 +2,7 @@
 {% load i18n static %}
 
 {% block title %}{% trans "General Food Industry Co., Ltd. — Food Additives & Ingredients" %}{% endblock %}
-{% block meta_description %}{% trans "GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia. Contact us for your sourcing needs." %}{% endblock %}
+{% block meta_description %}{% trans "GFI — Thailand-based food additive importer, exporter and distributor. Certified ingredients for food manufacturers across Southeast Asia." %}{% endblock %}
 {% block og_title %}{% trans "General Food Industry Co., Ltd. — Food Additives & Ingredients" %}{% endblock %}
 {% block og_description %}{% trans "GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia. Contact us for your sourcing needs." %}{% endblock %}
 
@@ -182,6 +182,25 @@
 
 {% include "includes/prefooter.html" %}
 
+{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "General Food Industry Co., Ltd.",
+  "url": "{{ CANONICAL_DOMAIN }}/",
+  "logo": "{{ CANONICAL_DOMAIN }}{% static 'img/logo.svg' %}",
+  "description": "Thailand-based import, export and distribution of certified food additives and ingredients for food manufacturers across Southeast Asia.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "TH"
+  },
+  "areaServed": "Southeast Asia",
+  "knowsAbout": ["food additives", "food ingredients", "preservatives", "sweeteners", "thickeners", "stabilisers"]
+}
+</script>
 {% endblock %}
 
 {% block extra_js %}

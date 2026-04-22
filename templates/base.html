@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}General Food Industry Co., Ltd.{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}GFI — Import, export and distribution of food additives and ingredients.{% endblock %}">
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <meta name="description" content="{% block meta_description %}GFI — Thailand-based import, export and distribution of certified food additives and ingredients for Southeast Asia.{% endblock %}">
+    <link rel="canonical" href="{{ CANONICAL_URL }}">
+    {% for alt in HREFLANG_URLS %}<link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.url }}">
+    {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ CANONICAL_URL_EN }}">
     <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicon-192.png' %}">
     <link rel="icon" type="image/png" sizes="48x48" href="{% static 'img/favicon-48.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon-192.png' %}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <meta property="og:url" content="{{ CANONICAL_URL }}">
     <meta property="og:title" content="{% block og_title %}General Food Industry Co., Ltd. — Food Additives & Ingredients{% endblock %}">
     <meta property="og:description" content="{% block og_description %}GFI imports, exports, and distributes premium food additives and ingredients across Southeast Asia.{% endblock %}">
     <meta property="og:site_name" content="General Food Industry Co., Ltd.">

@@ -31,16 +31,48 @@ def _get_site_settings():
     return obj
 
 
+def _bare_path(path, lang_code):
+    """Strip non-default language prefix from path, returning the English-canonical form."""
+    if lang_code and lang_code != settings.LANGUAGE_CODE:
+        prefix = f'/{lang_code}/'
+        if path.startswith(prefix):
+            return '/' + path[len(prefix):]
+    return path
+
+
 def site_globals(request):
     lang_code = get_language() or settings.LANGUAGE_CODE
     current_lang = next(
         (l for l in SUPPORTED_LANGUAGES if l['code'] == lang_code),
         _FALLBACK_LANGUAGE,
     )
+
+    canonical_domain = getattr(settings, 'CANONICAL_DOMAIN', 'https://www.generalfoodindustry.com')
+    path = _bare_path(request.path, lang_code)
+    english_url = f"{canonical_domain}{path}"
+
+    if lang_code == settings.LANGUAGE_CODE:
+        canonical_url = english_url
+    else:
+        canonical_url = f"{canonical_domain}/{lang_code}{path}"
+
+    hreflang_urls = [
+        {
+            'lang': lang['code'],
+            'url': english_url if lang['code'] == settings.LANGUAGE_CODE
+                   else f"{canonical_domain}/{lang['code']}{path}",
+        }
+        for lang in SUPPORTED_LANGUAGES
+    ]
+
     return {
         'GA_TRACKING_ID': getattr(settings, 'GA_TRACKING_ID', ''),
         'SUPPORTED_LANGUAGES': SUPPORTED_LANGUAGES,
         'LANGUAGE_CODE': lang_code,
         'CURRENT_LANGUAGE': current_lang,
         'SITE_SETTINGS': _get_site_settings(),
+        'CANONICAL_DOMAIN': canonical_domain,
+        'CANONICAL_URL': canonical_url,
+        'CANONICAL_URL_EN': english_url,
+        'HREFLANG_URLS': hreflang_urls,
     }
