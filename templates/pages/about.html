@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load static %}
 
-{% block title %}{% trans "About Us — General Food Industry Co., Ltd." %}{% endblock %}
-{% block meta_description %}{% trans "Learn about GFI — our story, mission, and commitment to delivering quality food additives and ingredients across Southeast Asia." %}{% endblock %}
+{% block title %}About Us — General Food Industry Co., Ltd.{% endblock %}
+{% block meta_description %}Learn about GFI — our story, mission, and commitment to delivering quality food additives and ingredients across Southeast Asia.{% endblock %}
 
 {% block content %}
 
 <section class="page-header">
     <div class="container">
-        <h1 class="section-title mb-2">{% trans "About GFI" %}</h1>
-        <p class="mb-0">{% trans "A trusted partner to food manufacturers — built on quality, reliability, and long-term relationships." %}</p>
+        <h1 class="section-title mb-2">About GFI</h1>
+        <p class="mb-0">A trusted partner to food manufacturers — built on quality, reliability, and long-term relationships.</p>
     </div>
 </section>
 
@@ -17,25 +17,19 @@
     <div class="container">
         <div class="row gy-5 align-items-center">
             <div class="col-lg-7 pe-lg-4">
-                <h2 class="section-title mb-4">{% trans "Who We Are" %}</h2>
+                <h2 class="section-title mb-4">Who We Are</h2>
                 <p class="text-muted mb-3">
-                    {% blocktrans %}
                     General Food Industry Co., Ltd. (GFI) is a Bangkok-based company specialising in the import, export, and distribution of food additives and ingredients. We serve food and beverage manufacturers, processors, and producers throughout Thailand and across Southeast Asia.
-                    {% endblocktrans %}
                 </p>
                 <p class="text-muted mb-3">
-                    {% blocktrans %}
                     Founded on a commitment to quality and traceability, GFI works directly with certified global suppliers to ensure every product we handle meets the highest food safety standards. Our team combines deep product knowledge with strong logistics capabilities to deliver reliable supply chain solutions.
-                    {% endblocktrans %}
                 </p>
                 <p class="text-muted mb-0">
-                    {% blocktrans %}
                     We believe in building lasting partnerships — understanding our customers' formulation needs and supporting them with consistent supply, technical guidance, and responsive service.
-                    {% endblocktrans %}
                 </p>
             </div>
             <div class="col-lg-5">
-                <img src="{% static 'img/about-company.jpg' %}" alt="{% trans 'Food additives and ingredients' %}" class="img-fluid rounded shadow-sm">
+                <img src="{% static 'img/about-company.jpg' %}" alt="Food additives and ingredients" class="img-fluid rounded shadow-sm">
             </div>
         </div>
     </div>
@@ -44,8 +38,8 @@
 <section class="bg-white py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">{% trans "Our Values" %}</h2>
-            <p class="text-muted mt-3">{% trans "The principles that guide every decision we make." %}</p>
+            <h2 class="section-title">Our Values</h2>
+            <p class="text-muted mt-3">The principles that guide every decision we make.</p>
         </div>
         <div class="row gy-4">
             <div class="col-md-4">
@@ -53,8 +47,8 @@
                     <div class="value-card__icon-wrap">
                         <i class="bi bi-patch-check-fill value-card__icon"></i>
                     </div>
-                    <h5 class="value-card__title">{% trans "Quality" %}</h5>
-                    <p class="value-card__text">{% trans "We only supply products from certified, traceable sources that meet international food safety standards." %}</p>
+                    <h5 class="value-card__title">Quality</h5>
+                    <p class="value-card__text">We only supply products from certified, traceable sources that meet international food safety standards.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -62,8 +56,8 @@
                     <div class="value-card__icon-wrap">
                         <i class="bi bi-award-fill value-card__icon"></i>
                     </div>
-                    <h5 class="value-card__title">{% trans "Integrity" %}</h5>
-                    <p class="value-card__text">{% trans "Transparent pricing, honest communication, and consistent follow-through on every commitment." %}</p>
+                    <h5 class="value-card__title">Integrity</h5>
+                    <p class="value-card__text">Transparent pricing, honest communication, and consistent follow-through on every commitment.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -71,8 +65,8 @@
                     <div class="value-card__icon-wrap">
                         <i class="bi bi-people-fill value-card__icon"></i>
                     </div>
-                    <h5 class="value-card__title">{% trans "Partnership" %}</h5>
-                    <p class="value-card__text">{% trans "We invest in understanding your business so we can grow alongside you as a long-term supply partner." %}</p>
+                    <h5 class="value-card__title">Partnership</h5>
+                    <p class="value-card__text">We invest in understanding your business so we can grow alongside you as a long-term supply partner.</p>
                 </div>
             </div>
         </div>
@@ -84,19 +78,19 @@
         <div class="row gy-4 text-center">
             <div class="col-6 col-md-3 stat-item">
                 <p class="stat-number mb-0">10+</p>
-                <p class="stat-label mb-0">{% trans "Years in Business" %}</p>
+                <p class="stat-label mb-0">Years in Business</p>
             </div>
             <div class="col-6 col-md-3 stat-item">
                 <p class="stat-number mb-0">500+</p>
-                <p class="stat-label mb-0">{% trans "Products" %}</p>
+                <p class="stat-label mb-0">Products</p>
             </div>
             <div class="col-6 col-md-3 stat-item">
                 <p class="stat-number mb-0">15+</p>
-                <p class="stat-label mb-0">{% trans "Supplier Countries" %}</p>
+                <p class="stat-label mb-0">Supplier Countries</p>
             </div>
             <div class="col-6 col-md-3 stat-item">
                 <p class="stat-number mb-0">SEA</p>
-                <p class="stat-label mb-0">{% trans "Regional Coverage" %}</p>
+                <p class="stat-label mb-0">Regional Coverage</p>
             </div>
         </div>
     </div>
@@ -105,8 +99,8 @@
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-4">
-            <h2 class="section-title">{% trans "Where to Find Us" %}</h2>
-            <p class="text-muted mt-3">{% trans "Based in Bangkok, serving food manufacturers across Southeast Asia." %}</p>
+            <h2 class="section-title">Where to Find Us</h2>
+            <p class="text-muted mt-3">Based in Bangkok, serving food manufacturers across Southeast Asia.</p>
         </div>
         <div class="map-embed-wrap">
             <iframe
@@ -115,17 +109,17 @@
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="{% trans 'GFI location — Bangkok, Thailand' %}">
+                title="GFI location — Bangkok, Thailand">
             </iframe>
             <div class="map-embed__card">
                 <div class="map-embed__card-icon">
                     <i class="bi bi-geo-alt-fill"></i>
                 </div>
                 <div>
-                    <p class="map-embed__card-title">{% trans "Bangkok, Thailand" %}</p>
-                    <p class="map-embed__card-sub">{% trans "Serving Southeast Asia" %}</p>
+                    <p class="map-embed__card-title">Bangkok, Thailand</p>
+                    <p class="map-embed__card-sub">Serving Southeast Asia</p>
                     <a href="https://maps.google.com/?q=Bangkok,+Thailand" target="_blank" rel="noopener noreferrer" class="map-embed__card-link">
-                        {% trans "Get Directions" %} <i class="bi bi-arrow-up-right-circle-fill"></i>
+                        Get Directions <i class="bi bi-arrow-up-right-circle-fill"></i>
                     </a>
                 </div>
             </div>
@@ -135,12 +129,12 @@
 
 <section class="cta-green py-5">
     <div class="container text-center">
-        <h2 class="fw-bold mb-2">{% trans "Let's Work Together" %}</h2>
+        <h2 class="fw-bold mb-2">Let's Work Together</h2>
         <p class="cta__subtitle mb-4">
-            {% trans "Contact our team to discuss your ingredient sourcing requirements." %}
+            Contact our team to discuss your ingredient sourcing requirements.
         </p>
         <a href="{% url 'contact:inquiry' %}" class="btn btn-gfi-gold btn-lg px-5">
-            {% trans "Contact Us" %}
+            Contact Us
         </a>
     </div>
 </section>

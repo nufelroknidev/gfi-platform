@@ -1,4 +1,4 @@
-{% load i18n static %}
+{% load static %}
 <div class="container">
     <div class="row gy-4">
 
@@ -10,21 +10,21 @@
                     data-bs-target="#filterCollapse"
                     aria-expanded="false"
                     aria-controls="filterCollapse">
-                <i class="bi bi-funnel me-1"></i>{% trans "Filters" %}
+                <i class="bi bi-funnel me-1"></i>Filters
             </button>
             <div id="filterCollapse" class="collapse d-md-block">
             <div class="product-filter-panel">
 
                 <!-- Categories -->
-                <p class="product-filter-panel__heading">{% trans "Categories" %}</p>
+                <p class="product-filter-panel__heading">Categories</p>
                 <input type="search" id="category-filter" class="form-control form-control-sm mb-2"
-                       placeholder="{% trans 'Filter categories…' %}" autocomplete="off"
-                       data-no-match="{% trans 'No categories match.' %}">
+                       placeholder="Filter categories…" autocomplete="off"
+                       data-no-match="No categories match.">
                 <ul class="product-filter-panel__list mb-0" id="category-list">
                     <li>
                         <a href="{% url 'products:list' %}"
                            class="product-filter-panel__link js-filter-nav{% if not category %} active{% endif %}">
-                            {% trans "All Products" %}
+                            All Products
                         </a>
                     </li>
                     {% for cat in all_categories %}
@@ -39,7 +39,7 @@
 
                 {% if all_certifications %}
                 <hr class="product-filter-panel__divider">
-                <p class="product-filter-panel__heading">{% trans "Certifications" %}</p>
+                <p class="product-filter-panel__heading">Certifications</p>
                 <ul class="product-filter-panel__list mb-0">
                     {% for cert in all_certifications %}
                     <li>
@@ -55,7 +55,7 @@
 
                 {% if all_applications %}
                 <hr class="product-filter-panel__divider">
-                <p class="product-filter-panel__heading">{% trans "Applications" %}</p>
+                <p class="product-filter-panel__heading">Applications</p>
                 <ul class="product-filter-panel__list mb-0">
                     {% for app in all_applications %}
                     <li>
@@ -71,7 +71,7 @@
 
                 {% if origin_choices %}
                 <hr class="product-filter-panel__divider">
-                <p class="product-filter-panel__heading">{% trans "Origin" %}</p>
+                <p class="product-filter-panel__heading">Origin</p>
                 <ul class="product-filter-panel__list mb-0">
                     {% for value, label in origin_choices %}
                     <li>
@@ -85,7 +85,7 @@
                     {% if active_origin %}
                     <li>
                         <button type="button" class="btn btn-link btn-sm p-0 text-muted js-clear-origin">
-                            {% trans "Clear origin" %}
+                            Clear origin
                         </button>
                     </li>
                     {% endif %}
@@ -102,14 +102,14 @@
             <form method="get" class="mb-4 js-product-search">
                 <div class="input-group">
                     <input type="text" name="q" value="{{ q }}" class="form-control"
-                           placeholder="{% trans 'Search by name, CAS number, E-number…' %}">
-                    <button class="btn btn-gfi-primary" type="submit" aria-label="{% trans 'Search products' %}">
+                           placeholder="Search by name, CAS number, E-number…">
+                    <button class="btn btn-gfi-primary" type="submit" aria-label="Search products">
                         <i class="bi bi-search" aria-hidden="true"></i>
                     </button>
                     {% if q %}
                     <a href="{% if category %}{% url 'products:category' category.slug %}{% else %}{% url 'products:list' %}{% endif %}"
                        class="btn btn-outline-secondary js-filter-nav">
-                        {% trans "Clear" %}
+                        Clear
                     </a>
                     {% endif %}
                 </div>

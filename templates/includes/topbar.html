@@ -1,47 +1,20 @@
-{% load i18n %}
 <div class="topbar">
     <div class="container">
 
         <div class="topbar-contact">
             <a href="tel:{{ SITE_SETTINGS.phone_dialable }}" class="topbar-link" data-brand="phone">
                 <i class="bi bi-telephone-fill"></i>
-                <span class="topbar-label">{% trans "Make a Call:" %} </span><span class="topbar-value">{{ SITE_SETTINGS.phone }}</span>
+                <span class="topbar-label">Make a Call: </span><span class="topbar-value">{{ SITE_SETTINGS.phone }}</span>
             </a>
             <span class="topbar-sep">|</span>
             <a href="mailto:{{ SITE_SETTINGS.email }}" class="topbar-link" data-brand="email">
                 <i class="bi bi-envelope-fill"></i>
-                <span class="topbar-label">{% trans "Get an Estimate:" %} </span><span class="topbar-value">{{ SITE_SETTINGS.email }}</span>
+                <span class="topbar-label">Get an Estimate: </span><span class="topbar-value">{{ SITE_SETTINGS.email }}</span>
             </a>
         </div>
 
         <div class="topbar-social ms-auto d-flex align-items-center">
             {% include "includes/social_icons.html" with link_class="topbar-social-link" %}
-        </div>
-
-        <div class="dropdown topbar-lang topbar-sep-left">
-            <button class="topbar-lang-toggle dropdown-toggle" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false"
-                    aria-label="{% trans 'Switch language' %}">
-                {% if CURRENT_LANGUAGE.flag %}
-                    <span class="fi fi-{{ CURRENT_LANGUAGE.flag }}"></span>
-                {% else %}
-                    <i class="bi bi-globe2"></i>
-                {% endif %}
-                <span>{{ CURRENT_LANGUAGE.label }}</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end topbar-lang-menu">
-                {% for lang in SUPPORTED_LANGUAGES %}
-                <li>
-                    <form action="{% url 'set_language' %}" method="post">
-                        {% csrf_token %}<input type="hidden" name="next" value="/">
-                        <button type="submit" name="language" value="{{ lang.code }}"
-                                class="dropdown-item{% if LANGUAGE_CODE == lang.code %} active{% endif %}">
-                            <span class="fi fi-{{ lang.flag }}"></span> {{ lang.label }}
-                        </button>
-                    </form>
-                </li>
-                {% endfor %}
-            </ul>
         </div>
 
     </div>

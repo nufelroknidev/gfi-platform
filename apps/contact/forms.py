@@ -1,5 +1,4 @@
 from django import forms
-from django.utils.translation import gettext_lazy as _
 
 from .models import Inquiry
 
@@ -12,23 +11,23 @@ class InquiryForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('Your full name'),
+                'placeholder': 'Your full name',
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('your@email.com'),
+                'placeholder': 'your@email.com',
             }),
             'company': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('Company name (optional)'),
+                'placeholder': 'Company name (optional)',
             }),
             'phone': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('+66 xx xxx xxxx (optional)'),
+                'placeholder': '+66 xx xxx xxxx (optional)',
             }),
             'subject': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': _('What is your inquiry about?'),
+                'placeholder': 'What is your inquiry about?',
             }),
             'product_interest': forms.Select(attrs={
                 'class': 'form-select',
@@ -36,15 +35,15 @@ class InquiryForm(forms.ModelForm):
             'message': forms.Textarea(attrs={
                 'class': 'form-control',
                 'rows': 5,
-                'placeholder': _('Describe your inquiry in detail…'),
+                'placeholder': 'Describe your inquiry in detail…',
             }),
         }
         labels = {
-            'name': _('Full Name'),
-            'email': _('Email Address'),
-            'company': _('Company'),
-            'phone': _('Phone Number'),
-            'subject': _('Subject'),
-            'product_interest': _('Product of Interest'),
-            'message': _('Message'),
+            'name': 'Full Name',
+            'email': 'Email Address',
+            'company': 'Company',
+            'phone': 'Phone Number',
+            'subject': 'Subject',
+            'product_interest': 'Product of Interest',
+            'message': 'Message',
         }

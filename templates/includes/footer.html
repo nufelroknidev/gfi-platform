@@ -1,4 +1,4 @@
-{% load i18n static %}
+{% load static %}
 <footer class="footer-gfi">
     <div class="footer-main py-5">
         <div class="container">
@@ -9,34 +9,34 @@
                         <img src="{% static 'img/logo.png' %}" alt="GFI — General Food Industry" class="footer-logo">
                     </a>
                     <p class="footer-tagline mb-4">
-                        {% trans "Import, export and distribution of certified food-grade additives and ingredients across Southeast Asia." %}
+                        Import, export and distribution of certified food-grade additives and ingredients across Southeast Asia.
                     </p>
                     <div class="footer-social d-flex gap-3 flex-wrap">
                         {% include "includes/social_icons.html" %}
-                        <a href="mailto:{{ SITE_SETTINGS.email }}" data-brand="email" aria-label="{% trans 'Email' %}"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="mailto:{{ SITE_SETTINGS.email }}" data-brand="email" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
                     </div>
                 </div>
 
                 <div class="col-6 col-md-6 col-lg-2 offset-lg-1 footer-nav-col">
-                    <h6 class="footer-heading mb-3"><a href="{% url 'pages:about' %}">{% trans "Company" %}</a></h6>
+                    <h6 class="footer-heading mb-3"><a href="{% url 'pages:about' %}">Company</a></h6>
                     <ul class="list-unstyled footer-links mb-0">
-                        <li><a href="{% url 'pages:about' %}">{% trans "About Us" %}</a></li>
-                        <li><a href="{% url 'pages:services' %}">{% trans "Services" %}</a></li>
-                        <li><a href="{% url 'news:list' %}">{% trans "News" %}</a></li>
+                        <li><a href="{% url 'pages:about' %}">About Us</a></li>
+                        <li><a href="{% url 'pages:services' %}">Services</a></li>
+                        <li><a href="{% url 'news:list' %}">News</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-6 col-lg-2 footer-nav-col">
-                    <h6 class="footer-heading mb-3"><a href="{% url 'products:list' %}">{% trans "Products" %}</a></h6>
+                    <h6 class="footer-heading mb-3"><a href="{% url 'products:list' %}">Products</a></h6>
                     <ul class="list-unstyled footer-links mb-0">
-                        <li><a href="{% url 'products:category' 'sweeteners' %}">{% trans "Sweeteners" %}</a></li>
-                        <li><a href="{% url 'products:category' 'preservatives' %}">{% trans "Preservatives" %}</a></li>
-                        <li><a href="{% url 'products:category' 'vitamins-nutrients' %}">{% trans "Vitamins" %}</a></li>
+                        <li><a href="{% url 'products:category' 'sweeteners' %}">Sweeteners</a></li>
+                        <li><a href="{% url 'products:category' 'preservatives' %}">Preservatives</a></li>
+                        <li><a href="{% url 'products:category' 'vitamins-nutrients' %}">Vitamins</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-nav-col">
-                    <h6 class="footer-heading mb-3"><a href="{% url 'contact:inquiry' %}">{% trans "Get in Touch" %}</a></h6>
+                    <h6 class="footer-heading mb-3"><a href="{% url 'contact:inquiry' %}">Get in Touch</a></h6>
                     <ul class="list-unstyled footer-contact-list mb-0">
                         <li>
                             <i class="bi bi-geo-alt-fill"></i>
@@ -61,13 +61,13 @@
         <div class="container">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
                 <p class="footer-copyright mb-0">
-                    &copy; {% now "Y" %} {% trans "General Food Industry Co., Ltd. All rights reserved." %}
+                    &copy; {% now "Y" %} General Food Industry Co., Ltd. All rights reserved.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap">
-                    <a href="#" class="footer-legal-link">{% trans "Privacy Policy" %}</a>
-                    <a href="#" class="footer-legal-link">{% trans "Terms of Use" %}</a>
-                    <a href="#" class="footer-legal-link">{% trans "Sitemap" %}</a>
-                    <button class="footer-back-to-top" id="backToTop" aria-label="{% trans 'Back to top' %}">
+                    <a href="#" class="footer-legal-link">Privacy Policy</a>
+                    <a href="#" class="footer-legal-link">Terms of Use</a>
+                    <a href="#" class="footer-legal-link">Sitemap</a>
+                    <button class="footer-back-to-top" id="backToTop" aria-label="Back to top">
                         <i class="bi bi-chevron-up"></i>
                     </button>
                 </div>

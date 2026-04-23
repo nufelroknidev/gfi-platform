@@ -51,10 +51,6 @@
     background-color: var(--gfi-vivid-gold);
 }
 
-.navbar-gfi--past-hero .lang-toggle {
-    color: rgba(255, 255, 255, 0.85);
-}
-
 .navbar-gfi--past-hero .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.5);
 }
