@@ -16,6 +16,8 @@
             <span class="error-page__code">404</span>
         </div>
 
+        <div class="error-page__divider" aria-hidden="true"></div>
+
         <div class="error-page__body">
             <h1 class="error-page__title">Page Not Found</h1>
             <p class="error-page__subtitle">
@@ -25,17 +27,23 @@
 
             <div class="error-page__actions">
                 <a href="{% url 'products:list' %}" class="error-action-card">
-                    <i class="bi bi-box-seam error-action-card__icon"></i>
+                    <div class="error-action-card__icon-wrap">
+                        <i class="bi bi-box-seam error-action-card__icon"></i>
+                    </div>
                     <span class="error-action-card__label">Browse Products</span>
                     <span class="error-action-card__hint">Our full catalogue of food additives</span>
                 </a>
-                <a href="{% url 'contact:inquiry' %}" class="error-action-card error-action-card--gold">
-                    <i class="bi bi-envelope-fill error-action-card__icon"></i>
+                <a href="{% url 'contact:inquiry' %}" class="error-action-card error-action-card--green">
+                    <div class="error-action-card__icon-wrap">
+                        <i class="bi bi-envelope-fill error-action-card__icon"></i>
+                    </div>
                     <span class="error-action-card__label">Send an Inquiry</span>
                     <span class="error-action-card__hint">Can't find what you need? Ask us</span>
                 </a>
                 <a href="{% url 'pages:home' %}" class="error-action-card">
-                    <i class="bi bi-house-fill error-action-card__icon"></i>
+                    <div class="error-action-card__icon-wrap">
+                        <i class="bi bi-house-fill error-action-card__icon"></i>
+                    </div>
                     <span class="error-action-card__label">Back to Home</span>
                     <span class="error-action-card__hint">Return to the GFI homepage</span>
                 </a>

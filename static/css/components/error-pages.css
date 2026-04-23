@@ -10,146 +10,201 @@
     overflow: hidden;
 }
 
-/* Subtle molecular dot grid in the background */
+/* Dot grid background */
 .error-page__bg-pattern {
     position: absolute;
     inset: 0;
     background-image:
         radial-gradient(circle, var(--gfi-green-light) 1.5px, transparent 1.5px);
     background-size: 36px 36px;
-    opacity: 0.55;
+    opacity: 0.5;
     pointer-events: none;
+}
+
+/* Radial vignette to fade the dots toward the centre */
+.error-page__bg-pattern::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%,
+        var(--gfi-bg) 0%,
+        transparent 100%);
 }
 
 .error-page__container {
     position: relative;
     z-index: 1;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;
 }
 
 /* The giant 404 numeral */
 .error-page__code-wrap {
     line-height: 1;
     user-select: none;
+    margin-bottom: 0.25rem;
 }
 
 .error-page__code {
-    font-size: clamp(7rem, 20vw, 14rem);
+    font-size: clamp(6rem, 18vw, 12rem);
     font-weight: 800;
     letter-spacing: -0.04em;
     background: linear-gradient(
         135deg,
         var(--gfi-green) 0%,
-        var(--gfi-green-dark) 40%,
+        var(--gfi-green-dark) 45%,
         var(--gfi-vivid-gold) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
-    filter: drop-shadow(0 4px 24px rgba(26, 92, 56, 0.18));
+    filter: drop-shadow(0 4px 28px rgba(26, 92, 56, 0.15));
+}
+
+/* 500 colour variant — gold-dominant to distinguish from 404 */
+.error-page__code--500 {
+    background: linear-gradient(
+        135deg,
+        var(--gfi-vivid-gold) 0%,
+        #b87200 50%,
+        var(--gfi-green-dark) 100%
+    );
+}
+
+/* Gold accent divider */
+.error-page__divider {
+    width: 52px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gfi-green), var(--gfi-vivid-gold));
+    border-radius: 2px;
+    margin: 0.75rem auto 1.5rem;
 }
 
 /* Text block */
 .error-page__body {
-    max-width: 560px;
+    max-width: 520px;
 }
 
 .error-page__title {
-    font-size: 1.875rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--gfi-text);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.625rem;
 }
 
 .error-page__subtitle {
     color: var(--gfi-muted);
-    font-size: 1.0625rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.75;
     margin-bottom: 2.5rem;
 }
 
-/* Action cards row */
+/* Action cards — always 3 in a row */
 .error-page__actions {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    justify-content: center;
+    width: 100%;
+    max-width: 660px;
 }
 
 .error-action-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.35rem;
-    padding: 1.5rem 1.75rem;
+    gap: 0.5rem;
+    padding: 1.75rem 1.25rem 1.5rem;
     background: #fff;
     border: 1.5px solid var(--gfi-border);
     border-radius: var(--gfi-radius);
     box-shadow: var(--gfi-shadow-sm);
     text-decoration: none;
     color: var(--gfi-text);
-    min-width: 160px;
     transition: transform var(--gfi-transition),
                 box-shadow var(--gfi-transition),
                 border-color var(--gfi-transition);
 }
 
 .error-action-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow: var(--gfi-shadow-hover);
     border-color: var(--gfi-green-light);
     color: var(--gfi-text);
 }
 
-.error-action-card--gold {
+/* Icon badge */
+.error-action-card__icon-wrap {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--gfi-green-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+    transition: background var(--gfi-transition);
+}
+
+.error-action-card:hover .error-action-card__icon-wrap {
+    background: var(--gfi-green-light);
+}
+
+.error-action-card__icon {
+    font-size: 1.25rem;
+    color: var(--gfi-green);
+}
+
+/* Highlighted (CTA) card */
+.error-action-card--green {
     background: var(--gfi-green);
     border-color: var(--gfi-green);
     color: #fff;
 }
 
-.error-action-card--gold:hover {
+.error-action-card--green:hover {
     background: var(--gfi-green-dark);
     border-color: var(--gfi-green-dark);
     color: #fff;
+    border-color: var(--gfi-green-dark);
 }
 
-.error-action-card--gold .error-action-card__hint {
-    color: rgba(255, 255, 255, 0.75);
+.error-action-card--green .error-action-card__icon-wrap {
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.error-action-card__icon {
-    font-size: 1.75rem;
-    color: var(--gfi-green);
-    margin-bottom: 0.2rem;
+.error-action-card--green:hover .error-action-card__icon-wrap {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.error-action-card--gold .error-action-card__icon {
+.error-action-card--green .error-action-card__icon {
     color: var(--gfi-vivid-gold);
+}
+
+.error-action-card--green .error-action-card__hint {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .error-action-card__label {
     font-weight: 700;
-    font-size: 0.9375rem;
+    font-size: 0.9rem;
 }
 
 .error-action-card__hint {
-    font-size: 0.8rem;
+    font-size: 0.775rem;
     color: var(--gfi-muted);
     line-height: 1.4;
 }
 
 /* Responsive */
 @media (max-width: 575.98px) {
-    .error-action-card {
-        min-width: 140px;
-        padding: 1.25rem 1.25rem;
+    .error-page__actions {
+        grid-template-columns: 1fr;
+        max-width: 280px;
     }
 
     .error-page__subtitle br {

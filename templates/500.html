@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Server Error — GFI{% endblock %}
+{% block meta_description %}An unexpected error occurred on our end. Return to the GFI homepage or contact our team directly.{% endblock %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-page__bg-pattern" aria-hidden="true"></div>
+
+    <div class="container error-page__container">
+
+        <div class="error-page__code-wrap" aria-hidden="true">
+            <span class="error-page__code error-page__code--500">500</span>
+        </div>
+
+        <div class="error-page__divider" aria-hidden="true"></div>
+
+        <div class="error-page__body">
+            <h1 class="error-page__title">Something Went Wrong</h1>
+            <p class="error-page__subtitle">
+                An unexpected error occurred on our end.<br>
+                Here's what you can do in the meantime:
+            </p>
+
+            <div class="error-page__actions">
+                <a href="{% url 'pages:home' %}" class="error-action-card">
+                    <div class="error-action-card__icon-wrap">
+                        <i class="bi bi-house-fill error-action-card__icon"></i>
+                    </div>
+                    <span class="error-action-card__label">Back to Home</span>
+                    <span class="error-action-card__hint">Return to the GFI homepage</span>
+                </a>
+                <a href="{% url 'contact:inquiry' %}" class="error-action-card error-action-card--green">
+                    <div class="error-action-card__icon-wrap">
+                        <i class="bi bi-envelope-fill error-action-card__icon"></i>
+                    </div>
+                    <span class="error-action-card__label">Contact Us</span>
+                    <span class="error-action-card__hint">Let our team know what happened</span>
+                </a>
+                <a href="{% url 'products:list' %}" class="error-action-card">
+                    <div class="error-action-card__icon-wrap">
+                        <i class="bi bi-box-seam error-action-card__icon"></i>
+                    </div>
+                    <span class="error-action-card__label">Browse Products</span>
+                    <span class="error-action-card__hint">Our full catalogue of food additives</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

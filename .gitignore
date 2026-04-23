@@ -35,6 +35,7 @@ media/
 
 # AWS
 .aws/
+.credentials/
 
 # Environment variables
 .env

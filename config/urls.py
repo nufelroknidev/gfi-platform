@@ -32,7 +32,10 @@ urlpatterns += [
 ]
 
 if settings.DEBUG:
+    from django.shortcuts import render as _render
     import debug_toolbar
     urlpatterns = [path('__debug__/', include(debug_toolbar.urls))] + urlpatterns
     urlpatterns += [path('__reload__/', include('django_browser_reload.urls'))]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [path('__test-404__/', lambda r: _render(r, '404.html'), name='test_404')]
+    urlpatterns += [path('__test-500__/', lambda r: _render(r, '500.html'), name='test_500')]
