@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Page Not Found — GFI{% endblock %}
+{% block meta_description %}The page you're looking for doesn't exist. Browse GFI's product catalogue or contact our team.{% endblock %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-page__bg-pattern" aria-hidden="true"></div>
+
+    <div class="container error-page__container">
+
+        <div class="error-page__code-wrap" aria-hidden="true">
+            <span class="error-page__code">404</span>
+        </div>
+
+        <div class="error-page__body">
+            <h1 class="error-page__title">Page Not Found</h1>
+            <p class="error-page__subtitle">
+                The page you're looking for has moved, been removed, or never existed.<br>
+                Here's where you can go instead:
+            </p>
+
+            <div class="error-page__actions">
+                <a href="{% url 'products:list' %}" class="error-action-card">
+                    <i class="bi bi-box-seam error-action-card__icon"></i>
+                    <span class="error-action-card__label">Browse Products</span>
+                    <span class="error-action-card__hint">Our full catalogue of food additives</span>
+                </a>
+                <a href="{% url 'contact:inquiry' %}" class="error-action-card error-action-card--gold">
+                    <i class="bi bi-envelope-fill error-action-card__icon"></i>
+                    <span class="error-action-card__label">Send an Inquiry</span>
+                    <span class="error-action-card__hint">Can't find what you need? Ask us</span>
+                </a>
+                <a href="{% url 'pages:home' %}" class="error-action-card">
+                    <i class="bi bi-house-fill error-action-card__icon"></i>
+                    <span class="error-action-card__label">Back to Home</span>
+                    <span class="error-action-card__hint">Return to the GFI homepage</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

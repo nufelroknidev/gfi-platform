@@ -1,0 +1,158 @@
+/* =============================================================================
+   GFI — Error pages (404, 500) */
+
+.error-page {
+    position: relative;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    background-color: var(--gfi-bg);
+    overflow: hidden;
+}
+
+/* Subtle molecular dot grid in the background */
+.error-page__bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, var(--gfi-green-light) 1.5px, transparent 1.5px);
+    background-size: 36px 36px;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.error-page__container {
+    position: relative;
+    z-index: 1;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+/* The giant 404 numeral */
+.error-page__code-wrap {
+    line-height: 1;
+    user-select: none;
+}
+
+.error-page__code {
+    font-size: clamp(7rem, 20vw, 14rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(
+        135deg,
+        var(--gfi-green) 0%,
+        var(--gfi-green-dark) 40%,
+        var(--gfi-vivid-gold) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    filter: drop-shadow(0 4px 24px rgba(26, 92, 56, 0.18));
+}
+
+/* Text block */
+.error-page__body {
+    max-width: 560px;
+}
+
+.error-page__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gfi-text);
+    margin-bottom: 0.75rem;
+}
+
+.error-page__subtitle {
+    color: var(--gfi-muted);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+/* Action cards row */
+.error-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.error-action-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1.5rem 1.75rem;
+    background: #fff;
+    border: 1.5px solid var(--gfi-border);
+    border-radius: var(--gfi-radius);
+    box-shadow: var(--gfi-shadow-sm);
+    text-decoration: none;
+    color: var(--gfi-text);
+    min-width: 160px;
+    transition: transform var(--gfi-transition),
+                box-shadow var(--gfi-transition),
+                border-color var(--gfi-transition);
+}
+
+.error-action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--gfi-shadow-hover);
+    border-color: var(--gfi-green-light);
+    color: var(--gfi-text);
+}
+
+.error-action-card--gold {
+    background: var(--gfi-green);
+    border-color: var(--gfi-green);
+    color: #fff;
+}
+
+.error-action-card--gold:hover {
+    background: var(--gfi-green-dark);
+    border-color: var(--gfi-green-dark);
+    color: #fff;
+}
+
+.error-action-card--gold .error-action-card__hint {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.error-action-card__icon {
+    font-size: 1.75rem;
+    color: var(--gfi-green);
+    margin-bottom: 0.2rem;
+}
+
+.error-action-card--gold .error-action-card__icon {
+    color: var(--gfi-vivid-gold);
+}
+
+.error-action-card__label {
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+
+.error-action-card__hint {
+    font-size: 0.8rem;
+    color: var(--gfi-muted);
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+    .error-action-card {
+        min-width: 140px;
+        padding: 1.25rem 1.25rem;
+    }
+
+    .error-page__subtitle br {
+        display: none;
+    }
+}
