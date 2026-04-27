@@ -287,6 +287,7 @@
     overflow: hidden;
     box-shadow: var(--gfi-shadow-sm);
     transition: box-shadow var(--gfi-transition), transform var(--gfi-transition);
+    position: relative;
 }
 
 .product-card:hover,
