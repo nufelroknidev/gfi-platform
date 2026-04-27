@@ -3,6 +3,7 @@ import logging
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
+from django.template.loader import render_to_string
 
 from .forms import InquiryForm
 
@@ -14,7 +15,8 @@ def inquiry(request):
         form = InquiryForm(request.POST)
         if form.is_valid():
             obj = form.save()
-            _notify_staff(obj)
+            if _send_auto_reply(obj):
+                _notify_staff(obj)
             return redirect('contact:success')
     else:
         form = InquiryForm()
@@ -23,6 +25,25 @@ def inquiry(request):
 
 def success(request):
     return render(request, 'contact/success.html')
+
+
+def _send_auto_reply(obj):
+    product_name = obj.product_interest.name if obj.product_interest else '—'
+    context = {'name': obj.name, 'subject': obj.subject, 'product': product_name}
+    try:
+        EmailMessage(
+            subject=render_to_string('contact/email/auto_reply_subject.txt').strip(),
+            body=render_to_string('contact/email/auto_reply_body.txt', context),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[obj.email],
+            reply_to=[settings.CONTACT_EMAIL],
+        ).send(fail_silently=False)
+        return True
+    except Exception:
+        logger.exception(
+            "Auto-reply failed for inquiry #%s — skipping staff notification", obj.pk
+        )
+        return False
 
 
 def _notify_staff(obj):
@@ -47,5 +68,5 @@ def _notify_staff(obj):
         ).send(fail_silently=False)
     except Exception:
         logger.exception(
-            "Email notification failed for inquiry #%s (%s)", obj.pk, obj.subject
+            "Staff notification failed for inquiry #%s (%s)", obj.pk, obj.subject
         )

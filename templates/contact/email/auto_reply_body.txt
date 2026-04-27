@@ -1,0 +1,13 @@
+Dear {{ name }},
+
+Thank you for contacting General Food Industry Co., Ltd. We have received your inquiry and will get back to you within 1–2 business days.
+
+Your inquiry details:
+  Subject:  {{ subject }}
+  Product:  {{ product }}
+
+If you have any urgent questions, please contact us directly at sales@generalfoodindustry.com.
+
+Best regards,
+General Food Industry Co., Ltd
+https://generalfoodindustry.com
