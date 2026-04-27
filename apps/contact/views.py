@@ -1,7 +1,7 @@
 import logging
 
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
 
 from .forms import InquiryForm
@@ -38,13 +38,13 @@ def _notify_staff(obj):
         f"Message:\n{obj.message}\n"
     )
     try:
-        send_mail(
+        EmailMessage(
             subject=f"[GFI Inquiry] {obj.subject}",
-            message=body,
+            body=body,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[settings.CONTACT_EMAIL],
-            fail_silently=False,
-        )
+            to=[settings.CONTACT_EMAIL],
+            reply_to=[obj.email],
+        ).send(fail_silently=False)
     except Exception:
         logger.exception(
             "Email notification failed for inquiry #%s (%s)", obj.pk, obj.subject
