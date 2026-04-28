@@ -13,7 +13,7 @@
         <h1 class="section-title mb-2">Search Results</h1>
         {% if q %}
         <p class="mb-0">
-            {% with n=products|length %}
+            {% with n=page.paginator.count %}
                 {% if n == 1 %}{{ n }} result for "<strong>{{ q }}</strong>"
                 {% else %}{{ n }} results for "<strong>{{ q }}</strong>"{% endif %}
             {% endwith %}
@@ -61,6 +61,32 @@
             </div>
             {% endfor %}
         </div>
+        {% endif %}
+
+        {% if page.has_other_pages %}
+        <nav class="mt-5 d-flex justify-content-center" aria-label="Search results pages">
+            <ul class="pagination">
+                {% if page.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?q={{ q }}&page={{ page.previous_page_number }}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+                {% for num in page.paginator.page_range %}
+                <li class="page-item {% if num == page.number %}active{% endif %}">
+                    <a class="page-link" href="?q={{ q }}&page={{ num }}">{{ num }}</a>
+                </li>
+                {% endfor %}
+                {% if page.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?q={{ q }}&page={{ page.next_page_number }}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
         {% endif %}
 
     </div>

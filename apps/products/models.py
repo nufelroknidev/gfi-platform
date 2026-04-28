@@ -1,3 +1,4 @@
+from django.contrib.postgres.search import SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
@@ -124,6 +125,8 @@ class Product(SEOMixin):
     is_active = models.BooleanField(default=True, db_index=True, help_text="Uncheck to hide this product from the website.")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    search_vector = SearchVectorField(null=True, blank=True, editable=False)
 
     class Meta:
         ordering = ["name"]

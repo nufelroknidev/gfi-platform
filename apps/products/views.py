@@ -1,4 +1,5 @@
 import json
+import re
 
 from django.db import connection
 from django.db.models import Q
@@ -10,7 +11,6 @@ from .models import Application, Category, Certification, Product, ORIGIN_CHOICE
 
 PRODUCTS_PER_PAGE = 12
 
-# Full-text search is available on PostgreSQL only.
 try:
     from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
     _PG_SEARCH_AVAILABLE = True
@@ -22,41 +22,69 @@ def _pg_search_active():
     return _PG_SEARCH_AVAILABLE and connection.vendor == 'postgresql'
 
 
+def _normalize_query(q):
+    """
+    Normalize a raw search string for B2B food-additive lookups.
+    Returns (normalized_q, cas_digits, enumber_norm).
+      cas_digits   — query with hyphens stripped, for CAS lookup without punctuation
+      enumber_norm — uppercase E-number (e.g. 'E407'), or None
+    """
+    q = ' '.join(q.split())  # collapse whitespace
+
+    # CAS: strip hyphens so "50817" and "50-81-7" both match
+    cas_digits = re.sub(r'[-\s]', '', q)
+
+    # E-number: match e/E followed by digits (with optional space/hyphen)
+    enumber_norm = None
+    m = re.fullmatch(r'[eE]\s*(\d+[a-zA-Z]*)', q.replace('-', '').replace(' ', ''))
+    if m:
+        enumber_norm = 'E' + m.group(1).upper()
+
+    return q, cas_digits, enumber_norm
+
+
 def _search_products(queryset, q):
     """Apply keyword search, using PostgreSQL FTS when available."""
     if not q:
         return queryset
 
+    q, cas_digits, enumber_norm = _normalize_query(q)
+
     if _pg_search_active():
-        vector = (
-            SearchVector('name',             weight='A') +
-            SearchVector('cas_number',       weight='B') +
-            SearchVector('e_number',         weight='B') +
-            SearchVector('alternative_names', weight='B') +
-            SearchVector('description',      weight='C') +
-            SearchVector('specifications',   weight='D')
-        )
-        search_query = SearchQuery(q)
-        return (
+        search_query = SearchQuery(q, search_type='websearch')
+        # Use the stored search_vector when it has been populated; otherwise
+        # fall back to computing a vector on the fly (e.g. newly inserted rows).
+        qs = (
             queryset
-            .annotate(rank=SearchRank(vector, search_query))
+            .annotate(rank=SearchRank('search_vector', search_query))
             .filter(
                 Q(rank__gt=0) |
+                Q(name__icontains=q) |
                 Q(cas_number__icontains=q) |
-                Q(e_number__icontains=q)
+                Q(cas_number__icontains=cas_digits) |
+                Q(e_number__icontains=enumber_norm or q) |
+                Q(alternative_names__icontains=q)
             )
             .order_by('-rank', 'name')
         )
+        return qs
 
     # SQLite / non-Postgres fallback
-    return queryset.filter(
+    f = (
         Q(name__icontains=q) |
         Q(cas_number__icontains=q) |
-        Q(e_number__icontains=q) |
         Q(alternative_names__icontains=q) |
         Q(description__icontains=q) |
-        Q(specifications__icontains=q)
+        Q(specifications__icontains=q) |
+        Q(available_forms__icontains=q)
     )
+    if cas_digits != q:
+        f |= Q(cas_number__icontains=cas_digits)
+    if enumber_norm:
+        f |= Q(e_number__icontains=enumber_norm)
+    else:
+        f |= Q(e_number__icontains=q)
+    return queryset.filter(f)
 
 
 def _apply_filters(queryset, request):
@@ -162,7 +190,8 @@ def product_search(request):
             Product.objects.filter(is_active=True).select_related('category'),
             q
         )
-    return render(request, 'products/search.html', {'products': products, 'q': q})
+    page = _paginate(request, products)
+    return render(request, 'products/search.html', {'page': page, 'products': page.object_list, 'q': q})
 
 
 def search_suggest(request):
