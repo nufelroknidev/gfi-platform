@@ -238,6 +238,7 @@ def product_detail(request, category_slug, slug):
         Product.objects
         .filter(category=category, is_active=True)
         .exclude(pk=product.pk)
+        .select_related('category')
         .order_by('name')[:4]
     )
     return render(request, 'products/detail.html', {
