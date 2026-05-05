@@ -25,6 +25,7 @@ urlpatterns += [
 
 urlpatterns += [
     path('admin/', admin.site.urls),
+    path('api/', include('apps.products.api.urls')),
     path('', include('apps.pages.urls')),
     path('products/', include('apps.products.urls')),
     path('news/', include('apps.news.urls')),

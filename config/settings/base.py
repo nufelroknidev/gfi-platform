@@ -27,6 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.postgres',
+    # Third-party
+    'rest_framework',
+    'django_filters',
     # Local apps
     'apps.pages',
     'apps.products',
@@ -160,6 +163,18 @@ JAZZMIN_SETTINGS = {
 
     # Disable the runtime UI builder — keeps brand theming locked in
     "show_ui_builder": False,
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
 }
 
 JAZZMIN_UI_TWEAKS = {
