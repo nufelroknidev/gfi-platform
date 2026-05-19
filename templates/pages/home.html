@@ -116,22 +116,18 @@
             <h2 class="section-title">Our Product Range</h2>
             <p class="text-muted mt-3">A broad portfolio of food-grade additives and ingredients for every formulation need.</p>
         </div>
-        <div class="row gy-4 gx-4">
+        <div class="home-grid">
             {% for category in categories %}
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="{% url 'products:category' category.slug %}" class="category-card">
-                    {% if category.image %}
-                    <img src="{{ category.image.url }}" alt="{{ category.name }}" class="category-card__img mb-2">
-                    {% else %}
-                    <img src="{% static 'img/category-placeholder.jpg' %}" alt="{{ category.name }}" class="category-card__img mb-2">
-                    {% endif %}
-                    <p class="category-card__name">{{ category.name }}</p>
-                </a>
-            </div>
+            <a href="{% url 'products:category' category.slug %}" class="category-card">
+                {% if category.image %}
+                <img src="{{ category.image.url }}" alt="{{ category.name }}" class="category-card__img">
+                {% else %}
+                <div class="category-card__img-placeholder"></div>
+                {% endif %}
+                <p class="category-card__name">{{ category.name }}</p>
+            </a>
             {% empty %}
-            <div class="col-12 text-center text-muted py-3">
-                <p class="mb-0 small">Product categories coming soon.</p>
-            </div>
+            <p class="mb-0 small text-muted text-center py-3" style="grid-column: 1 / -1">Product categories coming soon.</p>
             {% endfor %}
         </div>
         <div class="text-center mt-5">
@@ -148,25 +144,23 @@
             <h2 class="section-title">Featured Products</h2>
             <p class="text-muted mt-3">A selection from our catalog — browse the full range for everything we carry.</p>
         </div>
-        <div class="row gy-4 gx-4">
+        <div class="home-grid">
             {% for product in featured_products %}
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="{{ product.get_absolute_url }}" class="product-card text-decoration-none h-100">
-                    {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-card__img">
-                    {% else %}
-                    <img src="{% static 'img/product-placeholder.jpg' %}" alt="{{ product.name }}" class="product-card__img">
-                    {% endif %}
-                    <div class="product-card__body">
-                        <p class="product-card__name mb-1">{{ product.name }}</p>
-                        <p class="small text-muted mb-0">{{ product.category.name }}</p>
-                    </div>
-                </a>
-            </div>
+            <a href="{{ product.get_absolute_url }}" class="product-card text-decoration-none">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-card__img">
+                {% else %}
+                <div class="product-card__img-placeholder">
+                    <i class="bi bi-layers"></i>
+                </div>
+                {% endif %}
+                <div class="product-card__body">
+                    <p class="product-card__name mb-1">{{ product.name }}</p>
+                    <p class="small text-muted mb-0">{{ product.category.name }}</p>
+                </div>
+            </a>
             {% empty %}
-            <div class="col-12 text-center text-muted py-3">
-                <p class="mb-0 small">Products coming soon.</p>
-            </div>
+            <p class="mb-0 small text-muted text-center py-3" style="grid-column: 1 / -1">Products coming soon.</p>
             {% endfor %}
         </div>
         <div class="text-center mt-5">

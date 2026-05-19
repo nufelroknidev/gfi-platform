@@ -1,6 +1,32 @@
 /* =============================================================================
    GFI */
 
+/* Two-row capped grid used on homepage (categories & featured products).
+   Uses CSS grid so overflow:hidden clips anything beyond 2 rows. */
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    overflow: hidden;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .home-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .home-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.home-grid > * {
+    min-width: 0; /* prevent grid blowout */
+}
+
 /* Feature cards */
 
 .feature-card {
@@ -152,6 +178,29 @@
     height: 140px;
     object-fit: cover;
     border-radius: var(--gfi-radius) var(--gfi-radius) 0 0;
+}
+
+.category-card__img-placeholder {
+    width: 100%;
+    height: 140px;
+    background-color: var(--gfi-green-faint);
+    border-bottom: 1px solid var(--gfi-border-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 1.75rem;
+    color: var(--gfi-green-light);
+}
+
+.category-card__img-placeholder::after {
+    content: "No Image";
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gfi-muted);
 }
 
 .category-card__icon-wrap {

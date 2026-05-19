@@ -5,12 +5,12 @@ from .models import HeroSlide
 
 
 def home(request):
-    categories = Category.objects.all()
+    categories = Category.objects.all()[:8]
     featured_products = (
         Product.objects
         .filter(is_active=True)
         .select_related('category')
-        .order_by('-created_at')[:6]
+        .order_by('-created_at')[:8]
     )
     hero_slides = list(HeroSlide.objects.filter(is_active=True).order_by('order'))
     return render(request, 'pages/home.html', {
