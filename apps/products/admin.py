@@ -1,8 +1,69 @@
+from django import forms
 from django.contrib import admin
 from django.db.models import Count
+from django.forms import widgets
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 
 from .models import Application, Category, Certification, Product
+
+
+class TagsWidget(widgets.HiddenInput):
+    """Renders a comma-separated CharField as interactive pill tags in the admin."""
+
+    class Media:
+        css = {"all": ("css/admin/tags-widget.css",)}
+        js = ("js/admin/tags-widget.js",)
+
+    def render(self, name, value, attrs=None, renderer=None):
+        hidden = super().render(name, value, attrs, renderer)
+        return mark_safe(
+            '<div class="tags-widget">'
+            + hidden
+            + '<div class="tags-list"></div>'
+            '<div class="tags-input-row">'
+            '<input type="text" class="tags-input" placeholder="Add a name…">'
+            '<button type="button" class="tags-add-btn">+ Add</button>'
+            "</div>"
+            '<p class="help">Click <strong>+ Add</strong> or press Enter. '
+            "You can also paste multiple names separated by commas.</p>"
+            "</div>"
+        )
+
+
+class SpecsTableWidget(widgets.Textarea):
+    """Renders the pipe-separated specifications TextField as an editable table."""
+
+    class Media:
+        css = {"all": ("css/admin/specs-table-widget.css",)}
+        js = ("js/admin/specs-table-widget.js",)
+
+    def render(self, name, value, attrs=None, renderer=None):
+        # Render as a hidden textarea so the value is submitted normally
+        if attrs is None:
+            attrs = {}
+        attrs = {**attrs, "class": "specs-hidden", "style": "display:none"}
+        textarea = super().render(name, value, attrs, renderer)
+        return mark_safe(
+            '<div class="specs-widget">'
+            + textarea
+            + '<div class="specs-table-wrap"></div>'
+            '<div class="specs-table-actions">'
+            '<button type="button" class="specs-add-row">+ Add Row</button>'
+            "</div>"
+            "</div>"
+        )
+
+
+class ProductAdminForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = "__all__"
+        widgets = {
+            "alternative_names": TagsWidget(),
+            "available_forms": TagsWidget(),
+            "specifications": SpecsTableWidget(),
+        }
 
 
 @admin.register(Certification)
@@ -55,6 +116,8 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     readonly_fields = ("created_at", "updated_at", "image_preview")
     filter_horizontal = ("certifications", "applications")
+
+    form = ProductAdminForm
 
     fieldsets = (
         ("Basic Info", {

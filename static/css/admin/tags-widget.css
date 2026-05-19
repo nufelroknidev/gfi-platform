@@ -1,0 +1,71 @@
+.tags-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 32px;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px 3px 12px;
+  background: #e8f5ee;
+  border: 1px solid #a8d5bc;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #1a5c38;
+  line-height: 1.4;
+}
+
+.tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 16px;
+  line-height: 1;
+  color: #1a5c38;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+.tags-input-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.tags-input {
+  flex: 1;
+  max-width: 320px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.tags-add-btn {
+  padding: 4px 14px;
+  background: #1a5c38;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tags-add-btn:hover {
+  background: #134830;
+}

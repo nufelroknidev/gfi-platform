@@ -1,0 +1,113 @@
+.specs-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.specs-table-wrap {
+  overflow-x: auto;
+}
+
+.specs-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+
+.specs-table td {
+  padding: 3px 4px;
+  vertical-align: middle;
+}
+
+.specs-table .specs-col-actions {
+  width: 52px;
+  text-align: center;
+  padding: 2px;
+}
+
+.specs-header-row .specs-cell {
+  background: #e8f5ee;
+  border: 1px solid #a8d5bc;
+  color: #1a5c38;
+  font-weight: 600;
+}
+
+.specs-data-row .specs-cell {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #2c2c2c;
+}
+
+.specs-cell {
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 13px;
+  box-sizing: border-box;
+  min-width: 80px;
+}
+
+.specs-cell:focus {
+  outline: 2px solid #1a5c38;
+  outline-offset: -1px;
+}
+
+.specs-btn {
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 3px 7px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.specs-add-row-btn,
+.specs-add-col-btn {
+  background: #1a5c38;
+  color: #fff;
+}
+
+.specs-add-row-btn:hover,
+.specs-add-col-btn:hover {
+  background: #134830;
+}
+
+.specs-remove-row-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 15px;
+  padding: 2px 7px;
+}
+
+.specs-remove-row-btn:hover {
+  background: #fca5a5;
+}
+
+.specs-empty {
+  color: #6b7280;
+  font-size: 13px;
+  font-style: italic;
+  margin: 0;
+}
+
+.specs-table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.specs-add-row {
+  background: #1a5c38;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.specs-add-row:hover {
+  background: #134830;
+}
