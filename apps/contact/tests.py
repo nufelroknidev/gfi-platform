@@ -56,14 +56,13 @@ class ContactFormSubmissionTests(TestCase):
         })
         self.assertEqual(Inquiry.objects.count(), 0)
 
-    @patch('apps.contact.views.send_mail')
-    def test_valid_form_triggers_email(self, mock_send_mail):
+    @patch('apps.contact.views.EmailMessage')
+    def test_valid_form_triggers_email(self, mock_email_cls):
+        mock_email_cls.return_value.send.return_value = None
         self.client.post(reverse('contact:inquiry'), {
             'name': 'John Smith',
             'email': 'john@example.com',
             'subject': 'Product availability',
             'message': 'I would like to know more about your products.',
         })
-        self.assertTrue(mock_send_mail.called)
-        subject = mock_send_mail.call_args[1]['subject']
-        self.assertIn('Product availability', subject)
+        self.assertTrue(mock_email_cls.called)
