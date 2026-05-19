@@ -17,6 +17,20 @@
         el.style.backgroundImage = `url(${el.dataset.bg})`;
     });
 
+    /* 2. Keep custom dots in sync with carousel slide changes */
+
+    const heroCarousel = document.getElementById('heroCarousel');
+    const heroDots = document.querySelectorAll('.hero__dot');
+
+    if (heroCarousel && heroDots.length) {
+        heroCarousel.addEventListener('slide.bs.carousel', (e) => {
+            heroDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === e.to);
+                dot.setAttribute('aria-current', i === e.to ? 'true' : 'false');
+            });
+        });
+    }
+
     /* 2. Stat counter animation */
 
     const counters     = document.querySelectorAll('.stat-number');
