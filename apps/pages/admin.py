@@ -1,8 +1,30 @@
 from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.html import format_html
 
-from .models import SiteSettings
+from .models import HeroSlide, SiteSettings
+
+
+@admin.register(HeroSlide)
+class HeroSlideAdmin(admin.ModelAdmin):
+    list_display = ("preview_thumb", "order", "alt_text", "is_active")
+    list_display_links = ("preview_thumb", "alt_text")
+    list_editable = ("order", "is_active")
+    list_per_page = 10
+    save_on_top = True
+
+    fields = ("image", "preview_thumb", "alt_text", "order", "is_active")
+    readonly_fields = ("preview_thumb",)
+
+    def preview_thumb(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="height:60px; width:107px; object-fit:cover; border-radius:4px;">',
+                obj.image.url,
+            )
+        return "—"
+    preview_thumb.short_description = "Preview"
 
 
 @admin.register(SiteSettings)

@@ -1,20 +1,22 @@
 from django.shortcuts import render
 
 from apps.products.models import Category, Product
+from .models import HeroSlide
 
 
 def home(request):
     categories = Category.objects.all()
-    # Six most recent active products — a featured flag can be added later.
     featured_products = (
         Product.objects
         .filter(is_active=True)
         .select_related('category')
         .order_by('-created_at')[:6]
     )
+    hero_slides = list(HeroSlide.objects.filter(is_active=True).order_by('order'))
     return render(request, 'pages/home.html', {
         'categories': categories,
         'featured_products': featured_products,
+        'hero_slides': hero_slides,
     })
 
 

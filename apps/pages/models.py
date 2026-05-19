@@ -68,6 +68,36 @@ class SiteSettings(models.Model):
         return obj
 
 
+class HeroSlide(models.Model):
+    image = models.ImageField(
+        upload_to="hero/",
+        help_text="Recommended size: 1920 × 1080 px (16:9). Use a high-quality photo — it fills the full-width banner.",
+    )
+    alt_text = models.CharField(
+        max_length=150,
+        blank=True,
+        help_text="Short description of the image for screen readers and SEO (e.g. 'Bulk food-grade citric acid powder').",
+        verbose_name="Alt text",
+    )
+    order = models.PositiveSmallIntegerField(
+        default=0,
+        help_text="Display order. Lower number = shown first. Drag-to-sort is not available — use whole numbers (1, 2, 3).",
+    )
+    is_active = models.BooleanField(
+        default=True,
+        help_text="Uncheck to hide this slide without deleting it.",
+        verbose_name="Active",
+    )
+
+    class Meta:
+        verbose_name = "Hero Slide"
+        verbose_name_plural = "Hero Slides"
+        ordering = ["order"]
+
+    def __str__(self):
+        return f"Slide {self.order}" + (f" — {self.alt_text}" if self.alt_text else "")
+
+
 class SEOMixin(models.Model):
     meta_title = models.CharField(
         max_length=60,
