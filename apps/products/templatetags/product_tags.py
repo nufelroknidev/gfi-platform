@@ -6,20 +6,26 @@ register = template.Library()
 @register.filter
 def parse_specs(text):
     """
-    Parse a plain-text specifications block into a list of (label, value) tuples.
-    Lines that contain ':' are split on the first colon.
-    Lines without ':' are kept as (None, line) so the template can render them
-    as full-width rows or separators.
-    Blank lines are skipped.
+    Parse pipe-separated specifications into a list of row lists.
+    Returns [[cell, cell, ...], ...] — first row is treated as a header in the template.
+    Falls back to colon-splitting for legacy data that predates the pipe format.
     """
+    if not text:
+        return []
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+    if not lines:
+        return []
+    # Detect format: use pipe if at least one line contains '|'
+    use_pipe = any('|' in line for line in lines)
     rows = []
-    for line in text.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        if ':' in line:
+    for line in lines:
+        if use_pipe:
+            cells = [c.strip() for c in line.split('|')]
+        elif ':' in line:
             label, _, value = line.partition(':')
-            rows.append((label.strip(), value.strip()))
+            cells = [label.strip(), value.strip()]
         else:
-            rows.append((None, line))
+            cells = [line]
+        if any(c for c in cells):
+            rows.append(cells)
     return rows

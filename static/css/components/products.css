@@ -315,69 +315,79 @@
 }
 
 .product-detail__specs {
-    border: 1px solid var(--gfi-border);
+    border: 1px solid var(--gfi-border-light);
     border-radius: var(--gfi-radius);
     background-color: #fff;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1rem;
     box-shadow: var(--gfi-shadow-sm);
-    overflow-x: auto;
 }
 
 .product-detail__specs-heading {
     color: var(--gfi-green);
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
 }
 
-.product-detail__specs-body {
-    font-family: inherit;
-    font-size: 0.875rem;
-    color: var(--gfi-text);
-    white-space: pre-wrap;
-    margin: 0;
-    line-height: 1.75;
+.product-detail__specs-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: calc(var(--gfi-radius) - 2px);
+    border: 1px solid var(--gfi-border-light);
 }
 
 .product-detail__specs-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.875rem;
+    min-width: 320px;
 }
 
-.product-detail__specs-table tbody tr:nth-child(odd) {
-    background-color: var(--gfi-green-faint);
-}
-
-.product-detail__specs-table tbody tr:nth-child(even) {
-    background-color: #fff;
-}
-
-.product-detail__specs-label {
-    width: 42%;
-    padding: 0.55rem 0.85rem;
-    color: var(--gfi-text);
+/* Header row — !important needed to override Bootstrap's th background reset */
+.product-detail__specs-th {
+    padding: 0.65rem 1rem;
+    background-color: var(--gfi-green) !important;
+    color: #fff !important;
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-right: 2px solid var(--gfi-green-light);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.product-detail__specs-th:last-child {
+    border-right: none;
+}
+
+/* Body rows */
+.product-detail__specs-table tbody tr:nth-child(odd) td {
+    background-color: var(--gfi-green-faint);
+}
+
+.product-detail__specs-table tbody tr:nth-child(even) td {
+    background-color: #fff;
+}
+
+.product-detail__specs-table tbody tr:hover td {
+    background-color: #d1ead9;
+    transition: background-color 0.15s;
+}
+
+.product-detail__specs-label {
+    padding: 0.55rem 1rem;
+    color: var(--gfi-text);
+    font-weight: 600;
+    font-size: 0.85rem;
     vertical-align: top;
+    border-right: 2px solid var(--gfi-border-light);
+    white-space: nowrap;
 }
 
 .product-detail__specs-value {
-    padding: 0.55rem 0.85rem;
-    color: var(--gfi-green);
-    font-weight: 600;
+    padding: 0.55rem 1rem;
+    color: var(--gfi-text);
     vertical-align: top;
-}
-
-.product-detail__specs-divider td {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gfi-muted);
-    background-color: #fff !important;
-    border-top: 1px solid var(--gfi-border);
 }

@@ -120,29 +120,39 @@
                 <!-- Specifications -->
                 {% if product.specifications %}
                 {% with rows=product.specifications|parse_specs %}
+                {% if rows %}
                 <div class="product-detail__specs mb-4">
-                    <h6 class="product-detail__specs-heading">Specifications</h6>
-                    {% if rows %}
-                    <table class="product-detail__specs-table">
-                        <tbody>
-                            {% for label, value in rows %}
-                            {% if label %}
-                            <tr>
-                                <th class="product-detail__specs-label">{{ label }}</th>
-                                <td class="product-detail__specs-value">{{ value }}</td>
-                            </tr>
-                            {% else %}
-                            <tr class="product-detail__specs-divider">
-                                <td colspan="2">{{ value }}</td>
-                            </tr>
-                            {% endif %}
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    {% else %}
-                    <div class="product-detail__specs-body">{{ product.specifications }}</div>
-                    {% endif %}
+                    <h6 class="product-detail__specs-heading">
+                        <i class="bi bi-table me-2"></i>Specifications
+                    </h6>
+                    <div class="product-detail__specs-scroll">
+                        <table class="product-detail__specs-table">
+                            <thead>
+                                <tr>
+                                    {% for cell in rows.0 %}
+                                    <th class="product-detail__specs-th">{{ cell }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in rows %}
+                                {% if not forloop.first %}
+                                <tr>
+                                    {% for cell in row %}
+                                    {% if forloop.first %}
+                                    <td class="product-detail__specs-label">{{ cell }}</td>
+                                    {% else %}
+                                    <td class="product-detail__specs-value">{{ cell }}</td>
+                                    {% endif %}
+                                    {% endfor %}
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+                {% endif %}
                 {% endwith %}
                 {% endif %}
 
