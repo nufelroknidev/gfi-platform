@@ -87,7 +87,7 @@ class Product(SEOMixin):
     )
     alternative_names = models.CharField(
         max_length=500, blank=True,
-        help_text="Comma-separated synonyms and trade names (e.g. Ascorbic acid, L-ascorbic acid). Improves search.",
+        help_text="Synonyms and trade names for this product. Improves search.",
     )
 
     # Description

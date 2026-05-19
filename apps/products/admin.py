@@ -25,8 +25,7 @@ class TagsWidget(widgets.HiddenInput):
             '<input type="text" class="tags-input" placeholder="Add a name…">'
             '<button type="button" class="tags-add-btn">+ Add</button>'
             "</div>"
-            '<p class="help">Click <strong>+ Add</strong> or press Enter. '
-            "You can also paste multiple names separated by commas.</p>"
+            '<p class="help">Type a name and press Enter or click <strong>+ Add</strong>.</p>'
             "</div>"
         )
 
