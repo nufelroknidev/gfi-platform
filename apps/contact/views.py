@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def inquiry(request):
+    preselected_product = None
     if request.method == 'POST':
         form = InquiryForm(request.POST)
         if form.is_valid():
@@ -21,7 +22,6 @@ def inquiry(request):
             return redirect('contact:success')
     else:
         initial = {}
-        preselected_product = None
         product_slug = request.GET.get('product')
         if product_slug:
             try:
