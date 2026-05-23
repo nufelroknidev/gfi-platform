@@ -288,6 +288,7 @@
     box-shadow: var(--gfi-shadow-sm);
     transition: box-shadow var(--gfi-transition), transform var(--gfi-transition);
     position: relative;
+    cursor: pointer;
 }
 
 .product-card:hover,
