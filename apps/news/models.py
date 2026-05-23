@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from apps.pages.models import SEOMixin
+from apps.utils.images import process_image
 
 
 class Post(SEOMixin):
@@ -20,6 +21,10 @@ class Post(SEOMixin):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        process_image(self.featured_image)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('news:detail', args=[self.slug])

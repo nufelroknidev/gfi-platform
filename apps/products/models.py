@@ -4,6 +4,7 @@ from django.db import models
 from django.urls import reverse
 
 from apps.pages.models import SEOMixin
+from apps.utils.images import process_image
 
 
 class Certification(models.Model):
@@ -51,6 +52,10 @@ class Category(models.Model):
     def clean(self):
         if self.slug in self._RESERVED_SLUGS:
             raise ValidationError({'slug': f'"{self.slug}" is a reserved URL segment and cannot be used as a category slug.'})
+
+    def save(self, *args, **kwargs):
+        process_image(self.image)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -133,6 +138,10 @@ class Product(SEOMixin):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        process_image(self.image)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('products:detail', args=[self.category.slug, self.slug])

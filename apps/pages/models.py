@@ -1,4 +1,5 @@
 from django.db import models
+from apps.utils.images import process_image
 
 
 class SiteSettings(models.Model):
@@ -93,6 +94,10 @@ class HeroSlide(models.Model):
         verbose_name = "Hero Slide"
         verbose_name_plural = "Hero Slides"
         ordering = ["order"]
+
+    def save(self, *args, **kwargs):
+        process_image(self.image)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Slide {self.order}" + (f" — {self.alt_text}" if self.alt_text else "")
