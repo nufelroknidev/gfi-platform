@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 
+from apps.products.models import Product
 from .forms import InquiryForm
 
 logger = logging.getLogger(__name__)
@@ -19,8 +20,17 @@ def inquiry(request):
                 _notify_staff(obj)
             return redirect('contact:success')
     else:
-        form = InquiryForm()
-    return render(request, 'contact/inquiry.html', {'form': form})
+        initial = {}
+        preselected_product = None
+        product_slug = request.GET.get('product')
+        if product_slug:
+            try:
+                preselected_product = Product.objects.get(slug=product_slug)
+                initial['product_interest'] = preselected_product
+            except Product.DoesNotExist:
+                pass
+        form = InquiryForm(initial=initial)
+    return render(request, 'contact/inquiry.html', {'form': form, 'preselected_product': preselected_product})
 
 
 def success(request):
