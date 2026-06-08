@@ -171,7 +171,7 @@ GET /api/categories/        List categories  (includes product_count)
 ## Local Setup
 
 ```bash
-git clone https://github.com/nufelroknidev/gfi-website && cd gfi-website
+git clone https://github.com/nufelroknidev/gfi-platform && cd gfi-platform
 
 pip install poetry
 poetry install
