@@ -36,7 +36,7 @@ Production B2B website for a Thai food additives importer/distributor. Presents 
 **Search**
 - PostgreSQL `SearchVector` with weighted fields: name (A), CAS/E-number/alt names (B), description (C), specs (D); GIN index
 - `websearch_to_tsquery`; CAS/E-number normalisation (strips hyphens, normalises `e407` → `E407`)
-- Live typeahead via `/products/search/suggest/` JSON endpoint
+- Live typeahead via `/products/api/suggest/` JSON endpoint
 - Falls back to `icontains` on SQLite (dev/test)
 
 **Partial page updates (vanilla JS)**
@@ -171,7 +171,7 @@ GET /api/categories/        List categories  (includes product_count)
 ## Local Setup
 
 ```bash
-git clone https://github.com/nufelroknidev/gfi-platform && cd gfi-platform
+git clone https://github.com/nufelroknidev/gfi-website && cd gfi-website
 
 pip install poetry
 poetry install
